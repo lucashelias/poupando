@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsuarioComponent implements OnInit {
 
+  novo = true
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+
 
 }
