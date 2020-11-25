@@ -14,7 +14,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
-import { UsuarioDetalheComponent } from './cadastros/usuario-detalhe/usuario-detalhe/usuario-detalhe.component';
+import { UsuarioDetalheComponent } from './cadastros/usuario-detalhe/usuario-detalhe.component';
 
 @NgModule({
   declarations: [

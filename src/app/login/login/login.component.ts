@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
 // Precisa ainda fazer a validação do usuário
   login() :void{
 
-    this.router.navigate(["home"])
+    this.router.navigate(["/home"])
   }
 
 }
