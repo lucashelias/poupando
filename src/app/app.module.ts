@@ -14,7 +14,16 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 import { UsuarioDetalheComponent } from './cadastros/usuario-detalhe/usuario-detalhe.component';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatTableModule} from '@angular/material/table';
+
 
 @NgModule({
   declarations: [
@@ -22,19 +31,42 @@ import { UsuarioDetalheComponent } from './cadastros/usuario-detalhe/usuario-det
     UsuarioComponent,
     HomeComponent,
     LoginComponent,
-    UsuarioDetalheComponent
+    UsuarioDetalheComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-     BrowserAnimationsModule, 
+    BrowserAnimationsModule, 
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatSelectModule,
+    MatMenuModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatTableModule,
+    
+    
   ],
+  exports: [
+    MatToolbarModule,
+    MatCardModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatSidenavModule,
+    
+  ],
+
   providers: [],
   bootstrap: [AppComponent]
 })

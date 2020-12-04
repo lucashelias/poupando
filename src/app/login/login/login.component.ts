@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,16 +8,13 @@ import { Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  constructor(private router: Router) {}
 
-  constructor(private router: Router) { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-  }
-  
-// Precisa ainda fazer a validação do usuário
-  login() :void{
+  // Precisa ainda fazer a validação do usuário
+  login(): void {
 
     this.router.navigate(["/home"])
   }
-
 }

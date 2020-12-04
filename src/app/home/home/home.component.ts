@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import * as $ from 'jquery'
 
 @Component({
@@ -8,7 +9,7 @@ import * as $ from 'jquery'
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
 
@@ -17,6 +18,11 @@ export class HomeComponent implements OnInit {
       e.preventDefault();
       $("#wrapper").toggleClass("toggled");
     });
+  }
+
+  logout(): void {
+
+    this.router.navigate(["/login"])
   }
 
 }

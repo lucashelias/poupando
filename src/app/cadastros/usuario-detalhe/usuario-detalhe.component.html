@@ -1,22 +1,108 @@
-<div class="card text-left" style="max-width: 50%;">
-    <div class="card-header">
-        Usuários
-    </div>
-    <div class="card-body">
-        <div>
-            
-        </div>
+<div>
+    <!-- <mat-card class="card_tela">
+        <mat-card-header class="card-header">
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Cadastro de Usuários</mat-card-title>
+        </mat-card-header>
 
+        <mat-grid-list cols="2" rowHeight="2:1">
+            <mat-grid-tile>
+                <mat-form-field class="inputText">
+                    <input matInput placeholder="Usuario">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field class="inputText">
+                    <input matInput placeholder="Nome">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field class="inputText">
+                    <input matInput placeholder="Sobrenome">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field class="inputText">
+                    <input matInput placeholder="E-mail">
+                </mat-form-field>
+            </mat-grid-tile>
+        </mat-grid-list>
 
-    </div>
-    <div class="card-footer text-muted">
         <div>
-            <button type="button" class="btn btn-primary btn-sm button">
-                Buscar
-                <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+            <button type="submit" class="button" mat-raised-button color="primary">
+                <mat-icon>search</mat-icon>
+                <span>Pesquisar</span>
             </button>
-
-            <button type="submit" class="btn btn-primary btn-sm button">Novo</button>
+            <button type="reset" class="button" mat-raised-button color="primary">
+                <mat-icon>restore_from_trash</mat-icon>
+                <span>Limpar</span>
+            </button>
         </div>
+
+    </mat-card> -->
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let element"> 1 </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> XXXX </td>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="weight">
+          <th mat-header-cell *matHeaderCellDef> Weight </th>
+          <td mat-cell *matCellDef="let element"> 123 </td>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="symbol">
+          <th mat-header-cell *matHeaderCellDef> Symbol </th>
+          <td mat-cell *matCellDef="let element"> AA </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+
+    <div id="divTabelaUsuario">
+        <table mat-table matSort>
+
+            <!-- Coluna ID -->
+            <ng-container matColumnDef="ID">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+                <td mat-cell *matCellDef="let element"> 1 </td>
+            </ng-container>
+
+            <!-- Coluna Nome -->
+            <ng-container matColumnDef="Nome">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+                <td mat-cell *matCellDef="let element"> Lucas </td>
+            </ng-container>
+
+            <!-- Coluna Sobrenome -->
+            <ng-container matColumnDef="Sobrenome">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Weight </th>
+                <td mat-cell *matCellDef="let element"> Henrique Elias </td>
+            </ng-container>
+
+            <!-- Coluna E-mail -->
+            <ng-container matColumnDef="E-mail">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Symbol </th>
+                <td mat-cell *matCellDef="let element"> lucas.he.elias@gmail.com </td>
+            </ng-container>
+
+            <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> -->
+        </table>
     </div>
 </div>
