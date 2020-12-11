@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsuarioComponent } from './cadastros/usuario/usuario.component';
-import { HomeComponent } from './home/home/home.component';
+import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,6 +23,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatTableModule} from '@angular/material/table';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import {MatTableModule} from '@angular/material/table';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     BrowserAnimationsModule, 
     MatToolbarModule,
     MatSidenavModule,
@@ -54,6 +56,7 @@ import {MatTableModule} from '@angular/material/table';
     MatExpansionModule,
     MatGridListModule,
     MatTableModule,
+  
     
     
   ],
@@ -64,6 +67,7 @@ import {MatTableModule} from '@angular/material/table';
     MatFormFieldModule,
     MatButtonModule,
     MatSidenavModule,
+    
     
   ],
 
