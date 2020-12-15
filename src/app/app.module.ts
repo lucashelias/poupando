@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UsuarioComponent } from './cadastros/usuario/usuario.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login/login.component';
@@ -19,6 +18,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { UsuarioDetalheComponent } from './cadastros/usuario-detalhe/usuario-detalhe.component';
+import { UsuarioCadastroComponent } from './cadastros/usuario.cadastro/usuario.cadastro.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatGridListModule} from '@angular/material/grid-list';
@@ -26,13 +26,15 @@ import {MatTableModule} from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    UsuarioComponent,
     HomeComponent,
     LoginComponent,
     UsuarioDetalheComponent,
+    UsuarioCadastroComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -57,8 +59,6 @@ import { HttpClientModule } from '@angular/common/http';
     MatGridListModule,
     MatTableModule,
   
-    
-    
   ],
   exports: [
     MatToolbarModule,
@@ -67,8 +67,6 @@ import { HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     MatButtonModule,
     MatSidenavModule,
-    
-    
   ],
 
   providers: [],

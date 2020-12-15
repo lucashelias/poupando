@@ -18,7 +18,6 @@ import { UsuarioService } from './usuario.service';
 export class UsuarioDetalheComponent implements OnInit {
 
   displayedColumns: string[] = ['ID', 'Nome', 'Sobrenome', 'Email','Usuario'];
-  // dataSource: MatTableDataSource<Usuario>;
   dataSource = new UserDataSource(this.usuarioService);
   step = 0;
   usuario: Usuario[];
