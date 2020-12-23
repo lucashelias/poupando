@@ -24,6 +24,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatTableModule} from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeDetalheComponent } from './home/home-detalhe/home-detalhe.component';
 
 
 
@@ -34,6 +35,7 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     UsuarioDetalheComponent,
     UsuarioCadastroComponent,
+    HomeDetalheComponent,
     
   ],
   imports: [
