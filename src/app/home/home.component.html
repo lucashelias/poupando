@@ -28,12 +28,12 @@
       <a href="#" class="list-group-item list-group-item-action bg-light">Investimentos</a>
       <a href="#" class="list-group-item list-group-item-action bg-light">Importações de Dados</a>
   </div>
-</div> -->
+  </div> -->
   <!-- Fim Sidebar -->
 
   <!-- Navbar -->
-  <div *ngIf="usuarioLogado" id="page-content-wrapper">
-    <mat-toolbar color="primary" class="toolbar">
+  <div id="page-content-wrapper">
+    <mat-toolbar *ngIf="usuarioLogado" color="primary" class="toolbar">
       <button mat-icon-button id="menu-toggle">
         <mat-icon>menu</mat-icon>
       </button>
@@ -45,7 +45,8 @@
 
       <button mat-button [matMenuTriggerFor]="menu" id="btMenuUser">
         <mat-icon>account_circle</mat-icon>
-        {{usuarrio.nome}}
+       Lucas
+        <!-- {{usuario.nome}} -->
       </button>
       <mat-menu #menu="matMenu">
         <button mat-menu-item style="font-size: 12px;">
@@ -61,6 +62,9 @@
     <!-- Fim Navbar -->
 
     <!-- CORPO DO HOME -->
+
+
+    <!-- FIM CORPO DO HOME -->
     <div class="content-wrapper">
       <div class="container">
 
@@ -68,8 +72,6 @@
 
       </div>
     </div>
-
   </div>
-  <!-- FIM CORPO DO HOME -->
 
 </div>

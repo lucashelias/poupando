@@ -16,7 +16,7 @@ export class UsuarioService {
     return this.http.get<Usuario[]>(baseUrl);
   }
 
-  validaUsuarioSenha(usuario, senha): Observable<Usuario[]> {
+  validaUsuarioSenha(usuario: string, senha: string): Observable<Usuario[]> {
     return this.http.put<Usuario[]>(`${baseUrl}/login`,{usuario, senha});
   }
 
