@@ -1,6 +1,6 @@
 <div class="d-flex" id="wrapper">
   <!-- Sidebar -->
-  <div class="bg-light border-right" id="sidebar-wrapper">
+  <!-- <div class="bg-light border-right" id="sidebar-wrapper">
     <div class="sidebar-heading">Menu </div>
     <div class="list-group list-group-flush">
     <mat-accordion>
@@ -18,58 +18,58 @@
           </li>
         </ul>
       </mat-expansion-panel>
-    </mat-accordion>
+    </mat-accordion> -->
 
-      <!-- <a [routerLink]="['/usuario-detalhe']" class="list-group-item list-group-item-action bg-light">Usuario Detalhe</a> -->
-      <a href="/usuario-detalhe" class="list-group-item list-group-item-action bg-light">Usuario Detalhe</a>
+  <!-- <a [routerLink]="['/usuario-detalhe']" class="list-group-item list-group-item-action bg-light">Usuario Detalhe</a> -->
+  <!-- <a href="/usuario-detalhe" class="list-group-item list-group-item-action bg-light">Usuario Detalhe</a>
       <a href="#" class="list-group-item list-group-item-action bg-light">Transações</a>
       <a href="#" class="list-group-item list-group-item-action bg-light">Saldos</a>
       <a href="#" class="list-group-item list-group-item-action bg-light">Simuladores</a>
       <a href="#" class="list-group-item list-group-item-action bg-light">Investimentos</a>
       <a href="#" class="list-group-item list-group-item-action bg-light">Importações de Dados</a>
   </div>
-</div>
-<!-- Fim Sidebar -->
+</div> -->
+  <!-- Fim Sidebar -->
 
-<!-- Navbar -->
-<div id="page-content-wrapper">
-  <mat-toolbar color="primary" class="toolbar">
-    <button mat-icon-button id="menu-toggle">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span class="example-spacer"></span>
-
-    <button mat-button id="bt_home">
-      <mat-icon>home</mat-icon>
-    </button>
-
-    <button mat-button [matMenuTriggerFor]="menu" id="btMenuUser">
-      <mat-icon>account_circle</mat-icon>
-      Lucas
-    </button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item style="font-size: 12px;">
-        <mat-icon class="icons_menu">build</mat-icon>
-        <span>Configurações</span>
+  <!-- Navbar -->
+  <div *ngIf="usuarioLogado" id="page-content-wrapper">
+    <mat-toolbar color="primary" class="toolbar">
+      <button mat-icon-button id="menu-toggle">
+        <mat-icon>menu</mat-icon>
       </button>
-      <button mat-menu-item style="font-size: 12px;" (click)='logout()'>
-        <mat-icon class="icons_menu">login</mat-icon>
-        <span>Logout</span>
+      <span class="example-spacer"></span>
+
+      <button mat-button id="bt_home">
+        <mat-icon>home</mat-icon>
       </button>
-    </mat-menu>
-  </mat-toolbar>
-  <!-- Fim Navbar -->
 
-  <!-- CORPO DO HOME -->
-  <div class="content-wrapper">
-    <div class="container">
+      <button mat-button [matMenuTriggerFor]="menu" id="btMenuUser">
+        <mat-icon>account_circle</mat-icon>
+        {{usuarrio.nome}}
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item style="font-size: 12px;">
+          <mat-icon class="icons_menu">build</mat-icon>
+          <span>Configurações</span>
+        </button>
+        <button mat-menu-item style="font-size: 12px;" (click)='logout()'>
+          <mat-icon class="icons_menu">login</mat-icon>
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+    </mat-toolbar>
+    <!-- Fim Navbar -->
 
-      <router-outlet></router-outlet>
+    <!-- CORPO DO HOME -->
+    <div class="content-wrapper">
+      <div class="container">
 
+        <router-outlet></router-outlet>
+
+      </div>
     </div>
-  </div>
 
-</div>
-<!-- FIM CORPO DO HOME -->
+  </div>
+  <!-- FIM CORPO DO HOME -->
 
 </div>

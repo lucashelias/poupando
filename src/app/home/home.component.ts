@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as $ from 'jquery'
+import { Usuario } from '../models/usuario.model';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +9,9 @@ import * as $ from 'jquery'
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
+  usuarioLogado: boolean = false;
+  usuario: Usuario;
 
   constructor(private router: Router) { }
 
@@ -22,6 +26,7 @@ export class HomeComponent implements OnInit {
 
   logout(): void {
 
+    this.usuarioLogado = false;
     this.router.navigate(["/login"])
   }
 
