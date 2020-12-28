@@ -7,7 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-    {path: '' , component: LoginComponent},
+    {path: '', redirectTo: 'login', pathMatch: 'full' },
     {path: 'home' , component: HomeComponent},
     {path: 'home-detalhe' , component: HomeDetalheComponent},
     {path: 'login' , component: LoginComponent},
@@ -17,7 +17,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
-  
   exports: [RouterModule]
 })
 

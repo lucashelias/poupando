@@ -25,6 +25,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatTableModule} from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeDetalheComponent } from './home/home-detalhe/home-detalhe.component';
+import { authInterceptorProviders } from './_services/auth.interceptor';
 
 
 
@@ -36,14 +37,14 @@ import { HomeDetalheComponent } from './home/home-detalhe/home-detalhe.component
     UsuarioDetalheComponent,
     UsuarioCadastroComponent,
     HomeDetalheComponent,
-    
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule, 
+    BrowserAnimationsModule,
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
@@ -60,7 +61,7 @@ import { HomeDetalheComponent } from './home/home-detalhe/home-detalhe.component
     MatExpansionModule,
     MatGridListModule,
     MatTableModule,
-  
+
   ],
   exports: [
     MatToolbarModule,
@@ -71,7 +72,7 @@ import { HomeDetalheComponent } from './home/home-detalhe/home-detalhe.component
     MatSidenavModule,
   ],
 
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

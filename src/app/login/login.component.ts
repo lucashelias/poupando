@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsuarioService } from '../cadastros/usuario-detalhe/usuario.service';
 import { Usuario } from '../models/usuario.model';
+import { AuthService } from '../_services/auth.service';
+import { TokenStorageService } from '../_services/token-storage.service';
 import { LoginService } from './login.service';
 
 @Component({
@@ -12,33 +14,50 @@ import { LoginService } from './login.service';
 export class LoginComponent implements OnInit {
 
   usuario: Usuario;
+  username: string = null;
+  password: string  = null;
+  isLoggedIn = false;
+  isLoginFailed = false;
+  errorMessage = '';
+  roles: string[] = [];
 
   constructor(private loginService: LoginService,
+    private authService: AuthService,
+    private tokenStorage: TokenStorageService,
     private router: Router,
     private usuarioService: UsuarioService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    if (this.tokenStorage.getToken()) {
+      this.isLoggedIn = true;
+      this.roles = this.tokenStorage.getUser().roles;
+    }
+  }
 
-  // Precisa ainda fazer a validação do usuário
-  login(username: string, password: string) {
+  login(username, password): void {
 
-    this.usuarioService.validaUsuarioSenha(username, password)
-      .subscribe(
-        (data: any) => {
-          this.usuario = data;
+    this.errorMessage = '';
+    this.isLoginFailed = false;
 
-          if (data.length) {
-            this.loginService.enviaUsuario(this.usuario)
-            console.log('Envio do usuário',this.usuario)
-            this.loginService.usuarioLogado(true);
-            this.router.navigate(["/home-detalhe"])
-          } else {
-            console.log("Ocorreu um erro na verificação do usuário e senha");
-          }
-        },
-        error => {
-          console.log(error);
-        });
+    this.authService.login(username, password).subscribe(
+      data => {
+        this.tokenStorage.saveToken(data.accessToken);
+        this.tokenStorage.saveUser(data);
 
+        this.isLoginFailed = false;
+        this.isLoggedIn = true;
+        this.roles = this.tokenStorage.getUser().roles;
+        this.router.navigate(["/home-detalhe"])
+        //this.reloadPage();
+      },
+      err => {
+        this.errorMessage = err.error.message;
+        this.isLoginFailed = true;
+      }
+    );
+  }
+
+  reloadPage(): void {
+    window.location.reload();
   }
 }

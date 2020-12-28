@@ -8,8 +8,13 @@
       <mat-form-field class="full-width-input">
         <input matInput type="password" placeholder="Senha" required #senha>
       </mat-form-field>
-      <button type="submit" mat-raised-button color="primary" accesskey="ENTER"
-        (click)="login(usuario.value,senha.value)">Login</button>
+      <button type="submit" mat-raised-button color="primary" (click)="login(usuario.value,senha.value)">Login</button>
+      <div class="form-group">
+        <div class="alert alert-danger" role="alert" *ngIf="isLoginFailed">
+          Erro ao efetuar o Login: {{ errorMessage }}
+        </div>
+      </div>
+
     </mat-card>
 
     <footer style="text-align: center;">
