@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
+import { UserService } from 'src/app/_services/user.service';
 
 export interface Tile {
   color: string;
@@ -13,10 +15,24 @@ export interface Tile {
   styleUrls: ['./home-detalhe.component.css']
 })
 export class HomeDetalheComponent implements OnInit {
+  
+  content?: string;
+  currentUser?: any;
 
-  constructor() { }
+  constructor(private userService: UserService, private token: TokenStorageService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.currentUser = this.token.getUser();
+
+    this.userService.getPublicContent().subscribe(
+      data => {
+        this.content = data;
+      },
+      err => {
+        this.content = JSON.parse(err.error).message;
+      }
+    );
+  }
 
   tiles: Tile[] = [
     {text: 'One', cols: 3, rows: 1, color: 'lightblue'},

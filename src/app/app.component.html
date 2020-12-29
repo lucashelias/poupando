@@ -1,6 +1,10 @@
 <!-- Navbar -->
 <div id="page-content-wrapper">
-  <mat-toolbar *ngIf="isLoggedIn" color="primary" class="toolbar">
+
+  <app-home ></app-home>
+  <!-- <router-outlet></router-outlet> -->
+
+  <!-- <mat-toolbar *ngIf="isLoggedIn" color="primary" class="toolbar">
     <button mat-icon-button id="menu-toggle">
       <mat-icon>menu</mat-icon>
     </button>
@@ -24,12 +28,10 @@
         <span>Logout</span>
       </button>
     </mat-menu>
-  </mat-toolbar>
+  </mat-toolbar> -->
   <!-- Fim Navbar -->
 
-    <div class="container">
-
+    <!-- <div>
       <router-outlet></router-outlet>
-
-    </div>
+    </div> -->
 </div>

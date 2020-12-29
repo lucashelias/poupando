@@ -4,6 +4,7 @@ import * as $ from 'jquery'
 import { Subscription } from 'rxjs';
 import { LoginService } from '../login/login.service';
 import { Usuario } from '../models/usuario.model';
+import { TokenStorageService } from '../_services/token-storage.service';
 
 @Component({
   selector: 'app-home',
@@ -12,41 +13,34 @@ import { Usuario } from '../models/usuario.model';
 })
 export class HomeComponent implements OnInit {
 
-  usuarioLogado: boolean = true;
-  usuario: Usuario;
-  validaUsuarioLogado: Subscription;
-  user: Subscription;
+  isLoggedIn = false;
+  currentUser: any;
+  private roles: string[] = [];
 
 
-  constructor(private router: Router, private loginService: LoginService) { }
+  constructor(private router: Router, 
+              private loginService: LoginService,
+              private tokenStorageService: TokenStorageService) { }
 
   ngOnInit() {
+    this.currentUser = this.tokenStorageService.getUser();
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
 
-    this.validaUsuarioLogado = this.loginService.validarUsuarioLogado()
-    .subscribe(valor => {
-      this.usuarioLogado = valor;
-    });
-
-    // Recebe o usuário da tela de Login
-    this.user = this.loginService.recebeUsuario()
-    .subscribe(objeto => {
-      this.usuario = objeto.lista;
-
-      console.log('Recebendo o usuario do login (HOME)',this.usuario)
-      console.log('Objeto retornado do (LOGIN)',objeto)
-    });
-
-
+    if (this.isLoggedIn) {
+      this.currentUser = this.tokenStorageService.getUser();
+      this.roles =  this.currentUser.roles;
+   
     //Toggle Click Function
     $("#menu-toggle").click(function(e) {
       e.preventDefault();
       $("#wrapper").toggleClass("toggled");
     });
+   }
   }
-
+  
   logout(): void {
 
-    this.usuarioLogado = false;
+    this.tokenStorageService.signOut();
     this.router.navigate(["/login"])
   }
 

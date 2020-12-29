@@ -8,11 +8,14 @@ import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
     {path: '', redirectTo: 'login', pathMatch: 'full' },
-    {path: 'home' , component: HomeComponent},
-    {path: 'home-detalhe' , component: HomeDetalheComponent},
     {path: 'login' , component: LoginComponent},
-    {path: 'usuario.cadastro' , component: UsuarioCadastroComponent},
-    {path: 'usuario-detalhe' , component: UsuarioDetalheComponent},
+    {path: 'home' , component: HomeComponent,
+    children:[
+      {path: 'usuario-detalhe' , component: UsuarioDetalheComponent},
+      {path: 'usuario.cadastro' , component: UsuarioCadastroComponent},
+      {path: 'home-detalhe' , component: HomeDetalheComponent},
+    ]
+  }
 ];
 
 @NgModule({
