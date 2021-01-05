@@ -18,7 +18,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { UsuarioDetalheComponent } from './cadastros/usuario-detalhe/usuario-detalhe.component';
-import { UsuarioCadastroComponent } from './cadastros/usuario.cadastro/usuario.cadastro.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatGridListModule} from '@angular/material/grid-list';
@@ -26,6 +25,8 @@ import {MatTableModule} from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeDetalheComponent } from './home/home-detalhe/home-detalhe.component';
 import { authInterceptorProviders } from './_services/auth.interceptor';
+import { UsuarioCadastroComponent } from './cadastros/usuario-cadastro/usuario-cadastro.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -61,6 +62,7 @@ import { authInterceptorProviders } from './_services/auth.interceptor';
     MatExpansionModule,
     MatGridListModule,
     MatTableModule,
+    
 
   ],
   exports: [
@@ -70,6 +72,7 @@ import { authInterceptorProviders } from './_services/auth.interceptor';
     MatFormFieldModule,
     MatButtonModule,
     MatSidenavModule,
+
   ],
 
   providers: [authInterceptorProviders],

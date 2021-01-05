@@ -7,7 +7,9 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Observable } from 'rxjs';
 import { Usuario } from 'src/app/models/usuario.model';
+import { UsuarioCadastroComponent } from '../usuario-cadastro/usuario-cadastro.component';
 import { UsuarioService } from './usuario.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -19,16 +21,27 @@ export class UsuarioDetalheComponent implements OnInit {
 
   displayedColumns: string[] = ['ID', 'Nome', 'Sobrenome', 'Email','Usuario'];
   dataSource = new UserDataSource(this.usuarioService);
-  step = 0;
-  usuario: Usuario[];
+  step = 0; 
+  usuario: Usuario[]; 
+  modals: UsuarioCadastroComponent = null;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private usuarioService: UsuarioService) { }
+  constructor(private usuarioService: UsuarioService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
   }
+
+  adicioneComponentModal() {
+    this.modals = new UsuarioCadastroComponent();
+    this.modalService.open(this.modals, { size: 'lg' });
+    console.log("chamou a funcao")
+}
+
+openLg() {
+  this.modalService.open(UsuarioCadastroComponent, { size: 'lg' });
+}
 
   setStep(index: number) {
     this.step = index;
