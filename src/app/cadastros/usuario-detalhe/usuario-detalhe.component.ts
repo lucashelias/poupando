@@ -65,8 +65,6 @@ openLg() {
       .subscribe(
         (data :any) => {
           this.usuario = data.lista;
-          // this.dataSource = new MatTableDataSource(this.usuario)
-          this.usuario
           console.log(data);
         },
         error => {

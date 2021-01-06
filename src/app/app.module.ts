@@ -60,7 +60,7 @@ import {MatRadioModule} from '@angular/material/radio';
     MatFormFieldModule,
     MatButtonModule,
     MatSidenavModule,
-    MatSelectModule, 
+    MatSelectModule,  
     MatMenuModule,
     MatExpansionModule,
     MatGridListModule,
@@ -72,7 +72,7 @@ import {MatRadioModule} from '@angular/material/radio';
   ],
   exports: [
     MatToolbarModule,
-    MatCardModule,
+    MatCardModule, 
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,

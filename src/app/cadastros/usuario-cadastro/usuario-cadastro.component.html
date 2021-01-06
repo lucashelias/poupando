@@ -12,21 +12,21 @@
         <div>
           <div>
             <mat-form-field appearance="outline" class="inputText">
-              <input matInput placeholder="Nome" id="nome">
+              <input matInput placeholder="Nome" id="nome" #nome>
             </mat-form-field>
 
             <mat-form-field appearance="outline" class="inputText">
-              <input matInput placeholder="Sobrenome" id="sobrenome">
+              <input matInput placeholder="Sobrenome" id="sobrenome" #sobrenome>
             </mat-form-field>
           </div>
           <div>
             <mat-form-field appearance="outline" class="inputText">
-              <input matInput placeholder="Usuario" id="usuario">
+              <input matInput placeholder="Usuario" id="usuario" #usuario>
             </mat-form-field>
 
             <mat-form-field appearance="outline">
               <mat-label>Senha</mat-label>
-              <input matInput [type]="hide ? 'password' : 'text'">
+              <input matInput [type]="hide ? 'password' : 'text'" #senha>
               <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                 [attr.aria-pressed]="hide">
                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -43,8 +43,8 @@
               <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
             </mat-form-field> 
             <div>
-              <label>Status: </label>
-              <mat-radio-group aria-label="Select an option">
+              <label >Status: </label>
+              <mat-radio-group aria-label="Select an option" [(ngModel)]="status" >
                 <mat-radio-button value="1">Ativo</mat-radio-button>
                 <mat-radio-button value="2">Inativo</mat-radio-button>
               </mat-radio-group>
@@ -55,9 +55,15 @@
 
       <mat-divider></mat-divider>
 
+      <div class="form-group">
+        <div class="alert alert-danger" role="alert" *ngIf="messege != null">
+          {{ messege }}
+        </div>
+      </div>
+
       <div>
-        <button type="submit" class="button" mat-raised-button color="primary" id="btSave" (click)="salvarUsuario()">
-          <mat-icon> save</mat-icon>
+        <button type="submit" class="button" mat-raised-button color="primary" id="btSave" (click)="salvarUsuario(nome.value, sobrenome.value, usuario.value, senha.value, email.value)">
+          <mat-icon>save</mat-icon> 
           <span>Salvar</span>
         </button>
 

@@ -19,26 +19,26 @@ export class UsuarioService {
   validaUsuarioSenha(usuario: string, senha: string): Observable<Usuario[]> {
     return this.http.put<Usuario[]>(`${baseUrl}/login`,{usuario, senha});
   }
+  
+  create(data): Observable<any> {
+    return this.http.post(baseUrl, data);
+  }
+  
+  get(id): Observable<any> {
+    return this.http.get(`${baseUrl}/${id}`);
+  }
 
-  // get(id): Observable<any> {
-  //   return this.http.get(`${baseUrl}/${id}`);
-  // }
+  update(id, data): Observable<any> {
+    return this.http.put(`${baseUrl}/${id}`, data);
+  }
 
-  // create(data): Observable<any> {
-  //   return this.http.post(baseUrl, data);
-  // }
+  delete(id): Observable<any> {
+    return this.http.delete(`${baseUrl}/${id}`);
+  }
 
-  // update(id, data): Observable<any> {
-  //   return this.http.put(`${baseUrl}/${id}`, data);
-  // }
-
-  // delete(id): Observable<any> {
-  //   return this.http.delete(`${baseUrl}/${id}`);
-  // }
-
-  // deleteAll(): Observable<any> {
-  //   return this.http.delete(baseUrl);
-  // }
+  deleteAll(): Observable<any> {
+    return this.http.delete(baseUrl);
+  }
 
   // findByTitle(title): Observable<any> {
   //   return this.http.get(`${baseUrl}?title=${title}`);

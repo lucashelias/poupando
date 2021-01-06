@@ -8,6 +8,7 @@ export class Usuario{
     email: string
     usuario: string
     senha: string
+    status: string
     dataCadastro: Data
     dataAlteracao: Data
 }
