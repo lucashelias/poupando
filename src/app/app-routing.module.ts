@@ -11,9 +11,9 @@ const routes: Routes = [
     {path: 'login' , component: LoginComponent},
     {path: 'home' , component: HomeComponent},
     {path: 'home-detalhe' , component: HomeDetalheComponent},
+    {path: 'usuario-cadastro' , component: UsuarioCadastroComponent},
     {path: 'usuario-detalhe' , component: UsuarioDetalheComponent,
       children:[
-        {path: 'usuario-cadastro' , component: UsuarioCadastroComponent},
       ]
   }
 ];

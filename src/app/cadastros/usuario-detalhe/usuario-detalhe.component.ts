@@ -10,6 +10,7 @@ import { Usuario } from 'src/app/models/usuario.model';
 import { UsuarioCadastroComponent } from '../usuario-cadastro/usuario-cadastro.component';
 import { UsuarioService } from './usuario.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -23,19 +24,17 @@ export class UsuarioDetalheComponent implements OnInit {
   dataSource = new UserDataSource(this.usuarioService);
   step = 0; 
   usuario: Usuario[]; 
-  modals: UsuarioCadastroComponent = null;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private usuarioService: UsuarioService, private modalService: NgbModal) { }
+  constructor(private usuarioService: UsuarioService, private modalService: NgbModal, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  adicioneComponentModal() {
-    this.modals = new UsuarioCadastroComponent();
-    this.modalService.open(this.modals, { size: 'lg' });
+  adicioneComponentModal(content) {
+    this.modalService.open(content, { size: 'lg' });
     console.log("chamou a funcao")
 }
 
@@ -53,6 +52,11 @@ openLg() {
 
   prevStep() {
     this.step--;
+  }
+
+  novo(): void{
+    this.router.navigate(["/usuario-cadastro"])
+
   }
 
   buscaUsuario(): void {

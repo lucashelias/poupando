@@ -4,10 +4,11 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule } from  '@angular/material';
+import { UsuarioCadastroComponent } from './cadastros/usuario-cadastro/usuario-cadastro.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
@@ -25,8 +26,9 @@ import {MatTableModule} from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeDetalheComponent } from './home/home-detalhe/home-detalhe.component';
 import { authInterceptorProviders } from './_services/auth.interceptor';
-import { UsuarioCadastroComponent } from './cadastros/usuario-cadastro/usuario-cadastro.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {MatRadioModule} from '@angular/material/radio';
+
 
 
 
@@ -36,7 +38,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HomeComponent,
     LoginComponent,
     UsuarioDetalheComponent,
-    UsuarioCadastroComponent,
+    UsuarioCadastroComponent, 
     HomeDetalheComponent,
 
   ],
@@ -44,24 +46,27 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
     MatButtonModule,
-    MatIconModule,
+    MatIconModule, 
     MatToolbarModule,
     MatCardModule,
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
     MatSidenavModule,
-    MatSelectModule,
+    MatSelectModule, 
     MatMenuModule,
     MatExpansionModule,
     MatGridListModule,
     MatTableModule,
+    MatIconModule,
+    MatRadioModule,
     
 
   ],

@@ -1,14 +1,95 @@
-<ng-template #content let-modal>
-    <div class="modal-header">
-      <h4 class="modal-title">Modal title</h4>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <p>One fine body&hellip;</p>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
-    </div>
-  </ng-template>
+<div style="width: 600px;">
+  <mat-accordion class="example-headers-align" multi>
+    <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Cadastro de Usuário
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-divider></mat-divider>
+
+      <section style="padding-top: 10px;">
+        <div>
+          <div>
+            <mat-form-field appearance="outline" class="inputText">
+              <input matInput placeholder="Nome" id="nome">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="inputText">
+              <input matInput placeholder="Sobrenome" id="sobrenome">
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field appearance="outline" class="inputText">
+              <input matInput placeholder="Usuario" id="usuario">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Senha</mat-label>
+              <input matInput [type]="hide ? 'password' : 'text'">
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+            </mat-form-field>
+          </div> 
+        </div>
+
+        <div>
+          <div class="example-container">
+            <mat-form-field appearance="outline">
+              <mat-label>E-mail</mat-label>
+              <input matInput placeholder="email@example.com" [formControl]="email" required>
+              <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field> 
+            <div>
+              <label>Status: </label>
+              <mat-radio-group aria-label="Select an option">
+                <mat-radio-button value="1">Ativo</mat-radio-button>
+                <mat-radio-button value="2">Inativo</mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <mat-divider></mat-divider>
+
+      <div>
+        <button type="submit" class="button" mat-raised-button color="primary" id="btSave" (click)="salvarUsuario()">
+          <mat-icon> save</mat-icon>
+          <span>Salvar</span>
+        </button>
+
+
+        <button type="submit" class="button" mat-raised-button color="primary" id="btCancelar"
+          (click)="cancelar(content)">
+          <mat-icon>cancel</mat-icon> 
+          <span>Cancelar</span>
+        </button>
+      </div>
+
+      <ng-template #content let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title">Atenção</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Deseja realmente cancelar a criação do usuário???</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Sim</button>
+          <!-- <button type="button" class="btn btn-light" (click)="modal.dismiss('Close click')">Não</button> -->
+        </div>
+      </ng-template>
+
+
+
+    </mat-expansion-panel>
+  </mat-accordion>
+
+
+
+</div>
