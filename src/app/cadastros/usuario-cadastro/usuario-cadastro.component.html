@@ -32,7 +32,7 @@
                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
               </button>
             </mat-form-field>
-          </div> 
+          </div>
         </div>
 
         <div>
@@ -41,10 +41,10 @@
               <mat-label>E-mail</mat-label>
               <input matInput placeholder="email@example.com" [formControl]="email" required>
               <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-            </mat-form-field> 
+            </mat-form-field>
             <div>
-              <label >Status: </label>
-              <mat-radio-group aria-label="Select an option" [(ngModel)]="status" >
+              <label>Status: </label>
+              <mat-radio-group aria-label="Select an option" [(ngModel)]="status">
                 <mat-radio-button value="1">Ativo</mat-radio-button>
                 <mat-radio-button value="2">Inativo</mat-radio-button>
               </mat-radio-group>
@@ -56,21 +56,32 @@
       <mat-divider></mat-divider>
 
       <div class="form-group">
-        <div class="alert alert-danger" role="alert" *ngIf="messege != null">
-          {{ messege }}
+        <div class="alert alert-danger" role="alert" *ngIf="alertaMensagem">
+          <tbody>
+            <tr *ngFor="let item of messege">
+              <td>{{item}}</td>
+            </tr>
+          </tbody>
         </div>
       </div>
 
       <div>
-        <button type="submit" class="button" mat-raised-button color="primary" id="btSave" (click)="salvarUsuario(nome.value, sobrenome.value, usuario.value, senha.value, email.value)">
-          <mat-icon>save</mat-icon> 
+        <p *ngIf="submitted">
+          <ngb-alert [type]="alert.type" (closed)="close(alert)">{{ alert.message }}</ngb-alert>
+        </p>
+      </div>
+
+      <div>
+        <button type="submit" class="button" mat-raised-button color="primary" id="btSave"
+          (click)="salvarUsuario(nome.value, sobrenome.value, usuario.value, senha.value, email.value)">
+          <mat-icon>save</mat-icon>
           <span>Salvar</span>
         </button>
 
 
         <button type="submit" class="button" mat-raised-button color="primary" id="btCancelar"
           (click)="cancelar(content)">
-          <mat-icon>cancel</mat-icon> 
+          <mat-icon>cancel</mat-icon>
           <span>Cancelar</span>
         </button>
       </div>

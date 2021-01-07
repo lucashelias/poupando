@@ -1,15 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { exit } from 'process';
 import { Usuario } from 'src/app/models/usuario.model';
 import { UsuarioService } from '../usuario-detalhe/usuario.service';
 
+interface Alert {
+  type: string;
+  message: string;
+}
+
+const ALERTS: Alert[] = [{
+  type: 'success',
+  message: 'Usuário cadastrado com sucesso!',
+}
+];
+
 @Component({
-  selector: 'app-usuario-cadastro', 
+  selector: 'app-usuario-cadastro',
   templateUrl: './usuario-cadastro.component.html',
   styleUrls: ['./usuario-cadastro.component.css']
 })
+
+
+
 export class UsuarioCadastroComponent implements OnInit {
 
   step = 0;
@@ -17,86 +30,101 @@ export class UsuarioCadastroComponent implements OnInit {
   hide = true;
   usuario = new Usuario;
   submitted = false;
-  messege: string = null;
+  messege: string[] = [];
   status: string = null;
+  alerts: Alert[];
+  alertaMensagem = false;
 
   constructor(private modalService: NgbModal, private usuarioService: UsuarioService) { }
 
   ngOnInit(): void {
+
   }
 
+  close(alert: Alert) {
+    this.alerts.splice(this.alerts.indexOf(alert), 1);
+  }
+
+
+
   salvarUsuario(nome, sobrenome, usuario, senha, email): void {
-    
-    this.messege = null
+
+    this.messege = [];
+    this.alertaMensagem = false;
 
     this.usuario.nome = nome;
     this.usuario.sobrenome = sobrenome;
     this.usuario.usuario = usuario;
     this.usuario.senha = senha;
     this.usuario.email = email;
-    
+
     // Validação do status do usuário
-    if(status == null){
+    if (status == null) {
       status = 'S'
-    }else if(this.status = '1'){
+    } else if (this.status == '1') {
       this.status = 'S'
-    }else{
+    } else {
       this.status = 'N'
     }
     this.usuario.status = status;
 
     // validação dos campos obrigatórios
 
-    if(this.usuario.senha == null){
-      this.messege = "É obrigatório informar uma senha"
-      exit;
-
-    }else if(this.usuario.usuario == null){
-      this.messege = 'É obrigatório informar um usuário'
-      exit;
-
-
-    }else if(this.usuario.nome == null){
-      this.messege = "É obrigatório informar o nome do usuário"
-      exit;
+    if (this.usuario.nome.length == 0) {
+      this.messege.push("É obrigatório informar o nome do usuário")
+      this.alertaMensagem = true;
+    }
+    if (this.usuario.usuario.length == 0) {
+      this.messege.push('É obrigatório informar um usuário')
+      this.alertaMensagem = true;
+    }
+    if (this.usuario.senha.length == 0) {
+      this.messege.push("É obrigatório informar uma senha")
+      this.alertaMensagem = true;
+    }
+    if (this.usuario.email.length == 0) {
+      this.messege.push("É obrigatório informar um e-mail")
+      this.alertaMensagem = true;
     }
 
-    // EFETUA A INSERÇÂO NA BASE DE DADOS
-    this.usuarioService.create(this.usuario)
-    .subscribe(      
-      response => {
-      console.log(response);
-      this.submitted = true;
-      this.modalService.open(response, { size: 'sm' });
-    },
-    error => {
-      console.log(error);
-      this.modalService.open(error, { size: 'sm' });
-    });
-}
+    if (this.messege.length == 0) {
+      // EFETUA A INSERÇÂO NA BASE DE DADOS
+      this.usuarioService.create(this.usuario)
+        .subscribe(
+          response => {
+            console.log(response);
+            this.submitted = true;
+            this.modalService.open(response, { size: 'sm' });
+          },
+          error => {
+            console.log(error);
+            this.modalService.open(error, { size: 'sm' });
+          });
+    }
+  }
 
-    
+
 
   cancelar(content): void {
-        this.modalService.open(content, { size: 'sm' });
-      }
+    this.modalService.open(content, { size: 'sm' });
+  }
 
   setStep(index: number) {
-        this.step = index;
-      }
+    this.step = index;
+  }
 
   nextStep() {
-        this.step++;
-      }
+    this.step++;
+  }
 
   prevStep() {
-        this.step--;
-      }
+    this.step--;
+  }
 
-  
+
 
   getErrorMessage() {
-        if(this.email.hasError('required')) {
+    if (this.email.hasError('required')) {
       return 'Este campo é obrigatório';
     }
 
