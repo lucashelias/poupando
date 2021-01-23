@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,9 +28,6 @@ import { HomeDetalheComponent } from './home/home-detalhe/home-detalhe.component
 import { authInterceptorProviders } from './_services/auth.interceptor';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatRadioModule} from '@angular/material/radio';
-
-
-
 
 @NgModule({
   declarations: [
@@ -80,7 +77,7 @@ import {MatRadioModule} from '@angular/material/radio';
 
   ],
 
-  providers: [authInterceptorProviders],
+  providers: [authInterceptorProviders,{provide: LOCALE_ID, useValue: 'pt-BR'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
