@@ -28,6 +28,8 @@ import { HomeDetalheComponent } from './home/home-detalhe/home-detalhe.component
 import { authInterceptorProviders } from './_services/auth.interceptor';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatRadioModule} from '@angular/material/radio';
+import { InputComponent } from './componente_shared/input/input.component';
+import { TableComponent } from './componente_shared/table/table.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,7 @@ import {MatRadioModule} from '@angular/material/radio';
     LoginComponent,
     UsuarioDetalheComponent,
     UsuarioCadastroComponent, 
-    HomeDetalheComponent,
+    HomeDetalheComponent, InputComponent, TableComponent,
 
   ],
   imports: [

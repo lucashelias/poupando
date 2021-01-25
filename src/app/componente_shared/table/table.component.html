@@ -1,0 +1,71 @@
+<div>
+  <mat-accordion class="example-headers-align" multi>
+    <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Filtro de Usuários
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <div>
+        <mat-form-field class="inputText">
+          <input matInput placeholder="ID" id="id">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="inputText">
+          <input matInput placeholder="Usuario" id="usuario">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="inputText">
+          <input matInput placeholder="Nome" id="nome">
+        </mat-form-field>
+
+        <mat-form-field class="inputText">
+          <input matInput placeholder="Sobrenome" id="sobrenome">
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field class="inputText">
+          <input matInput placeholder="E-mail" id="email">
+        </mat-form-field>
+      </div>
+
+      <div>
+        <button type="submit" class="button" mat-raised-button color="primary" id="btNovo" (click)='novo()'>
+          <mat-icon>add</mat-icon>
+          <span>Novo</span>
+        </button>
+
+
+        <button type="submit" class="button" mat-raised-button color="primary" id="btPesquisar"
+          (click)="buscaUsuario()">
+          <mat-icon>search</mat-icon>
+          <span>Pesquisar</span>
+        </button>
+        <button type="reset" class="button" mat-raised-button color="primary" id="btLimpar">
+          <mat-icon>restore_from_trash</mat-icon>
+          <span>Limpar</span>
+        </button>
+      </div>
+
+      <ng-template #content let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title">Modal title</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>One fine body&hellip;</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+        </div>
+      </ng-template>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
