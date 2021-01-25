@@ -7,29 +7,29 @@ import { HomeComponent } from './home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule } from  '@angular/material';
 import { UsuarioCadastroComponent } from './cadastros/usuario-cadastro/usuario-cadastro.component';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatListModule} from '@angular/material/list';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
-import { MatCardModule } from '@angular/material/card';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatSelectModule } from '@angular/material/select';
 import { UsuarioDetalheComponent } from './cadastros/usuario-detalhe/usuario-detalhe.component';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatExpansionModule} from '@angular/material/expansion';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatTableModule} from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeDetalheComponent } from './home/home-detalhe/home-detalhe.component';
 import { authInterceptorProviders } from './_services/auth.interceptor';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {MatRadioModule} from '@angular/material/radio';
-import { InputComponent } from './componente_shared/input/input.component';
 import { TableComponent } from './componente_shared/table/table.component';
+import { InputComponent } from './componente_shared/input/input.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field'; 
+import { MatSelectModule } from '@angular/material/select';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatTableModule } from '@angular/material/table';
+import { MatRadioModule } from '@angular/material/radio'; 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
@@ -37,10 +37,10 @@ import { TableComponent } from './componente_shared/table/table.component';
     HomeComponent,
     LoginComponent,
     UsuarioDetalheComponent,
-    UsuarioCadastroComponent, 
-    HomeDetalheComponent, 
-    // InputComponent, 
-    // TableComponent,
+    UsuarioCadastroComponent,
+    HomeDetalheComponent,
+    InputComponent,
+    TableComponent, 
 
   ],
   imports: [
@@ -54,26 +54,26 @@ import { TableComponent } from './componente_shared/table/table.component';
     MatSidenavModule,
     MatListModule,
     MatButtonModule,
-    MatIconModule, 
+    MatIconModule,
     MatToolbarModule,
     MatCardModule,
-    MatInputModule, 
+    MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
     MatSidenavModule,
-    MatSelectModule,  
+    MatSelectModule,
     MatMenuModule,
-    MatExpansionModule, 
+    MatExpansionModule,
     MatGridListModule,
     MatTableModule,
     MatIconModule,
     MatRadioModule,
-    
+
 
   ],
   exports: [
     MatToolbarModule,
-    MatCardModule, 
+    MatCardModule,
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
@@ -81,7 +81,7 @@ import { TableComponent } from './componente_shared/table/table.component';
 
   ],
 
-  providers: [authInterceptorProviders,{provide: LOCALE_ID, useValue: 'pt-BR'}],
+  providers: [authInterceptorProviders, { provide: LOCALE_ID, useValue: 'pt-BR' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
