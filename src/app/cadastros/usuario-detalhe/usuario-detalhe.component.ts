@@ -11,19 +11,29 @@ import { UsuarioCadastroComponent } from '../usuario-cadastro/usuario-cadastro.c
 import { UsuarioService } from './usuario.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
+import { TableCollumnsOptions } from 'src/app/componente_shared/table/table-columns-options.model';
 
 
 @Component({
-  selector: 'app-usuario-detalhe', 
+  selector: 'app-usuario-detalhe',
   templateUrl: './usuario-detalhe.component.html',
   styleUrls: ['./usuario-detalhe.component.css']
 })
 export class UsuarioDetalheComponent implements OnInit {
 
-  displayedColumns: string[] = ['ID', 'Nome', 'Sobrenome', 'Email','Usuario'];
+  displayedColumns: string[] = ['ID', 'Nome', 'Sobrenome', 'Email', 'Usuario'];
+  displayedColumns2: TableCollumnsOptions[] =
+    [
+      { nome: "ID", id: "id", placeholder: "ID" },
+      { nome: "Nome", id: "nome", placeholder: "nome" },
+      { nome: "Sobrenome", id: "sobrenome", placeholder: "Sobrenome" },
+      { nome: "Email", id: "email", placeholder: "E-mail" },
+      { nome: "Usuário", id: "usuario", placeholder: "Usuário" },
+    ]
+
   dataSource = new UserDataSource(this.usuarioService);
-  step = 0; 
-  usuario: Usuario[]; 
+  step = 0;
+  usuario: Usuario[];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -36,11 +46,11 @@ export class UsuarioDetalheComponent implements OnInit {
   adicioneComponentModal(content) {
     this.modalService.open(content, { size: 'lg' });
     console.log("chamou a funcao")
-}
+  }
 
-openLg() {
-  this.modalService.open(UsuarioCadastroComponent, { size: 'lg' });
-}
+  openLg() {
+    this.modalService.open(UsuarioCadastroComponent, { size: 'lg' });
+  }
 
   setStep(index: number) {
     this.step = index;
@@ -54,7 +64,7 @@ openLg() {
     this.step--;
   }
 
-  novo(): void{
+  novo(): void {
     this.router.navigate(["/usuario-cadastro"])
 
   }
@@ -63,7 +73,7 @@ openLg() {
 
     this.usuarioService.getAll()
       .subscribe(
-        (data :any) => {
+        (data: any) => {
           this.usuario = data.lista;
           console.log(data);
         },
@@ -81,14 +91,14 @@ openLg() {
 }
 
 export class UserDataSource extends DataSource<any>{
-  
-  constructor(private usuarioService: UsuarioService){
+
+  constructor(private usuarioService: UsuarioService) {
     super()
   }
 
   connect(): Observable<Usuario[]> {
     return this.usuarioService.getAll();
   }
-  disconnect(){}
-  
+  disconnect() { }
+
 }

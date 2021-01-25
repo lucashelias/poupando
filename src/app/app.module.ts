@@ -38,7 +38,9 @@ import { TableComponent } from './componente_shared/table/table.component';
     LoginComponent,
     UsuarioDetalheComponent,
     UsuarioCadastroComponent, 
-    HomeDetalheComponent, InputComponent, TableComponent,
+    HomeDetalheComponent, 
+    // InputComponent, 
+    // TableComponent,
 
   ],
   imports: [
