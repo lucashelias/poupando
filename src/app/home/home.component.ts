@@ -42,6 +42,15 @@ export class HomeComponent implements OnInit {
 
     this.tokenStorageService.signOut();
     this.router.navigate(["/login"])
+    this.reloadPage();
+  }
+
+  home():void{
+    this.router.navigate(["/home"])
+  }
+  
+  reloadPage(): void {
+    window.location.reload();
   }
 
 }

@@ -1,0 +1,51 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      
+      <a mat-list-item routerLink="/usuario-detalhe">Usuário</a>
+      
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+   
+    <mat-toolbar color="primary">
+      <button mat-icon-button id="menu-toggle" (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="example-spacer"></span>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <button mat-button id="bt_home" (click)="home()">
+        <mat-icon>home</mat-icon>
+      </button>
+
+      <button mat-button [matMenuTriggerFor]="menu" id="btMenuUser">
+        <mat-icon>account_circle</mat-icon>
+        {{currentUser.usuario}}
+      </button>
+
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item style="font-size: 12px;">
+          <mat-icon class="icons_menu">build</mat-icon>
+          <span>Configurações</span>
+        </button>
+        <button mat-menu-item style="font-size: 12px;" (click)='logout()'>
+          <mat-icon class="icons_menu">login</mat-icon>
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+      
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

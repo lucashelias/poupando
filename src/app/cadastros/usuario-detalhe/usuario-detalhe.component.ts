@@ -11,7 +11,7 @@ import { UsuarioCadastroComponent } from '../usuario-cadastro/usuario-cadastro.c
 import { UsuarioService } from './usuario.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
-import { TableCollumnsOptions } from 'src/app/componente_shared/table/table-columns-options.model';
+
 
 
 @Component({
@@ -22,14 +22,14 @@ import { TableCollumnsOptions } from 'src/app/componente_shared/table/table-colu
 export class UsuarioDetalheComponent implements OnInit {
 
   displayedColumns: string[] = ['ID', 'Nome', 'Sobrenome', 'Email', 'Usuario'];
-  displayedColumns2: TableCollumnsOptions[] =
-    [
-      { nome: "ID", id: "id", placeholder: "ID" },
-      { nome: "Nome", id: "nome", placeholder: "nome" },
-      { nome: "Sobrenome", id: "sobrenome", placeholder: "Sobrenome" },
-      { nome: "Email", id: "email", placeholder: "E-mail" },
-      { nome: "Usuário", id: "usuario", placeholder: "Usuário" },
-    ]
+  // displayedColumns2: TableCollumnsOptions[] =
+  //   [
+  //     { nome: "ID", id: "id", placeholder: "ID" },
+  //     { nome: "Nome", id: "nome", placeholder: "nome" },
+  //     { nome: "Sobrenome", id: "sobrenome", placeholder: "Sobrenome" },
+  //     { nome: "Email", id: "email", placeholder: "E-mail" },
+  //     { nome: "Usuário", id: "usuario", placeholder: "Usuário" },
+  //   ]
 
   dataSource = new UserDataSource(this.usuarioService);
   step = 0;

@@ -1,0 +1,13 @@
+<mat-sidenav-container >
+    <mat-sidenav mode="side" opened="collapse" fixedInViewport="true" *ngIf="isLoggedIn">
+        <mat-nav-list>
+            <a routerLink="/usuario-detalhe" class="list-group-item list-group-item-action bg-light">
+                <i class="material-icons">storefront</i>
+                Usuario
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

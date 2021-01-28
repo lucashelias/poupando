@@ -12,8 +12,6 @@ import { UsuarioDetalheComponent } from './cadastros/usuario-detalhe/usuario-det
 import { HttpClientModule } from '@angular/common/http';
 import { HomeDetalheComponent } from './home/home-detalhe/home-detalhe.component';
 import { authInterceptorProviders } from './_services/auth.interceptor';
-import { TableComponent } from './componente_shared/table/table.component';
-import { InputComponent } from './componente_shared/input/input.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
@@ -29,8 +27,14 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTableModule } from '@angular/material/table';
 import { MatRadioModule } from '@angular/material/radio'; 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TabelaComponentComponent } from './componente_shared/tabela-component/tabela-component.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { SidenavComponent } from './componente_shared/sidenav/sidenav.component';
+import { MenuComponent } from './componente_shared/menu/menu.component';
+import { LayoutModule } from '@angular/cdk/layout'; 
 // import { MaterialModule } from './material.module';
-
+ 
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,8 +43,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     UsuarioDetalheComponent,
     UsuarioCadastroComponent,
     HomeDetalheComponent,
-    InputComponent,
-    TableComponent, 
+    TabelaComponentComponent,
+    SidenavComponent,
+    MenuComponent, 
 
   ],
   imports: [
@@ -60,7 +65,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatSidenavModule,
+    MatSidenavModule, 
     MatSelectModule,
     MatMenuModule,
     MatExpansionModule,
@@ -68,6 +73,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatTableModule,
     MatIconModule,
     MatRadioModule,
+    MatPaginatorModule,
+    MatSortModule,
+    LayoutModule,
 
 
   ],

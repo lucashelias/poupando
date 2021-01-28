@@ -1,37 +1,4 @@
-<!-- <div class="d-flex" id="wrapper"> -->
-  <!-- Sidebar -->
-  <!-- <div class="bg-light border-right" id="sidebar-wrapper">
-    <div class="sidebar-heading">Menu </div> -->
-    <!-- <div class="list-group list-group-flush">
-    <mat-accordion>
-      <mat-expansion-panel >
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            Cadastros
-          </mat-panel-title>
-          <mat-panel-description>
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-        <ul>
-          <li>
-            <a routerLink='/usuario-detalhe'>Usuários</a>
-          </li>
-        </ul>
-      </mat-expansion-panel>
-    </mat-accordion>
-    </div> -->
-  <!-- <a [routerLink]="['/usuario-detalhe']" class="list-group-item list-group-item-action bg-light">Usuario Detalhe</a> -->
-  <!-- <a href="/usuario-detalhe" class="list-group-item list-group-item-action bg-light">Usuario Detalhe</a>
-      <a href="#" class="list-group-item list-group-item-action bg-light">Transações</a>
-      <a href="#" class="list-group-item list-group-item-action bg-light">Saldos</a>
-      <a href="#" class="list-group-item list-group-item-action bg-light">Simuladores</a>
-      <a href="#" class="list-group-item list-group-item-action bg-light">Investimentos</a>
-      <a href="#" class="list-group-item list-group-item-action bg-light">Importações de Dados</a>
-  </div>
-  </div> -->
-  <!-- Fim Sidebar -->
- 
-
+<!-- 
 <div class="d-flex" id="wrapper">
   <div *ngIf="isLoggedIn" class="bg-light border-right" id="sidebar-wrapper">
     <div class="sidebar-heading">Therichpost </div>
@@ -43,46 +10,58 @@
       <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
       <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
     </div>
-  </div>
-
-  <!-- Navbar -->
-  <div id="page-content-wrapper">
-    <mat-toolbar *ngIf="isLoggedIn" color="primary" class="toolbar">
-      <button mat-icon-button id="menu-toggle">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span class="example-spacer"></span>
-
-      <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button> -->
-
-      <button mat-button id="bt_home">
-        <mat-icon>home</mat-icon>
-      </button>
-
-      <button mat-button [matMenuTriggerFor]="menu" id="btMenuUser">
-        <mat-icon>account_circle</mat-icon>
-        {{currentUser.usuario}}
-      </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item style="font-size: 12px;">
-          <mat-icon class="icons_menu">build</mat-icon>
-          <span>Configurações</span>
+  </div> -->
+  
+    <!-- Navbar -->
+   <!--  <div id="page-content-wrapper"> -->
+      <mat-toolbar *ngIf="isLoggedIn" color="primary" class="toolbar">
+        <button mat-icon-button id="menu-toggle">
+          <mat-icon>menu</mat-icon>
         </button>
-        <button mat-menu-item style="font-size: 12px;" (click)='logout()'>
-          <mat-icon class="icons_menu">login</mat-icon>
-          <span>Logout</span>
+        <span class="example-spacer"></span>
+  
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
         </button>
-      </mat-menu>
-    </mat-toolbar>
-    <!-- Fim Navbar -->
+  
+        <button mat-button id="bt_home" (click)="home()">
+          <mat-icon>home</mat-icon>
+        </button>
+  
+        <button mat-button [matMenuTriggerFor]="menu" id="btMenuUser">
+          <mat-icon>account_circle</mat-icon>
+          {{currentUser.usuario}}
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item style="font-size: 12px;">
+            <mat-icon class="icons_menu">build</mat-icon>
+            <span>Configurações</span>
+          </button>
+          <button mat-menu-item style="font-size: 12px;" (click)='logout()'>
+            <mat-icon class="icons_menu">login</mat-icon>
+            <span>Logout</span>
+          </button>
+        </mat-menu>
+      </mat-toolbar>
+      <!-- Fim Navbar -->
+
+<!--   
+  <mat-sidenav-containar  *ngIf="isLoggedIn">
+    <mat-sidenav mode="side" opened="collapse" fixedInViewport="true">
+      <mat-nav-list>
+        <a routerLink="/usuario-detalhe" class="list-group-item list-group-item-action bg-light">
+          <i class="material-icons">storefront</i>
+          Usuario
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+  </mat-sidenav-containar> -->
 
     <!-- CORPO DO HOME -->
 
 
     <!-- FIM CORPO DO HOME -->
-    <div class="content-wrapper">
+    <!-- <div class="content-wrapper">
       <div>
 
         <router-outlet></router-outlet>
@@ -91,4 +70,4 @@
     </div>
   </div>
 
-</div>
+</div> -->

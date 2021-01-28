@@ -1,37 +1,14 @@
 <!-- Navbar -->
 <div id="page-content-wrapper">
 
-  <app-home ></app-home>
-  <!-- <router-outlet></router-outlet> -->
+  <!-- <div *ngIf="!isLoggedIn">
+    <app-login></app-login>
+  </div>
 
-  <!-- <mat-toolbar *ngIf="isLoggedIn" color="primary" class="toolbar">
-    <button mat-icon-button id="menu-toggle">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span class="example-spacer"></span>
+  <div *ngIf="isLoggedIn"> -->
+    <app-menu></app-menu>
+    <!-- <app-home></app-home>
+    <app-sidenav></app-sidenav> -->
+  <!-- </div> -->
 
-    <button mat-button id="bt_home" routerLink='/home-detalhe'>
-      <mat-icon>home</mat-icon>
-    </button>
-
-    <button mat-button [matMenuTriggerFor]="menu" id="btMenuUser">
-      <mat-icon>account_circle</mat-icon>
-      {{username}}
-    </button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item style="font-size: 12px;">
-        <mat-icon class="icons_menu">build</mat-icon>
-        <span>Configurações</span>
-      </button>
-      <button mat-menu-item style="font-size: 12px;" (click)='logout()'>
-        <mat-icon class="icons_menu">login</mat-icon>
-        <span>Logout</span>
-      </button>
-    </mat-menu>
-  </mat-toolbar> -->
-  <!-- Fim Navbar -->
-
-    <!-- <div>
-      <router-outlet></router-outlet>
-    </div> -->
 </div>
