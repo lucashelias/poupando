@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { UsuarioCadastroComponent } from './cadastros/usuario-cadastro/usuario-cadastro.component';
-import { UsuarioDetalheComponent } from './cadastros/usuario-detalhe/usuario-detalhe.component';
+import { UsuarioCadastroComponent } from './usuario/usuario-cadastro/usuario-cadastro.component';
+import { UsuarioDetalheComponent } from './usuario/usuario-detalhe/usuario-detalhe.component';
 import { HomeDetalheComponent } from './home/home-detalhe/home-detalhe.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';

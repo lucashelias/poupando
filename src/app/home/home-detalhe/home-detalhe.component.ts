@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UsuarioCadastroComponent } from 'src/app/cadastros/usuario-cadastro/usuario-cadastro.component';
+import { UsuarioCadastroComponent } from 'src/app/usuario/usuario-cadastro/usuario-cadastro.component';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
 import { UserService } from 'src/app/_services/user.service';
 
@@ -9,17 +9,17 @@ export interface Tile {
   rows: number;
   text: string;
 }
- 
+
 @Component({
   selector: 'app-home-detalhe',
   templateUrl: './home-detalhe.component.html',
   styleUrls: ['./home-detalhe.component.css']
 })
-export class HomeDetalheComponent implements OnInit { 
-   
-  content?: string; 
+export class HomeDetalheComponent implements OnInit {
+
+  content?: string;
   currentUser?: any;
-  
+
 
   constructor(private userService: UserService, private token: TokenStorageService) { }
 
@@ -36,7 +36,7 @@ export class HomeDetalheComponent implements OnInit {
     );
   }
 
- 
+
 
   tiles: Tile[] = [
     {text: 'One', cols: 3, rows: 1, color: 'lightblue'},
