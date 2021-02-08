@@ -20,6 +20,7 @@ export class MenuComponent {
 
   isLoggedIn = false;
   currentUser: any;
+  panelOpenState = false;
 
   constructor(private breakpointObserver: BreakpointObserver,
     private tokenStorageService: TokenStorageService,
@@ -32,7 +33,7 @@ export class MenuComponent {
     if (this.isLoggedIn) {
       this.currentUser = this.tokenStorageService.getUser();
       // this.roles = this.currentUser.roles;
-    }
+    } 
   }
 
   dashboards():void{

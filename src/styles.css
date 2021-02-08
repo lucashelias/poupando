@@ -1,5 +1,6 @@
 @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import "~@fortawesome/fontawesome-free/css/all.css"; 
 
 .wrapper {
   width: 100%;
@@ -162,4 +163,12 @@ table {
 
 th.mat-sort-header-sorted {
   color: black;
+}
+
+.mat-expansion-panel-header-title i{
+  padding-right: 20px !important;
+}
+
+span i {
+  padding-right: 5px !important;
 }

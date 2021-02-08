@@ -1,23 +1,74 @@
-<link rel="stylesheet" href="/assets/css/style.css">
-<mat-sidenav-container class="sidenav-container" >
-  <mat-sidenav *ngIf="isLoggedIn" #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Menu</mat-toolbar>
+<mat-sidenav-container >
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === true">
+    <mat-toolbar class="dados-sidenav-header">
+      <div style="padding-bottom: 0%;">
+        <i class="fa fa-user-circle fa-6x" style="padding-top: 10px;"></i>
+        <div>
+          <span>
+            <strong>
+              {{currentUser.usuario + ' ' + currentUser.sobrenome}}
+            </strong>
+          </span>
+        </div>
+        <div>
+          <span> E-mail: {{currentUser.email}}</span>
+        </div>
+        <div>
+          <span> Permissão: {{currentUser.role}}</span>
+        </div>
+      </div>
+
+
+    </mat-toolbar>
+    <mat-divider style="size: 10px;"></mat-divider>
     <mat-nav-list>
 
-      <a mat-list-item routerLink="/usuario-detalhe">Usuário</a>
+      <mat-accordion >
+        <mat-expansion-panel style="background-color: green;" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <i class="fa fa-tachometer-alt icon-menu"></i>
+              Dashboards
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <a mat-list-item  routerLink="" style="background-color: grey; width: auto;">
+            <span class="menu-text">Dashboards</span>
+          </a>
+        </mat-expansion-panel>
+      </mat-accordion>
+
+      <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <i class="fa fa-cog fa-spin fa-fw"></i>
+              Configurações
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <a mat-list-item routerLink="/usuario-detalhe">
+            <span class="menu-text">
+              <i class="fa fa-tachometer-alt"></i>
+              Acessos
+            </span>
+          </a>
+        </mat-expansion-panel>
+      </mat-accordion>
 
     </mat-nav-list>
+
+
   </mat-sidenav>
   <mat-sidenav-content>
 
-    <mat-toolbar class="class_menu" *ngIf="isLoggedIn">
+    <mat-toolbar class="class_menu">
       <button mat-icon-button id="menu-toggle" (click)="drawer.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
       <span class="example-spacer"></span>
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -47,6 +98,7 @@
       </button>
     </mat-toolbar>
 
-    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
+
+<router-outlet></router-outlet>

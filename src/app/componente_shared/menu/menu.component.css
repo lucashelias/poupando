@@ -3,7 +3,7 @@
 }
 
 .sidenav {
-  width: 200px;
+  width: 350px;
 }
 
 .sidenav .mat-toolbar {
@@ -16,16 +16,30 @@
   z-index: 1;
 }
 
-.class_menu{
-  background-color: #37474F;
+.class_menu {
+  background-color: #264a5c;
   height: 44px;
+  color: white;
+}
 
-
-}.mat-toolbar {
+.mat-toolbar {
   background-color: #37474F;
 }
 
 .mat-sidenav {
-  background-color: #37474F;
+  background-color: orange;
+  color: white;
 }
-  
+
+.dados-sidenav-header{
+  height: 180px;
+  font-size: 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.mat-divider {
+  border-top-color:white;
+}

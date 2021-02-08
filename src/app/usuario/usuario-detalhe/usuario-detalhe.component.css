@@ -1,0 +1,6 @@
+.class_tela{
+    display: flex;
+    width: 100vw;
+    flex-direction: column;
+    padding: 30px 0px 0px 100px;
+}
