@@ -22,6 +22,10 @@
 
 
 }.mat-toolbar {
-  background-color: white;
+  background-color: #37474F;
 }
 
+.mat-sidenav {
+  background-color: #37474F;
+}
+  

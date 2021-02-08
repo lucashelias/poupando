@@ -15,7 +15,7 @@ import { authInterceptorProviders } from './_services/auth.interceptor';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import { MatButtonModule } from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button'; 
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
@@ -35,7 +35,7 @@ import { MenuComponent } from './componente_shared/menu/menu.component';
 import { LayoutModule } from '@angular/cdk/layout';
 // import { MaterialModule } from './material.module';
 
-@NgModule({
+@NgModule({ 
   declarations: [
     AppComponent,
     HomeComponent,

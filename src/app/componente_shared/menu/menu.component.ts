@@ -35,15 +35,17 @@ export class MenuComponent {
     }
   }
 
-  home():void{
-    this.router.navigate(["/home"])
+  dashboards():void{
+    this.router.navigate(["/home-detalhe"])
   }
 
   logout(): void {
 
     this.tokenStorageService.signOut();
-    this.router.navigate(["/login"])
     this.reloadPage();
+    this.router.navigate(["/login"])
+    this.router.navigate(["/login"])
+    this.router.navigate(["/login"])
   }
 
   reloadPage(): void {

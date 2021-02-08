@@ -1,33 +1,33 @@
 @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
-@import '~@angular/material/prebuilt-themes/indigo-pink.css'; 
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
 .wrapper {
-  
   width: 100%;
 }
 
-.button{
+.button {
   background-color: #1976d2;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif !important;
   margin-right: 10px !important;
   margin-top: 20px !important;
   width: 120px !important;
-    
+
 }
-.labels{
+
+.labels {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 12px;
   margin-right: 10px;
-} 
-
-.inputText{
-margin-left: 10px;
-font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-font-size: 12px;
 }
 
-.campos-mascara{
-width: 150px!important;
+.inputText {
+  margin-left: 10px;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 12px;
+}
+
+.campos-mascara {
+  width: 150px !important;
 }
 
 .card.card-small {
@@ -36,22 +36,20 @@ width: 150px!important;
 }
 
 
-.card.card-small input{
- margin-bottom: 10px;
+.card.card-small input {
+  margin-bottom: 10px;
 }
 
-.form-tela{
+.form-tela {
   justify-content: left;
   margin-top: 16px;
   margin-left: 16px;
-}
+} 
 
-.card_tela{
+ .card_tela {
   width: 600px !important;
   margin-top: 16px;
 }
-
-
 
 .card-container {
   display: flex;
@@ -60,12 +58,9 @@ width: 150px!important;
   margin-top: 16px;
 }
 
-.background_login{
-  background-color: azure;
-  width: 100%;
-}
 
-.icons_menu{
+
+.icons_menu {
   font-size: 20px !important;
 }
 
@@ -76,7 +71,8 @@ width: 150px!important;
   color: white;
   font-weight: 600;
 }
-/* 
+
+
 .content {
   display: flex;
   margin: 82px auto 32px;
@@ -84,9 +80,14 @@ width: 150px!important;
   max-width: 960px;
   flex-direction: column;
   align-items: center;
-} */
-
-h1,h2,h3,h4,h5,h6 {
+}
+ 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 8px 0;
 }
 
@@ -105,22 +106,50 @@ a:hover {
   color: #125699;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+} 
 
 /* ======================================================================================== */
 
 mat-card {
-  max-width: auto !important;
   margin: 2em auto;
   text-align: center;
 }
+
+.mat-card-login {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center
+}
+
+.card-login{
+  display: flex;
+  flex-direction: column;
+}
+
+.massagelogin{
+  margin-top: 20px;
+}
+
+.input:focus {
+  outline: none !important;
+  border:1px solid green !important;
+  box-shadow: 0 0 10px green !important;
+}
+
+
 .signin-content {
   padding: 60px 1rem;
 }
 
 .full-width-input {
-  width: 100%;
+  width: 80%;
 }
 
 .example-spacer {
@@ -134,4 +163,3 @@ table {
 th.mat-sort-header-sorted {
   color: black;
 }
-  

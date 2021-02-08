@@ -1,5 +1,5 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+<mat-sidenav-container class="sidenav-container" >
+  <mat-sidenav *ngIf="isLoggedIn" #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
@@ -10,7 +10,7 @@
   </mat-sidenav>
   <mat-sidenav-content>
 
-    <mat-toolbar class="class_menu">
+    <mat-toolbar class="class_menu" *ngIf="isLoggedIn">
       <button mat-icon-button id="menu-toggle" (click)="drawer.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
@@ -20,7 +20,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <button mat-button id="bt_home" (click)="home()">
+      <button mat-button id="bt_home" (click)="dashboards()">
         <mat-icon>home</mat-icon>
       </button>
 
