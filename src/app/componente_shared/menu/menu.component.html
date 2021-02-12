@@ -1,4 +1,5 @@
-<mat-sidenav-container >
+<div>
+<mat-sidenav-container *ngIf=isLoggedIn >
   <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === true">
     <mat-toolbar class="dados-sidenav-header">
@@ -22,10 +23,11 @@
 
     </mat-toolbar>
     <mat-divider style="size: 10px;"></mat-divider>
-    <mat-nav-list>
+    <mat-nav-list >
 
+      <h3 class="sub_secao_titulo">Relatórios</h3>
       <mat-accordion >
-        <mat-expansion-panel style="background-color: green;" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel style="background-color: transparent; color: white;" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
           <mat-expansion-panel-header>
             <mat-panel-title>
               <i class="fa fa-tachometer-alt icon-menu"></i>
@@ -38,8 +40,9 @@
         </mat-expansion-panel>
       </mat-accordion>
 
-      <mat-accordion>
-        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+      <h3 class="sub_secao_titulo" style="margin-top: 10px; margin-bottom: 0px;">Configurações</h3>
+      <mat-accordion >
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" style="opacity: 100% !important;">
           <mat-expansion-panel-header>
             <mat-panel-title>
               <i class="fa fa-cog fa-spin fa-fw"></i>
@@ -61,7 +64,7 @@
   </mat-sidenav>
   <mat-sidenav-content>
 
-    <mat-toolbar class="class_menu">
+    <mat-toolbar class="class_menu ">
       <button mat-icon-button id="menu-toggle" (click)="drawer.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
@@ -101,4 +104,5 @@
   </mat-sidenav-content>
 </mat-sidenav-container>
 
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
+</div>

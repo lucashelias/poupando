@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "allowedCommonJsDependencies":["lodash", "jquery"],
+            "allowedCommonJsDependencies":["lodash", "jquery", "chart.js"],
             "outputPath": "dist/poupando",
             "index": "src/index.html",
             "main": "src/main.ts",

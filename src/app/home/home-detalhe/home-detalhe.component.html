@@ -1,9 +1,37 @@
-<mat-grid-list cols="4" rowHeight="100px">
-    <mat-grid-tile
-        *ngFor="let tile of tiles"
-        [colspan]="tile.cols"
-        [rowspan]="tile.rows"
-        [style.background]="tile.color">
-      {{tile.text}}
+<div style="background-color: azure;">
+  <mat-card style="margin: 0; background-color: black; color: white; border-radius:0; height: 50px;">
+    <h3> Bolsa de Valores.</h3>
+  </mat-card>
+
+  <mat-grid-list cols="4" rowHeight="100px">
+    <mat-grid-tile [colspan]="4" [rowspan]="1">
+      <mat-card style="width: 100%; height: 100px; margin: 0; padding: 0; background-color: bisque;">
+        
+      </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
+
+
+  <mat-grid-list cols="4" rowHeight="500px">
+
+    <mat-grid-tile [colspan]="2" [rowspan]="1">
+      <mat-card style="width: 70%; height: 80%;">
+        <h2> Saldo Bancários</h2>
+        <app-conta-bancaria></app-conta-bancaria>
+      </mat-card>
+    </mat-grid-tile>
+    
+    <mat-grid-tile [colspan]="2" [rowspan]="1">
+      <mat-card style="width: 70%; height: 80%;">
+        <h2> Investimentos</h2>
+        <app-investimentos></app-investimentos>
+      </mat-card> 
+    </mat-grid-tile>
+    
+    <mat-grid-tile [colspan]="2" [rowspan]="1">
+      <mat-card style="width: 70%; height: 70%;">
+        <app-conta-bancaria></app-conta-bancaria>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

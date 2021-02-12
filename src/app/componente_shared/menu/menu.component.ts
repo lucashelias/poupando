@@ -43,10 +43,8 @@ export class MenuComponent {
   logout(): void {
 
     this.tokenStorageService.signOut();
-    this.reloadPage();
     this.router.navigate(["/login"])
-    this.router.navigate(["/login"])
-    this.router.navigate(["/login"])
+    // this.reloadPage();
   }
 
   reloadPage(): void {

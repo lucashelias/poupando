@@ -20,6 +20,10 @@
   background-color: #264a5c;
   height: 44px;
   color: white;
+  position: sticky;
+  position: -webkit-sticky; /* For macOS/iOS Safari */
+  top: 0; /* Sets the sticky toolbar to be on top */
+  z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
 }
 
 .mat-toolbar {
@@ -27,8 +31,9 @@
 }
 
 .mat-sidenav {
-  background-color: orange;
+  background-color: #37474F;
   color: white;
+  
 }
 
 .dados-sidenav-header{
@@ -43,3 +48,18 @@
 .mat-divider {
   border-top-color:white;
 }
+
+mat-panel-title {
+  color: white;
+}
+
+mat-expansion-panel {
+  background-color: transparent !important;
+  color: white;
+}
+
+.sub_secao_titulo {
+  margin-top: 10px; 
+  margin-bottom: 0px;
+}
+
