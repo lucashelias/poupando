@@ -29,16 +29,91 @@
       <mat-accordion >
         <mat-expansion-panel style="background-color: transparent; color: white;" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
           <mat-expansion-panel-header>
-            <mat-panel-title>
+            <mat-panel-title >
               <i class="fa fa-tachometer-alt icon-menu"></i>
               Dashboards
             </mat-panel-title>
           </mat-expansion-panel-header>
-          <a mat-list-item  routerLink="" style="background-color: grey; width: auto;">
-            <span class="menu-text">Dashboards</span>
+          <a mat-list-item routerLink="">
+            <span class="menu-text">
+              <i class="fa fa-file-code"></i>
+              Saldo Bancário
+            </span>
+          </a>
+          <a mat-list-item routerLink="">
+            <span class="menu-text">
+              <i class="fa fa-file-code"></i>
+              Investimentos
+            </span>
+          </a>
+          <a mat-list-item routerLink="">
+            <span class="menu-text">
+              <i class="fa fa-file-code"></i>
+              Receitas
+            </span>
           </a>
         </mat-expansion-panel>
       </mat-accordion>
+
+      <h3 class="sub_secao_titulo" style="margin-top: 10px; margin-bottom: 0px;">Cantábil</h3>
+      <mat-accordion >
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" style="opacity: 100% !important;">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <i class="fa fa-upload"></i>
+              Consulta /Lançamentos Contábeis
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <a mat-list-item routerLink="">
+            <span class="menu-text">
+              <i class="fa fa-file-code"></i>
+              Débito / Crédito
+            </span>
+          </a>
+          <a mat-list-item routerLink="">
+            <span class="menu-text">
+              <i class="fa fa-file-code"></i>
+              Transferências
+            </span>
+          </a>
+          <a mat-list-item routerLink="">
+            <span class="menu-text">
+              <i class="fa fa-file-code"></i>
+              Recibos / Comprovantes
+            </span>
+          </a>
+          <a mat-list-item routerLink="">
+            <span class="menu-text">
+              <i class="fa fa-file-code"></i>
+              Pagamentos
+            </span>
+          </a>
+          <a mat-list-item routerLink="">
+            <span class="menu-text">
+              <i class="fa fa-file-code"></i>
+             Imposto de Renda 
+            </span>
+          </a>
+          <a mat-list-item routerLink=""> 
+            <span class="menu-text">
+              <i class="fa fa-file-code"></i>
+             Lançamentos de Ativos
+            </span>
+          </a>
+          <a mat-list-item routerLink="">
+            <span class="menu-text">
+              <i class="fa fa-file-code"></i>
+             Simulação Emprestimo
+            </span>
+          </a>
+          <a mat-list-item routerLink="">
+            <span class="menu-text">
+              <i class="fa fa-file-code"></i>
+             Simulação para Compras
+            </span>
+          </a>
+        </mat-expansion-panel>
+      </mat-accordion> 
 
       <h3 class="sub_secao_titulo" style="margin-top: 10px; margin-bottom: 0px;">Configurações</h3>
       <mat-accordion >
@@ -58,6 +133,29 @@
         </mat-expansion-panel>
       </mat-accordion>
 
+      <h3 class="sub_secao_titulo" style="margin-top: 10px; margin-bottom: 0px;">Arquivos</h3>
+      <mat-accordion >
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" style="opacity: 100% !important;">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <i class="fa fa-upload"></i>
+              Upload de Arquivos
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <a mat-list-item routerLink="">
+            <span class="menu-text">
+              <i class="fa fa-file-code"></i>
+              Arquivos OFX
+            </span>
+          </a>
+          <a mat-list-item routerLink="">
+            <span class="menu-text">
+              <i class="fa fa-file-excel"></i>
+              Arquivos Excel
+            </span>
+          </a>
+        </mat-expansion-panel>
+      </mat-accordion>
     </mat-nav-list>
 
 
@@ -102,7 +200,7 @@
     </mat-toolbar>
 
   </mat-sidenav-content>
-</mat-sidenav-container>
+</mat-sidenav-container> 
 
-  <router-outlet></router-outlet>
+<router-outlet></router-outlet>
 </div>

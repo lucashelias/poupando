@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
 import { Router } from '@angular/router';
+import { NestedTreeControl } from '@angular/cdk/tree';
+import { MatTreeNestedDataSource } from '@angular/material/tree';
 
 @Component({
   selector: 'app-menu',
@@ -16,7 +18,7 @@ export class MenuComponent {
     .pipe(
       map(result => result.matches),
       shareReplay()
-    ); 
+    );
 
   isLoggedIn = false;
   currentUser: any;
@@ -24,7 +26,8 @@ export class MenuComponent {
 
   constructor(private breakpointObserver: BreakpointObserver,
     private tokenStorageService: TokenStorageService,
-    private router: Router) { }
+    private router: Router) {  }
+
 
   ngOnInit() {
     this.currentUser = this.tokenStorageService.getUser();
@@ -33,10 +36,10 @@ export class MenuComponent {
     if (this.isLoggedIn) {
       this.currentUser = this.tokenStorageService.getUser();
       // this.roles = this.currentUser.roles;
-    } 
+    }
   }
 
-  dashboards():void{
+  dashboards(): void {
     this.router.navigate(["/home-detalhe"])
   }
 

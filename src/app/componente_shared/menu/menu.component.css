@@ -63,3 +63,11 @@ mat-expansion-panel {
   margin-bottom: 0px;
 }
 
+.menu-text{
+  color: white;
+}
+
+mat-expansion-panel-header {
+ background-color: cadetblue;
+}
+

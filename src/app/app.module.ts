@@ -43,7 +43,7 @@ import { BolsaDeValoresComponent } from './dashboards/simples/bolsa-de-valores/b
   declarations: [ 
     AppComponent,
     HomeComponent,
-    LoginComponent,
+    LoginComponent, 
     UsuarioDetalheComponent,
     UsuarioCadastroComponent,
     HomeDetalheComponent,
@@ -51,9 +51,9 @@ import { BolsaDeValoresComponent } from './dashboards/simples/bolsa-de-valores/b
     SidenavComponent,
     MenuComponent,
     ContaBancariaComponent,
-    InvestimentosComponent,
+    InvestimentosComponent, 
     BolsaDeValoresComponent,
-
+ 
   ],
   imports: [
     BrowserModule,
