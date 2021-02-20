@@ -1,0 +1,42 @@
+Projeto Poupando:
+    Cadastros:
+        Usuários:
+            ☐ Ajustar tela de filtros de cadastro usuário
+            ☐ Criar tela de alteração para usuário
+            ☐ Criar tela de remoção de usuário
+
+        Vinculo familiar:
+            ☐ Ajustar tela de filtros de cadastro usuário
+            ☐ Criar tela de alteração para usuário
+            ☐ Criar tela de remoção de usuário
+            
+        Dados Bancárias:
+            ☐ Criar funcionalidade de inclusão bancárias
+            ☐ Criar funcionalidade de inclusão de Contas bancárias
+            ☐ Criar funcionalidade vinculo de contas x usuários
+
+        Despesas:
+            ☐ Criar funcionalidade de inclusão despesas
+            ☐ Criar funcionalidade para analises de despesas
+            ☐ Criar funcionalidade de alteração de despesas
+            ☐ Criar funcionalidade de remoção de despesas
+            ☐ Criar chart de despesas
+
+    BOVESPA:
+        ☐ Criar integração com a bovespa (API)
+        
+    Upload de arquivos:
+        ☐ Criar funcionalidade de upload de arquivos de investimentos OFX
+        ☐ Criar funcionalidade de upload de arquivos de informações bancárias
+
+    Investimentos:
+        ☐ Criar funcionalidade para listar os investimentos a partir da API da bovespa
+        
+        Criar funcionalidade de analise de investimentos adquiridos:
+            ☐ Demonstrativo de investimentos adquiridos
+            ☐ Demonstrativo de ganhos com o investimentos
+            ☐ Demonstrativo de valor atual do investimento
+            ☐ Demonstrativo de perda por não investir mais nos atuais investimentos
+    
+        ☐ Criar chart dos investimentos.
+        
