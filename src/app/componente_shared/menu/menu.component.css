@@ -3,7 +3,7 @@
 }
 
 .sidenav {
-  width: 200px;
+  width: 350px;
 }
 
 .sidenav .mat-toolbar {
@@ -16,16 +16,58 @@
   z-index: 1;
 }
 
-.class_menu{
-  background-color: #37474F;
+.class_menu {
+  background-color: #264a5c;
   height: 44px;
+  color: white;
+  position: sticky;
+  position: -webkit-sticky; /* For macOS/iOS Safari */
+  top: 0; /* Sets the sticky toolbar to be on top */
+  z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+}
 
-
-}.mat-toolbar {
+.mat-toolbar {
   background-color: #37474F;
 }
 
 .mat-sidenav {
   background-color: #37474F;
-}
+  color: white;
   
+}
+
+.dados-sidenav-header{
+  height: 180px;
+  font-size: 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.mat-divider {
+  border-top-color:white;
+}
+
+mat-panel-title {
+  color: white;
+}
+
+mat-expansion-panel {
+  background-color: transparent !important;
+  color: white;
+}
+
+.sub_secao_titulo {
+  margin-top: 10px; 
+  margin-bottom: 0px;
+}
+
+.menu-text{
+  color: white;
+}
+
+mat-expansion-panel-header {
+ background-color: cadetblue;
+}
+

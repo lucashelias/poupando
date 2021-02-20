@@ -26,7 +26,7 @@ export class SidenavComponent implements OnInit {
       this.currentUser = this.tokenStorageService.getUser();
       this.roles = this.currentUser.roles;
 
-
+ 
     }
   }
 }

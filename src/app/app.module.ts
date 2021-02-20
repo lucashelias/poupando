@@ -33,20 +33,27 @@ import { MatSortModule } from '@angular/material/sort';
 import { SidenavComponent } from './componente_shared/sidenav/sidenav.component';
 import { MenuComponent } from './componente_shared/menu/menu.component';
 import { LayoutModule } from '@angular/cdk/layout';
-// import { MaterialModule } from './material.module';
+import { ChartsModule } from 'ng2-charts';
+import { ContaBancariaComponent } from './dashboards/simples/conta-bancaria/conta-bancaria.component';
+import { InvestimentosComponent } from './dashboards/simples/investimentos/investimentos.component';
+import { BolsaDeValoresComponent } from './dashboards/simples/bolsa-de-valores/bolsa-de-valores.component';
+
 
 @NgModule({ 
-  declarations: [
+  declarations: [ 
     AppComponent,
     HomeComponent,
-    LoginComponent,
+    LoginComponent, 
     UsuarioDetalheComponent,
     UsuarioCadastroComponent,
     HomeDetalheComponent,
     TabelaComponentComponent,
     SidenavComponent,
     MenuComponent,
-
+    ContaBancariaComponent,
+    InvestimentosComponent, 
+    BolsaDeValoresComponent,
+ 
   ],
   imports: [
     BrowserModule,
@@ -76,8 +83,9 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatPaginatorModule,
     MatSortModule,
     LayoutModule,
+    ChartsModule, 
 
-
+ 
   ],
   exports: [
     MatToolbarModule,
@@ -86,6 +94,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatFormFieldModule,
     MatButtonModule,
     MatSidenavModule,
+    ChartsModule,
 
   ],
 

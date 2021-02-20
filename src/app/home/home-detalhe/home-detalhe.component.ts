@@ -18,7 +18,7 @@ export interface Tile {
 export class HomeDetalheComponent implements OnInit {
 
   content?: string;
-  currentUser?: any;
+  currentUser?: any; 
 
 
   constructor(private userService: UserService, private token: TokenStorageService) { }
@@ -33,13 +33,13 @@ export class HomeDetalheComponent implements OnInit {
       err => {
         this.content = JSON.parse(err.error).message;
       }
-    );
+    ); 
   }
 
 
 
   tiles: Tile[] = [
-    {text: 'One', cols: 3, rows: 1, color: 'lightblue'},
+    {text: 'One', cols: 4, rows: 1, color: 'lightblue'},
     {text: 'Two', cols: 1, rows: 2, color: 'lightgreen'},
     {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
     {text: 'Four', cols: 2, rows: 1, color: '#DDBDF1'},
