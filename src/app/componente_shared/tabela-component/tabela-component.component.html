@@ -1,25 +1,85 @@
-<div class="mat-elevation-z8">
-  <table mat-table class="full-width-table" matSort aria-label="Elements">
-    <!-- Id Column -->
-    <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
-      <td mat-cell *matCellDef="let row">{{row.id}}</td>
+<!-- <div class="mat-elevation-z8">
+  <table mat-table [dataSource]="tableDataSrc" matSort class="mat-elevation-z8">
+    <ng-container *ngFor="let col of tableCols">
+      <ng-container matColumnDef="{{ col }}">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          {{ col | titlecase }}
+        </th>
+        <td mat-cell *matCellDef="let profile">{{ profile[col] }}</td>
+      </ng-container>
     </ng-container>
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
-      <td mat-cell *matCellDef="let row">{{row.name}}</td>
+    <ng-container matColumnDef="Ação" stickyEnd>
+      <th mat-header-cell *matHeaderCellDef>Ação</th>
+      <td mat-cell *matCellDef="let profile">
+        <a routerLink="">
+          <i class="material-icons">edit</i>
+        </a>
+        <a routerLink="">
+          <i class="material-icons">delete</i>
+        </a>
+      </td>
     </ng-container>
 
+    <tr mat-header-row *matHeaderRowDef="tableCols"></tr>
+    <tr mat-row *matRowDef="let row; columns: tableCols"></tr>
+  </table>
+  
+  <mat-paginator [pageSizeOptions]="[1, 2, 3, 5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div> -->
+
+
+<ng-container>
+
+  <!-- Filter -->
+  <ng-container *ngIf="isFilterable" [matColumnDef]="this.rowActionIcon">
+    <mat-form-field>
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="filter">
+    </mat-form-field>
+  </ng-container>
+
+  <!-- Table -->
+  <table mat-table [dataSource]="tableDataSource" matSort (matSortChange)="sortTable($event)">
+
+    <!-- action column -->
+    <ng-container *ngIf="rowActionIcon?.length" [matColumnDef]="rowActionIcon">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element" [id]="rowActionIcon" (click)="emitRowAction(element)">
+        <button mat-button>
+          <mat-icon>remove_shopping_cart</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+    <ng-container *ngFor="let tableColumn of tableColumns" [matColumnDef]="tableColumn.name">
+
+      <!-- if sortable column header -->
+      <ng-container *ngIf="tableColumn.isSortable; else notSortable">
+        <th mat-header-cell *matHeaderCellDef [mat-sort-header]="tableColumn.name"
+            [arrowPosition]="tableColumn.position === 'right' ? 'before' : 'after'">
+          {{tableColumn.name}}
+        </th>
+      </ng-container>
+      <!-- else not sortable -->
+      <ng-template #notSortable>
+        <th mat-header-cell *matHeaderCellDef [class.text-right]="tableColumn.position == 'right'">
+          {{tableColumn.name}}
+        </th>
+      </ng-template>
+
+      <!-- column data -->
+      <td mat-cell *matCellDef="let element" [class.text-right]="tableColumn.position == 'right'">
+        {{element | dataPropertyGetter: tableColumn.dataKey}}
+      </td>
+    </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 
-  <mat-paginator #paginator
-      [length]="dataSource?.data.length"
-      [pageIndex]="0"
-      [pageSize]="50"
-      [pageSizeOptions]="[10, 25, 50, 100]">
+  <!-- Pagination -->
+  <mat-paginator *ngIf="isPageable"
+                 [pageSizeOptions]="paginationSizes"
+                 [pageSize]="defaultPageSize"
+                 showFirstLastButtons>
   </mat-paginator>
-</div>
+</ng-container>
