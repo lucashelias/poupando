@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
-
+ 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -16,7 +16,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button'; 
-import { MatIconModule } from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon'; 
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -37,7 +37,7 @@ import { ChartsModule } from 'ng2-charts';
 import { ContaBancariaComponent } from './dashboards/simples/conta-bancaria/conta-bancaria.component';
 import { InvestimentosComponent } from './dashboards/simples/investimentos/investimentos.component';
 import { BolsaDeValoresComponent } from './dashboards/simples/bolsa-de-valores/bolsa-de-valores.component';
-
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({ 
   declarations: [ 
@@ -83,7 +83,8 @@ import { BolsaDeValoresComponent } from './dashboards/simples/bolsa-de-valores/b
     MatPaginatorModule,
     MatSortModule,
     LayoutModule,
-    ChartsModule, 
+    ChartsModule,
+    MatDialogModule
 
  
   ],

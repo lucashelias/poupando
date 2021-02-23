@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Usuario } from 'src/app/models/usuario.model';
 import { UsuarioService } from '../usuario-detalhe/usuario.service';
@@ -22,7 +24,6 @@ const ALERTS: Alert[] = [{
 })
 
 
-
 export class UsuarioCadastroComponent implements OnInit {
 
   step = 0;
@@ -35,7 +36,10 @@ export class UsuarioCadastroComponent implements OnInit {
   alerts: Alert[];
   alertaMensagem = false;
 
-  constructor(private modalService: NgbModal, private usuarioService: UsuarioService) { }
+  constructor(public dialog: MatDialog,
+              private modalService: NgbModal, 
+              private usuarioService: UsuarioService, 
+              private router: Router) { }
 
   ngOnInit(): void {
 
@@ -45,7 +49,18 @@ export class UsuarioCadastroComponent implements OnInit {
     this.alerts.splice(this.alerts.indexOf(alert), 1);
   }
 
+  cancelarCadastro(): void {
+    this.router.navigate(["/usuario-detalhe"])
 
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(DialogConfirmation);
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.router.navigate(["/usuario-detalhe"])
+    });
+  }
 
   salvarUsuario(nome, sobrenome, usuario, senha, email): void {
 
@@ -121,8 +136,6 @@ export class UsuarioCadastroComponent implements OnInit {
     this.step--;
   }
 
-
-
   getErrorMessage() {
     if (this.email.hasError('required')) {
       return 'Este campo é obrigatório';
@@ -132,3 +145,9 @@ export class UsuarioCadastroComponent implements OnInit {
   }
 
 }
+
+@Component({
+  selector: 'dialog-confirmation',
+  templateUrl: 'dialog-confirmation.html',
+})
+export class DialogConfirmation {}

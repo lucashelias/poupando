@@ -80,13 +80,13 @@
 
 
         <button type="submit" class="button" mat-raised-button color="primary" id="btCancelar"
-          (click)="cancelar(content)">
+          (click)="openDialog()">
           <mat-icon>cancel</mat-icon>
           <span>Cancelar</span>
         </button>
-      </div>
-
-      <ng-template #content let-modal>
+      </div> 
+ 
+      <!-- <ng-template #content let-modal>
         <div class="modal-header">
           <h4 class="modal-title">Atenção</h4>
           <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
@@ -97,16 +97,16 @@
           <p>Deseja realmente cancelar a criação do usuário???</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Sim</button>
-          <!-- <button type="button" class="btn btn-light" (click)="modal.dismiss('Close click')">Não</button> -->
+          <button type="button" class="btn btn-light" (click)="modal.(cancelarCadastro())">Sim</button>
+          <button type="button" class="btn btn-light" (click)="modal.dismiss('Close click')">Não</button>
         </div>
-      </ng-template>
+      </ng-template> -->
 
 
 
     </mat-expansion-panel>
   </mat-accordion>
 
-
+  
 
 </div>

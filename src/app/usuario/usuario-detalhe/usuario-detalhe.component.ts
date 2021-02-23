@@ -5,32 +5,21 @@ import { Component, OnInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Usuario } from 'src/app/models/usuario.model';
-import { UsuarioCadastroComponent } from '../usuario-cadastro/usuario-cadastro.component';
 import { UsuarioService } from './usuario.service';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Router } from '@angular/router';
-
 
 
 @Component({
-  selector: 'app-usuario-detalhe',
+  selector: 'app-usuario-detalhe', 
   templateUrl: './usuario-detalhe.component.html',
   styleUrls: ['./usuario-detalhe.component.css']
 })
 export class UsuarioDetalheComponent implements OnInit {
 
-  displayedColumns: string[] = ['ID', 'Nome', 'Sobrenome', 'Email', 'Usuario'];
-  // displayedColumns2: TableCollumnsOptions[] =
-  //   [
-  //     { nome: "ID", id: "id", placeholder: "ID" },
-  //     { nome: "Nome", id: "nome", placeholder: "nome" },
-  //     { nome: "Sobrenome", id: "sobrenome", placeholder: "Sobrenome" },
-  //     { nome: "Email", id: "email", placeholder: "E-mail" },
-  //     { nome: "Usuário", id: "usuario", placeholder: "Usuário" },
-  //   ]
-
+  displayedColumns: string[] = ['ID', 'Nome', 'Sobrenome', 'Email','Usuario'];
+  // dataSource: MatTableDataSource<Usuario>;
   dataSource = new UserDataSource(this.usuarioService);
   step = 0;
   usuario: Usuario[];
@@ -38,18 +27,9 @@ export class UsuarioDetalheComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private usuarioService: UsuarioService, private modalService: NgbModal, private router: Router) { }
+  constructor(private usuarioService: UsuarioService, private router: Router) { }
 
   ngOnInit(): void {
-  }
-
-  adicioneComponentModal(content) {
-    this.modalService.open(content, { size: 'lg' });
-    console.log("chamou a funcao")
-  }
-
-  openLg() {
-    this.modalService.open(UsuarioCadastroComponent, { size: 'lg' });
   }
 
   setStep(index: number) {
@@ -69,12 +49,15 @@ export class UsuarioDetalheComponent implements OnInit {
 
   }
 
+
   buscaUsuario(): void {
 
     this.usuarioService.getAll()
       .subscribe(
-        (data: any) => {
+        (data :any) => {
           this.usuario = data.lista;
+          // this.dataSource = new MatTableDataSource(this.usuario)
+          this.usuario
           console.log(data);
         },
         error => {
@@ -91,14 +74,14 @@ export class UsuarioDetalheComponent implements OnInit {
 }
 
 export class UserDataSource extends DataSource<any>{
-
-  constructor(private usuarioService: UsuarioService) {
+  
+  constructor(private usuarioService: UsuarioService){
     super()
   }
 
   connect(): Observable<Usuario[]> {
     return this.usuarioService.getAll();
   }
-  disconnect() { }
-
+  disconnect(){}
+  
 }
