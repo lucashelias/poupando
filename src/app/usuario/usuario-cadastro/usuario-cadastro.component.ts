@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Usuario } from 'src/app/models/usuario.model';
@@ -49,16 +49,11 @@ export class UsuarioCadastroComponent implements OnInit {
     this.alerts.splice(this.alerts.indexOf(alert), 1);
   }
 
-  cancelarCadastro(): void {
-    this.router.navigate(["/usuario-detalhe"])
-
-  }
-
   openDialog() {
     const dialogRef = this.dialog.open(DialogConfirmation);
 
     dialogRef.afterClosed().subscribe(result => {
-      this.router.navigate(["/usuario-detalhe"])
+      
     });
   }
 
@@ -150,4 +145,17 @@ export class UsuarioCadastroComponent implements OnInit {
   selector: 'dialog-confirmation',
   templateUrl: 'dialog-confirmation.html',
 })
-export class DialogConfirmation {}
+export class DialogConfirmation {
+   
+  router: Router;
+
+  constructor(
+    public dialogRef: MatDialogRef<DialogConfirmation>) {
+      dialogRef.disableClose = true;
+    }
+
+
+  cancelarCadastro(): void {
+    this.dialogRef.close();
+  }
+}
