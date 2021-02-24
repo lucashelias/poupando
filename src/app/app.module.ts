@@ -7,7 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { UsuarioCadastroComponent } from './usuario/usuario-cadastro/usuario-cadastro.component';
+import { DialogConfirmation, UsuarioCadastroComponent } from './usuario/usuario-cadastro/usuario-cadastro.component';
 import { UsuarioDetalheComponent } from './usuario/usuario-detalhe/usuario-detalhe.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeDetalheComponent } from './home/home-detalhe/home-detalhe.component';
@@ -37,7 +37,7 @@ import { ChartsModule } from 'ng2-charts';
 import { ContaBancariaComponent } from './dashboards/simples/conta-bancaria/conta-bancaria.component';
 import { InvestimentosComponent } from './dashboards/simples/investimentos/investimentos.component';
 import { BolsaDeValoresComponent } from './dashboards/simples/bolsa-de-valores/bolsa-de-valores.component';
-import {MatDialogModule} from '@angular/material/dialog';
+import {MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/dialog';
 
 @NgModule({ 
   declarations: [ 
@@ -53,8 +53,12 @@ import {MatDialogModule} from '@angular/material/dialog';
     ContaBancariaComponent,
     InvestimentosComponent, 
     BolsaDeValoresComponent,
- 
+    DialogConfirmation,
   ],
+
+
+
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -84,7 +88,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatSortModule,
     LayoutModule,
     ChartsModule,
-    MatDialogModule
+    MatDialogModule,
 
  
   ],
@@ -99,7 +103,9 @@ import {MatDialogModule} from '@angular/material/dialog';
 
   ],
 
-  providers: [authInterceptorProviders, { provide: LOCALE_ID, useValue: 'pt-BR' }],
+  providers: [authInterceptorProviders, 
+              { provide: LOCALE_ID, useValue: 'pt-BR' },
+            ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
