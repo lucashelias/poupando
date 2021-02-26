@@ -17,6 +17,15 @@
   .example-container .mat-radio-button {
     margin: 0 12px;
   }
+ 
+  mat-expansion-panel,
+mat-expansion-panel * {
+  transition: none !important;
+}
+
+mat-expansion-panel :hover{
+  transition: none !important;
+}
 
   
 .example-right-align {

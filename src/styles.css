@@ -48,8 +48,9 @@
 } 
 
  .card_tela {
-  width: 600px !important;
+  width: 1000px !important;
   margin-top: 16px;
+  margin-left: 100px;
 }
 
 .card-container {
@@ -147,10 +148,28 @@ mat-card {
 
 .signin-content {
   padding: 60px 1rem;
+  
 }
 
 .full-width-input {
   width: 80%;
+}
+
+.full-width {
+  width: 100%;
+  margin-left: 0px;
+  padding-right: 20px;
+  padding-top: 0px;
+  margin-top: 0%;
+}
+
+.div_class_label{
+  height: 20px;
+}
+
+.card_panel_style{
+  background-color: rgb(51, 134, 95); 
+  margin-bottom: 15px;
 }
 
 .example-spacer {

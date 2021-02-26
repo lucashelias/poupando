@@ -38,6 +38,7 @@ import { ContaBancariaComponent } from './dashboards/simples/conta-bancaria/cont
 import { InvestimentosComponent } from './dashboards/simples/investimentos/investimentos.component';
 import { BolsaDeValoresComponent } from './dashboards/simples/bolsa-de-valores/bolsa-de-valores.component';
 import {MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/dialog';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({ 
   declarations: [ 
@@ -89,6 +90,7 @@ import {MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/dia
     LayoutModule,
     ChartsModule,
     MatDialogModule,
+    MatSnackBarModule
 
  
   ],

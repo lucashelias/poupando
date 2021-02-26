@@ -1,14 +1,23 @@
+import { RepositionScrollStrategy } from '@angular/cdk/overlay';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Role } from 'src/app/models/role.model';
+import { UserRole } from 'src/app/models/user_role.model';
 import { Usuario } from 'src/app/models/usuario.model';
+import { RoleService } from 'src/app/_services/role.service';
 import { UsuarioService } from '../usuario-detalhe/usuario.service';
 
 interface Alert {
   type: string;
   message: string;
+}
+interface Status {
+  tipo: string;
+  descricao: string;
 }
 
 const ALERTS: Alert[] = [{
@@ -35,11 +44,29 @@ export class UsuarioCadastroComponent implements OnInit {
   status: string = null;
   alerts: Alert[];
   alertaMensagem = false;
+  user_role = new UserRole;
+  tipo_status: '' = '';
+  tipo_role: '' = '';
+  roles: Role[] = [
+    { id: 1, name: 'Usuário' },
+    { id: 2, name: 'Moderador' },
+    { id: 3, name: 'Administrador' }
+  ];
+
+  user_status: Status[] = [
+    { tipo: "A", descricao: "Ativo" },
+    { tipo: "I", descricao: "Inativo" }
+  ]
+
+  favoriteSeason: string;
+  seasons: string[] = ['Winter', 'Spring', 'Summer', 'Autumn'];
 
   constructor(public dialog: MatDialog,
-              private modalService: NgbModal, 
-              private usuarioService: UsuarioService, 
-              private router: Router) { }
+    private modalService: NgbModal,
+    private roleService: RoleService,
+    private usuarioService: UsuarioService,
+    private _snackBar: MatSnackBar,
+    private router: Router) { }
 
   ngOnInit(): void {
 
@@ -53,8 +80,19 @@ export class UsuarioCadastroComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogConfirmation);
 
     dialogRef.afterClosed().subscribe(result => {
-      
+
     });
+  }
+
+  ConsultaRoles(): void {
+    this.roleService.getAllRole().subscribe(
+      (data: any) => {
+        this.roles = data.lista;
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      });
   }
 
   salvarUsuario(nome, sobrenome, usuario, senha, email): void {
@@ -67,16 +105,7 @@ export class UsuarioCadastroComponent implements OnInit {
     this.usuario.usuario = usuario;
     this.usuario.senha = senha;
     this.usuario.email = email;
-
-    // Validação do status do usuário
-    if (status == null) {
-      status = 'S'
-    } else if (this.status == '1') {
-      this.status = 'S'
-    } else {
-      this.status = 'N'
-    }
-    this.usuario.status = status;
+    this.usuario.status = this.tipo_status;
 
     // validação dos campos obrigatórios
 
@@ -85,15 +114,23 @@ export class UsuarioCadastroComponent implements OnInit {
       this.alertaMensagem = true;
     }
     if (this.usuario.usuario.length == 0) {
-      this.messege.push('É obrigatório informar um usuário')
+      this.messege.push('É obrigatório informar o usuário')
       this.alertaMensagem = true;
     }
     if (this.usuario.senha.length == 0) {
-      this.messege.push("É obrigatório informar uma senha")
+      this.messege.push("É obrigatório informar a senha")
       this.alertaMensagem = true;
     }
     if (this.usuario.email.length == 0) {
       this.messege.push("É obrigatório informar um e-mail")
+      this.alertaMensagem = true;
+    }
+    if (this.tipo_status == '') {
+      this.messege.push("É obrigatório informar se o usuário se encontrará ativo ou inativo.")
+      this.alertaMensagem = true;
+    }
+    if (this.tipo_role == '') {
+      this.messege.push("É obrigatório um tipo de permissão para o usuário.")
       this.alertaMensagem = true;
     }
 
@@ -102,18 +139,43 @@ export class UsuarioCadastroComponent implements OnInit {
       this.usuarioService.create(this.usuario)
         .subscribe(
           response => {
+            this.usuario = response
             console.log(response);
-            this.submitted = true;
-            this.modalService.open(response, { size: 'sm' });
+            //this.openConfirmation()
+            this.vincularUsuarioRole(this.usuario.id,this.tipo_role);
+
           },
           error => {
             console.log(error);
-            this.modalService.open(error, { size: 'sm' });
+            //this.modalService.open(error, { size: 'sm' });
           });
     }
   }
 
+  openConfirmation() {
+    this._snackBar.open('Usuário cadastrado com sucesso!!!', '', {
+      duration: 2000,
+      horizontalPosition: 'right',
+      verticalPosition: 'top',
+    });
+  }
 
+  vincularUsuarioRole(id_usuario, id_permissao) {
+
+    this.user_role.usuarioId = id_usuario;
+    this.user_role.roleId = id_permissao;
+
+    this.roleService.createUserRole(this.user_role)
+      .subscribe(
+        response_role => {
+          console.log(response_role);
+          this.openConfirmation()
+        },
+        error => {
+          console.log('error');
+          //this.modalService.open(error, { size: 'sm' });
+        });
+  }
 
   cancelar(content): void {
     this.modalService.open(content, { size: 'sm' });
@@ -146,14 +208,13 @@ export class UsuarioCadastroComponent implements OnInit {
   templateUrl: 'dialog-confirmation.html',
 })
 export class DialogConfirmation {
-   
+
   router: Router;
 
   constructor(
     public dialogRef: MatDialogRef<DialogConfirmation>) {
-      dialogRef.disableClose = true;
-    }
-
+    dialogRef.disableClose = true;
+  }
 
   cancelarCadastro(): void {
     this.dialogRef.close();
