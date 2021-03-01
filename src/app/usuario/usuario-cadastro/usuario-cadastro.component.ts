@@ -8,6 +8,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Role } from 'src/app/models/role.model';
 import { UserRole } from 'src/app/models/user_role.model';
 import { Usuario } from 'src/app/models/usuario.model';
+import { MensagensPadraoService } from 'src/app/_services/mensagens/mensagens-padrao.service';
 import { RoleService } from 'src/app/_services/role.service';
 import { UsuarioService } from '../usuario-detalhe/usuario.service';
 
@@ -66,7 +67,8 @@ export class UsuarioCadastroComponent implements OnInit {
     private roleService: RoleService,
     private usuarioService: UsuarioService,
     private _snackBar: MatSnackBar,
-    private router: Router) { }
+    private router: Router,
+    private mensagemPadrao: MensagensPadraoService) { }
 
   ngOnInit(): void {
 
@@ -143,6 +145,7 @@ export class UsuarioCadastroComponent implements OnInit {
             console.log(response);
             //this.openConfirmation()
             this.vincularUsuarioRole(this.usuario.id,this.tipo_role);
+            this.router.navigate(['/usuario-detalhe'])
 
           },
           error => {
@@ -169,11 +172,12 @@ export class UsuarioCadastroComponent implements OnInit {
       .subscribe(
         response_role => {
           console.log(response_role);
-          this.openConfirmation()
+          this.mensagemPadrao.showMessage('Usuário cadastrado com sucesso!!!')
+         
         },
         error => {
           console.log('error');
-          //this.modalService.open(error, { size: 'sm' });
+          this.mensagemPadrao.showMessage('Ocorreu um erro na criação do usuário!!!')
         });
   }
 

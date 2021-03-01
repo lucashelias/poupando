@@ -11,14 +11,14 @@ import { Role } from 'src/app/models/role.model';
 import { Usuario } from 'src/app/models/usuario.model';
 import { UsuarioService } from './usuario.service';
 
-@Component({
+@Component({ 
   selector: 'app-usuario-detalhe', 
   templateUrl: './usuario-detalhe.component.html',
   styleUrls: ['./usuario-detalhe.component.css']
 })
-export class UsuarioDetalheComponent implements OnInit {
+export class UsuarioDetalheComponent implements OnInit { 
 
-  displayedColumns: string[] = ['ID', 'Nome', 'Sobrenome', 'Email','Usuario'];
+  displayedColumns: string[] = ['ID', 'Nome', 'Sobrenome', 'Email','Usuario', 'Acao']; 
   // dataSource: MatTableDataSource<Usuario>;
   dataSource = new UserDataSource(this.usuarioService);
   step = 0;

@@ -1,0 +1,141 @@
+<!-- <div class="card_tela">
+    <mat-accordion multi style="width: 50% !important;">
+      <mat-expansion-panel [expanded]="true" (opened)="setStep(0)" hideToggle>
+        <mat-expansion-panel-header class="card_panel_style">
+          <mat-panel-title style="color: white;">
+            Atualização de Usuários
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+  
+        <table class="full-width" cellspacing="0">
+          <tr>
+            <td>
+              <div class="div_class_label">
+                <strong>
+                  <label>Nome</label>
+                </strong>
+              </div>
+              <div>
+                <mat-form-field class="inputText full-width " appearance="outline">
+                  <input matInput placeholder="Nome do usuário" id="nome" style="size: 500px;" autocomplete="doNotAutoComplete" #nome>
+                </mat-form-field>
+              </div>
+            </td>
+            <td>
+              <div class="div_class_label">
+                <strong>
+                  <label>Sobrenome</label>
+                </strong>
+              </div>
+              <div>
+                <mat-form-field class="inputText full-width" appearance="outline">
+                  <input matInput placeholder="Sobrenome do usuário" id="sobrenome" autocomplete="doNotAutoComplete" #sobrenome>
+                </mat-form-field>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="div_class_label">
+                <strong>
+                  <label>Usuário</label>
+                </strong>
+              </div>
+              <div>
+                <mat-form-field class="inputText full-width" appearance="outline">
+                  <input matInput placeholder="Nome do usuário" id="usuario" autocomplete="doNotAutoComplete" #usuario>
+                </mat-form-field>
+              </div>
+            </td>
+            <td>
+              <div class="div_class_label">
+                <strong>
+                  <label>Senha</label>
+                </strong>
+              </div>
+              <div>
+                <mat-form-field appearance="outline" class="inputText full-width">
+                  <input matInput type="password" required autocomplete="doNotAutoComplete" #senha>
+                </mat-form-field>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="div_class_label">
+                <strong>
+                  <label>E-mail</label>
+                </strong>
+              </div>
+              <div>
+                <mat-form-field class="inputText full-width" appearance="outline">
+                  <input matInput placeholder="Informe o E-mail" id="email" autocomplete="doNotAutoComplete" #email>
+                </mat-form-field>
+              </div>
+            </td>
+            <td style="padding: 0px;">
+              <div>
+                <strong>
+                  <label>Status</label>
+                </strong>
+              </div>
+              <div>
+                <mat-radio-group [(ngModel)]="tipo_status" style="padding-left: 10x;">
+                  <mat-radio-button style="padding-right: 10px;" *ngFor="let status of user_status" [value]="status.tipo">
+                    {{status.descricao}}
+                  </mat-radio-button>
+                </mat-radio-group>
+              </div>
+            </td>
+            <td>
+              <div class="div_class_label">
+                <strong>
+                  <label>Tipo de Permissão</label>
+                </strong>
+              </div>
+              <div>
+                <mat-form-field>
+                  <mat-label>Permissão</mat-label>
+                  <mat-select [(ngModel)]="tipo_role">
+                    <mat-option *ngFor="let role of roles" [value]="role.id">
+                      {{role.name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </td>
+          </tr>
+        </table>
+  
+        <mat-divider></mat-divider>
+  
+        <div class="form-group">
+          <div class="alert alert-danger" role="alert" *ngIf="alertaMensagem">
+            <tbody>
+              <tr *ngFor="let item of messege">
+                <td>{{item}}</td>
+              </tr>
+            </tbody>
+          </div>
+        </div>
+  
+        <div>
+          <p *ngIf="submitted">
+            <ngb-alert [type]="alert.type" (closed)="close(alert)">{{ alert.message }}</ngb-alert>
+          </p>
+        </div>
+  
+        <div>
+          <button type="submit" class="button" mat-raised-button color="primary" id="btSave"
+            (click)="salvarUsuario(nome.value, sobrenome.value, usuario.value, senha.value, email.value)">
+            <mat-icon>save</mat-icon>
+            <span>Salvar</span>
+          </button>
+  
+          <button type="submit" class="button" mat-raised-button color="primary" id="btCancelar" (click)="openDialog()">
+            <mat-icon>cancel</mat-icon>
+            <span>Cancelar</span>
+          </button>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion> -->

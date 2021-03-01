@@ -39,15 +39,18 @@ import { InvestimentosComponent } from './dashboards/simples/investimentos/inves
 import { BolsaDeValoresComponent } from './dashboards/simples/bolsa-de-valores/bolsa-de-valores.component';
 import {MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { UsuarioDeleteComponent } from './usuario/usuario-delete/usuario-delete.component';
+import { UsuarioUpdateComponent } from './usuario/usuario-update/usuario-update.component';
+
 
 @NgModule({ 
   declarations: [ 
     AppComponent,
     HomeComponent,
     LoginComponent, 
-    UsuarioDetalheComponent,
-    UsuarioCadastroComponent,
-    HomeDetalheComponent,
+    UsuarioDetalheComponent, 
+    UsuarioCadastroComponent, 
+    HomeDetalheComponent,  
     TabelaComponentComponent,
     SidenavComponent,
     MenuComponent,
@@ -55,6 +58,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     InvestimentosComponent, 
     BolsaDeValoresComponent,
     DialogConfirmation,
+    UsuarioDeleteComponent,
+    UsuarioUpdateComponent,
   ],
 
 

@@ -1,5 +1,5 @@
 <div class="class_tela">
-    <mat-accordion multi style="width: 50% !important;">
+    <mat-accordion multi style="width: 1200px !important;">
         <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
             <mat-expansion-panel-header style="background-color: rgb(51, 134, 95);">
                 <mat-panel-title style="color: white;">
@@ -7,128 +7,159 @@
                 </mat-panel-title>
             </mat-expansion-panel-header>
 
-            <form autocomplete="off">
-                <strong>
-                    <label for="id">Identificação</label>
-                </strong>
-                <div>
-                    <mat-form-field class="inputText" appearance="outline" style="width: 100px;">
-                        <input matInput placeholder="ID" id="id">
-                    </mat-form-field>
-                </div>
-
-                <strong>
-                    <label>Usuário</label>
-                </strong>
-                <div>
-                    <mat-form-field class="inputText" appearance="outline">
-                        <input matInput placeholder="Nome do usuário" id="usuario">
-                    </mat-form-field>
-                </div>
-
-                <table class="full-width" cellspacing="0">
-                    <tr>
-                        <td>
-                            <div>
-                                <strong>
-                                    <label>Nome</label>
-                                </strong>
-                            </div>
-                            <div>
-                                <mat-form-field class="inputText full-width " appearance="outline">
-                                    <input matInput placeholder="Nome do usuário" id="nome" style="size: 500px;">
-                                </mat-form-field>
-                            </div>
-                        </td>
-                        <td>
+            <table class="full-width" cellspacing="0">
+                <tr>
+                    <td>
+                        <div class="div_class_label">
+                            <strong>
+                                <label for="id">Identificação</label>
+                            </strong>
+                        </div>
+                        <div>
+                            <mat-form-field class="inputText full-width " appearance="outline" style="width: 100px;">
+                                <input matInput placeholder="ID" id="id">
+                            </mat-form-field>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="div_class_label">
+                            <strong>
+                                <label>Nome</label>
+                            </strong>
+                        </div>
+                        <div>
+                            <mat-form-field class="inputText full-width " appearance="outline">
+                                <input matInput placeholder="Nome do usuário" id="nome" style="size: 500px;"
+                                    autocomplete="doNotAutoComplete" #nome>
+                            </mat-form-field>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="div_class_label">
                             <strong>
                                 <label>Sobrenome</label>
                             </strong>
-                            <div>
-                                <mat-form-field class="inputText full-width" appearance="outline">
-                                    <input matInput placeholder="Sobrenome do usuário" id="sobrenome">
-                                </mat-form-field>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-
-                <table class="full-width" cellspacing="0">
-                    <tr>
-                        <td style="width: 430 !important;">
-                            <div>
-                                <strong>
-                                    <label>E-mail</label>
-                                </strong>
-                            </div>
-                            <div>
-                                <mat-form-field class="inputText" appearance="outline">
-                                    <input matInput placeholder="Informe o E-mail" id="email">
-                                </mat-form-field>
-                            </div>
-                        </td>
-
-                        <td>
+                        </div>
+                        <div>
+                            <mat-form-field class="inputText full-width" appearance="outline">
+                                <input matInput placeholder="Sobrenome do usuário" id="sobrenome"
+                                    autocomplete="doNotAutoComplete" #sobrenome>
+                            </mat-form-field>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="div_class_label">
+                            <strong>
+                                <label>Usuário</label>
+                            </strong>
+                        </div>
+                        <div>
+                            <mat-form-field class="inputText full-width" appearance="outline">
+                                <input matInput placeholder="Nome do usuário" id="usuario"
+                                    autocomplete="doNotAutoComplete" #usuario>
+                            </mat-form-field>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="div_class_label">
+                            <strong>
+                                <label>E-mail</label>
+                            </strong>
+                        </div>
+                        <div>
+                            <mat-form-field class="inputText full-width" appearance="outline">
+                                <input matInput placeholder="Informe o E-mail" id="email"
+                                    autocomplete="doNotAutoComplete" #email>
+                            </mat-form-field>
+                        </div>
+                    </td>
+                    <!-- <td style="padding: 0px;">
+                        <div>
                             <strong>
                                 <label>Status</label>
                             </strong>
-                            <div>
-                                <mat-radio-group aria-label="Select an option" style="padding-left: 10x; border: 10px;">
-                                    <mat-radio-button style="padding-right: 10px;" value="A">Ativo</mat-radio-button>
-                                    <mat-radio-button value="I">Inativo</mat-radio-button>
-                                </mat-radio-group>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
+                        </div>
+                        <div>
+                            <mat-radio-group [(ngModel)]="tipo_status" style="padding-left: 10x;">
+                                <mat-radio-button style="padding-right: 10px;" *ngFor="let status of user_status"
+                                    [value]="status.tipo">
+                                    {{status.descricao}}
+                                </mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                    </td> -->
+                    <!-- <td>
+                        <div class="div_class_label">
+                            <strong>
+                                <label>Tipo de Permissão</label>
+                            </strong>
+                        </div>
+                        <div>
+                            <mat-form-field>
+                                <mat-label>Permissão</mat-label>
+                                <mat-select [(ngModel)]="tipo_role">
+                                    <mat-option *ngFor="let role of roles" [value]="role.id">
+                                        {{role.name}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </td> -->
+                </tr>
+            </table>
 
-                <!-- BOTÔES -->
+            <!-- BOTÔES -->
 
-                <div>
-                    <button type="submit" class="button" mat-raised-button color="primary" id="btNovo" (click)='novo()'>
-                        <mat-icon>add</mat-icon>
-                        <span>Novo</span>
-                    </button>
+            <div>
+                <button type="submit" class="button" mat-raised-button color="primary" id="btNovo" (click)='novo()'>
+                    <mat-icon>add</mat-icon>
+                    <span>Novo</span>
+                </button>
 
 
-                    <button type="submit" class="button" mat-raised-button color="primary" id="btPesquisar"
-                        (click)="buscaUsuario()">
-                        <mat-icon>search</mat-icon>
-                        <span>Pesquisar</span>
-                    </button>
-                    <button type="reset" class="button" mat-raised-button color="primary" id="btLimpar">
-                        <mat-icon>restore_from_trash</mat-icon>
-                        <span>Limpar</span>
+                <button type="submit" class="button" mat-raised-button color="primary" id="btPesquisar"
+                    (click)="buscaUsuario()">
+                    <mat-icon>search</mat-icon>
+                    <span>Pesquisar</span>
+                </button>
+                <button type="reset" class="button" mat-raised-button color="primary" id="btLimpar">
+                    <mat-icon>restore_from_trash</mat-icon>
+                    <span>Limpar</span>
+                </button>
+            </div>
+
+            <!-- MODAL -->
+
+            <ng-template #content let-modal>
+                <div class="modal-header">
+                    <h4 class="modal-title">Modal title</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                        <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-
-                <!-- MODAL -->
-
-                <ng-template #content let-modal>
-                    <div class="modal-header">
-                        <h4 class="modal-title">Modal title</h4>
-                        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>One fine body&hellip;</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
-                    </div>
-                </ng-template>
-            </form>
+                <div class="modal-body">
+                    <p>One fine body&hellip;</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+                </div>
+            </ng-template>
         </mat-expansion-panel>
     </mat-accordion>
     <!--FIM FILTROS DE USUARIOS -->
 
 
-    
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="margin-top: 10px; width: 1200px;">
         <!-- Coluna ID -->
-        <ng-container matColumnDef="ID">
-            <th mat-header-cell *matHeaderCellDef > ID</th>
+        <ng-container matColumnDef="ID"> 
+            <th mat-header-cell *matHeaderCellDef> ID</th>
             <td mat-cell *matCellDef="let usuario">{{usuario.id}}</td>
         </ng-container>
 
@@ -148,88 +179,33 @@
         <ng-container matColumnDef="Email">
             <th mat-header-cell *matHeaderCellDef> E-mail </th>
             <td mat-cell *matCellDef="let usuario"> {{usuario.email}} </td>
-        </ng-container> 
-        
+        </ng-container>
+
         <!-- Coluna Usuario -->
         <ng-container matColumnDef="Usuario">
             <th mat-header-cell *matHeaderCellDef> Usuario </th>
             <td mat-cell *matCellDef="let usuario"> {{usuario.usuario}} </td>
         </ng-container>
-        
+
+        <!-- Coluna Usuario -->
+        <ng-container matColumnDef="Acao">
+            <th mat-header-cell *matHeaderCellDef> Ação </th>
+            <td mat-cell *matCellDef="let usuario">
+                <a routerLink="/usuario-update/{{usuario.id}}">
+                    <i class="material-icons" style="color: green">
+                        edit 
+                    </i>
+                </a>
+                <a routerLink="/usuario-delete/{{usuario.id}}">
+                    <i class="material-icons" style="color: red;">
+                        delete
+                    </i>
+                </a>
+            </td>
+        </ng-container>
+
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-
-    <!-- TABELA DE USUARIO -->
-<!-- 
-    <div class="mat-elevation-z8">
-        <table mat-table class="full-width-table"  matSort aria-label="Elements">
-            
-            <ng-container matColumnDef="ID">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-                <td mat-cell *matCellDef="let usuario">{{usuario.id}}</td>
-            </ng-container>
-
-            <ng-container matColumnDef="Nome">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
-                <td mat-cell *matCellDef="let usuario"> {{usuario.nome}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="Sobrenome">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Sobrenome </th>
-                <td mat-cell *matCellDef="let usuario"> {{usuario.sobrenome}} </td>
-            </ng-container>
-
-
-            <ng-container matColumnDef="Email">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> E-mail </th>
-                <td mat-cell *matCellDef="let usuario"> {{usuario.email}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="Usuario">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Usuario </th>
-                <td mat-cell *matCellDef="let usuario"> {{usuario.usuario}} </td>
-            </ng-container>
-
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-
-        <mat-paginator #paginator [length]="dataSource?.data.length" [pageIndex]="0" [pageSize]="50"
-            [pageSizeOptions]="[25, 50, 100, 250]">
-        </mat-paginator>
-    </div> -->
-
-
-    <!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-        <ng-container matColumnDef="ID">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-            <td mat-cell *matCellDef="let usuario">{{usuario.id}}</td>
-        </ng-container>
-
-        <ng-container matColumnDef="Nome">
-            <th mat-header-cell *matHeaderCellDef> Nome </th>
-            <td mat-cell *matCellDef="let usuario"> {{usuario.nome}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="Sobrenome">
-            <th mat-header-cell *matHeaderCellDef> Sobrenome </th>
-            <td mat-cell *matCellDef="let usuario"> {{usuario.sobrenome}} </td>
-        </ng-container>
-
-
-        <ng-container matColumnDef="Email">
-            <th mat-header-cell *matHeaderCellDef> E-mail </th>
-            <td mat-cell *matCellDef="let usuario"> {{usuario.email}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="Usuario">
-            <th mat-header-cell *matHeaderCellDef> Usuario </th>
-            <td mat-cell *matCellDef="let usuario"> {{usuario.usuario}} </td>
-        </ng-container>
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table> -->
 
 </div>
