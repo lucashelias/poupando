@@ -187,6 +187,18 @@
             <td mat-cell *matCellDef="let usuario"> {{usuario.usuario}} </td>
         </ng-container>
 
+        <!-- Coluna Status -->
+        <ng-container matColumnDef="Status">
+            <th mat-header-cell *matHeaderCellDef> Status </th>
+            <td mat-cell *matCellDef="let usuario"> {{usuario.status == 'A' ? 'Ativo' : 'Inativo'}} </td>
+        </ng-container>
+
+        <!-- Coluna Permissão -->
+        <!-- <ng-container matColumnDef="Permissao">
+            <th mat-header-cell *matHeaderCellDef> Permissao </th>
+            <td mat-cell *matCellDef="let usuario"> {{usuario.status == 'A' ? 'Ativo' : 'Inativo'}} </td>
+        </ng-container> -->
+
         <!-- Coluna Usuario -->
         <ng-container matColumnDef="Acao">
             <th mat-header-cell *matHeaderCellDef> Ação </th>

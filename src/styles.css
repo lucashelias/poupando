@@ -198,3 +198,15 @@ span i {
   width: 120px;
   float: right;
 }
+
+/* COnfigurações das mensagens padrões */
+
+.msg-sucess{
+  color: white;
+  background-color: rgb(25, 119, 25);
+}
+
+.msg-error{
+  color: white;
+  background-color: rgb(252, 54, 54)
+}

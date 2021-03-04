@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Role } from '../models/role.model';
-import { UserRole } from '../models/user_role.model';
+import { Role } from '../../models/role/role.model';
+import { UserRole } from '../../models/role/user_role.model';
 
 const baseUrl = 'http://localhost:8080/api/role';
 
@@ -15,6 +15,10 @@ export class RoleService {
 
   getAllRole(): Observable<Role[]> {
     return this.http.get<Role[]>(baseUrl);
+  }
+
+  getUserRoleByID(id): Observable<any> {
+    return this.http.get(`${baseUrl}/${id}`);
   }
 
   getAllUsuarioRole(): Observable<UserRole[]> {

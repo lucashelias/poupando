@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsuarioService } from '../usuario/usuario-detalhe/usuario.service';
-import { Usuario } from '../models/usuario.model';
+import { Usuario } from '../models/usuario/usuario.model';
 import { AuthService } from '../_services/auth.service';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { LoginService } from './login.service';

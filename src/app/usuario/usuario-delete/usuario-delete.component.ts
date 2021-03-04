@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Role } from 'src/app/models/role.model';
-import { Usuario } from 'src/app/models/usuario.model';
+import { Role } from 'src/app/models/role/role.model';
+import { Usuario } from 'src/app/models/usuario/usuario.model';
 import { MensagensPadraoService } from 'src/app/_services/mensagens/mensagens-padrao.service';
 import { UsuarioService } from '../usuario-detalhe/usuario.service';
 

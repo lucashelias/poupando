@@ -1,4 +1,4 @@
-<!-- <div class="card_tela">
+<div class="card_tela">
     <mat-accordion multi style="width: 50% !important;">
       <mat-expansion-panel [expanded]="true" (opened)="setStep(0)" hideToggle>
         <mat-expansion-panel-header class="card_panel_style">
@@ -10,6 +10,20 @@
         <table class="full-width" cellspacing="0">
           <tr>
             <td>
+                <div class="div_class_label">
+                    <strong>
+                        <label for="id">Identificação</label>
+                    </strong>
+                </div>
+                <div>
+                    <mat-form-field class="inputText full-width " appearance="outline" style="width: 100px;" >
+                        <input matInput placeholder="ID" id="id" [(ngModel)]="usuario.id" disabled >
+                    </mat-form-field>
+                </div>
+            </td>
+        </tr>
+          <tr>
+            <td>
               <div class="div_class_label">
                 <strong>
                   <label>Nome</label>
@@ -17,7 +31,7 @@
               </div>
               <div>
                 <mat-form-field class="inputText full-width " appearance="outline">
-                  <input matInput placeholder="Nome do usuário" id="nome" style="size: 500px;" autocomplete="doNotAutoComplete" #nome>
+                  <input matInput placeholder="Nome do usuário" id="nome" style="size: 500px;" autocomplete="doNotAutoComplete" [(ngModel)]="usuario.nome" >
                 </mat-form-field>
               </div>
             </td>
@@ -29,7 +43,7 @@
               </div>
               <div>
                 <mat-form-field class="inputText full-width" appearance="outline">
-                  <input matInput placeholder="Sobrenome do usuário" id="sobrenome" autocomplete="doNotAutoComplete" #sobrenome>
+                  <input matInput placeholder="Sobrenome do usuário" id="sobrenome" autocomplete="doNotAutoComplete" [(ngModel)]="usuario.sobrenome" >
                 </mat-form-field>
               </div>
             </td>
@@ -43,7 +57,7 @@
               </div>
               <div>
                 <mat-form-field class="inputText full-width" appearance="outline">
-                  <input matInput placeholder="Nome do usuário" id="usuario" autocomplete="doNotAutoComplete" #usuario>
+                  <input matInput placeholder="Nome do usuário" id="usuario" autocomplete="doNotAutoComplete" [(ngModel)]="usuario.usuario" disabled >
                 </mat-form-field>
               </div>
             </td>
@@ -55,7 +69,7 @@
               </div>
               <div>
                 <mat-form-field appearance="outline" class="inputText full-width">
-                  <input matInput type="password" required autocomplete="doNotAutoComplete" #senha>
+                  <input matInput type="password" required autocomplete="doNotAutoComplete" [(ngModel)]="usuario.senha" >
                 </mat-form-field>
               </div>
             </td>
@@ -69,7 +83,7 @@
               </div>
               <div>
                 <mat-form-field class="inputText full-width" appearance="outline">
-                  <input matInput placeholder="Informe o E-mail" id="email" autocomplete="doNotAutoComplete" #email>
+                  <input matInput placeholder="Informe o E-mail" id="email" autocomplete="doNotAutoComplete" [(ngModel)]="usuario.email" >
                 </mat-form-field>
               </div>
             </td>
@@ -80,7 +94,7 @@
                 </strong>
               </div>
               <div>
-                <mat-radio-group [(ngModel)]="tipo_status" style="padding-left: 10x;">
+                <mat-radio-group [(ngModel)]="usuario.status" style="padding-left: 10x;">
                   <mat-radio-button style="padding-right: 10px;" *ngFor="let status of user_status" [value]="status.tipo">
                     {{status.descricao}}
                   </mat-radio-button>
@@ -96,7 +110,7 @@
               <div>
                 <mat-form-field>
                   <mat-label>Permissão</mat-label>
-                  <mat-select [(ngModel)]="tipo_role">
+                  <mat-select [(ngModel)]="role">
                     <mat-option *ngFor="let role of roles" [value]="role.id">
                       {{role.name}}
                     </mat-option>
@@ -127,15 +141,15 @@
   
         <div>
           <button type="submit" class="button" mat-raised-button color="primary" id="btSave"
-            (click)="salvarUsuario(nome.value, sobrenome.value, usuario.value, senha.value, email.value)">
+            (click)="atualizarUsuario()">
             <mat-icon>save</mat-icon>
-            <span>Salvar</span>
+            <span>Atualizar</span>
           </button>
   
-          <button type="submit" class="button" mat-raised-button color="primary" id="btCancelar" (click)="openDialog()">
+          <button type="submit" class="button" mat-raised-button color="primary" id="btCancelar" (click)="cancelar()">
             <mat-icon>cancel</mat-icon>
             <span>Cancelar</span>
           </button>
         </div>
       </mat-expansion-panel>
-    </mat-accordion> -->
+    </mat-accordion>

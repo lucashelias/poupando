@@ -7,8 +7,8 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Role } from 'src/app/models/role.model';
-import { Usuario } from 'src/app/models/usuario.model';
+import { Role } from 'src/app/models/role/role.model';
+import { Usuario } from 'src/app/models/usuario/usuario.model';
 import { UsuarioService } from './usuario.service';
 
 @Component({ 
@@ -18,7 +18,7 @@ import { UsuarioService } from './usuario.service';
 })
 export class UsuarioDetalheComponent implements OnInit { 
 
-  displayedColumns: string[] = ['ID', 'Nome', 'Sobrenome', 'Email','Usuario', 'Acao']; 
+  displayedColumns: string[] = ['ID', 'Nome', 'Sobrenome', 'Email','Usuario','Status','Acao']; 
   // dataSource: MatTableDataSource<Usuario>;
   dataSource = new UserDataSource(this.usuarioService);
   step = 0;
