@@ -5,28 +5,17 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Role } from 'src/app/models/role.model';
-import { UserRole } from 'src/app/models/user_role.model';
-import { Usuario } from 'src/app/models/usuario.model';
+import { Role } from 'src/app/models/role/role.model';
+import { UserRole } from 'src/app/models/role/user_role.model';
+import { Usuario } from 'src/app/models/usuario/usuario.model';
 import { MensagensPadraoService } from 'src/app/_services/mensagens/mensagens-padrao.service';
-import { RoleService } from 'src/app/_services/role.service';
+import { RoleService } from 'src/app/_services/role-service/role.service';
 import { UsuarioService } from '../usuario-detalhe/usuario.service';
 
-interface Alert {
-  type: string;
-  message: string;
-}
 interface Status {
   tipo: string;
   descricao: string;
 }
-
-const ALERTS: Alert[] = [{
-  type: 'success',
-  message: 'Usuário cadastrado com sucesso!',
-}
-];
-
 @Component({
   selector: 'app-usuario-cadastro',
   templateUrl: './usuario-cadastro.component.html',
@@ -43,7 +32,6 @@ export class UsuarioCadastroComponent implements OnInit {
   submitted = false;
   messege: string[] = [];
   status: string = null;
-  alerts: Alert[];
   alertaMensagem = false;
   user_role = new UserRole;
   tipo_status: '' = '';
@@ -74,11 +62,7 @@ export class UsuarioCadastroComponent implements OnInit {
 
   }
 
-  close(alert: Alert) {
-    this.alerts.splice(this.alerts.indexOf(alert), 1);
-  }
-
-  openDialog() {
+   openDialog() {
     const dialogRef = this.dialog.open(DialogConfirmation);
 
     dialogRef.afterClosed().subscribe(result => {

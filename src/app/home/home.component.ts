@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import * as $ from 'jquery'
 import { Subscription } from 'rxjs';
 import { LoginService } from '../login/login.service';
-import { Usuario } from '../models/usuario.model';
+import { Usuario } from '../models/usuario/usuario.model';
 import { TokenStorageService } from '../_services/token-storage.service';
 
 @Component({
