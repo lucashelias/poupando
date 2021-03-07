@@ -9,7 +9,8 @@ import { Role } from 'src/app/models/role/role.model';
 import { UserRole } from 'src/app/models/role/user_role.model';
 import { Usuario } from 'src/app/models/usuario/usuario.model';
 import { MensagensPadraoService } from 'src/app/_services/mensagens/mensagens-padrao.service';
-import { RoleService } from 'src/app/_services/role-service/role.service';
+import { RoleUserService } from 'src/app/_services/role/role-service.service';
+import { RoleService } from 'src/app/_services/role/role.service';
 import { UsuarioService } from '../usuario-detalhe/usuario.service';
 
 interface Status {
@@ -52,7 +53,7 @@ export class UsuarioCadastroComponent implements OnInit {
 
   constructor(public dialog: MatDialog,
     private modalService: NgbModal,
-    private roleService: RoleService,
+    private roleUserService: RoleUserService,
     private usuarioService: UsuarioService,
     private _snackBar: MatSnackBar,
     private router: Router,
@@ -71,7 +72,7 @@ export class UsuarioCadastroComponent implements OnInit {
   }
 
   ConsultaRoles(): void {
-    this.roleService.getAllRole().subscribe(
+    this.roleUserService.getAllRole().subscribe(
       (data: any) => {
         this.roles = data.lista;
         console.log(data);
@@ -152,7 +153,7 @@ export class UsuarioCadastroComponent implements OnInit {
     this.user_role.usuarioId = id_usuario;
     this.user_role.roleId = id_permissao;
 
-    this.roleService.createUserRole(this.user_role)
+    this.roleUserService.createUserRole(this.user_role)
       .subscribe(
         response_role => {
           console.log(response_role);

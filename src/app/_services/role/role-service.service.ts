@@ -4,12 +4,12 @@ import { Observable } from 'rxjs';
 import { Role } from '../../models/role/role.model';
 import { UserRole } from '../../models/role/user_role.model';
 
-const baseUrl = 'http://localhost:8080/api/role';
+const baseUrl = 'http://localhost:8080/api/role_user';
 
 @Injectable({
   providedIn: 'root' 
 })
-export class RoleService {
+export class RoleUserService {
 
   constructor(private http: HttpClient) { }
 
@@ -19,6 +19,7 @@ export class RoleService {
 
   getUserRoleByID(id): Observable<any> {
     return this.http.get(`${baseUrl}/${id}`);
+    console.log(`${baseUrl}/${id}`)
   }
 
   getAllUsuarioRole(): Observable<UserRole[]> {

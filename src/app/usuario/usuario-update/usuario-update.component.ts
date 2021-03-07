@@ -3,7 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Role } from 'src/app/models/role/role.model';
 import { Usuario } from 'src/app/models/usuario/usuario.model';
 import { MensagensPadraoService } from 'src/app/_services/mensagens/mensagens-padrao.service';
-import { RoleService } from 'src/app/_services/role-service/role.service';
+import { RoleUserService } from 'src/app/_services/role/role-service.service';
+import { RoleService } from 'src/app/_services/role/role.service';
 import { UsuarioService } from '../usuario-detalhe/usuario.service';
 
 interface Status {
@@ -20,20 +21,22 @@ interface Status {
 export class UsuarioUpdateComponent implements OnInit {
 
   usuario: Usuario
-  role: Role
+  roles: Role[]
   usurioRole: Role
   submitted: false;
   alertaMensagem: false; 
+  valorPermissao ="Administrador";
 
   user_status: Status[] = [
     { tipo: "A", descricao: "Ativo" },
     { tipo: "I", descricao: "Inativo" }
   ]
-
+ 
   constructor(private usuarioService: UsuarioService,
     private router: Router,
     private route: ActivatedRoute,
     private roleService: RoleService,
+    private roleUserService: RoleUserService,
     private mensagemPadrao: MensagensPadraoService) { }
   step = 0;
 
@@ -47,30 +50,29 @@ export class UsuarioUpdateComponent implements OnInit {
       this.mensagemPadrao.showMessage('Ocorreu um erro no momento de atualizar o usuário!')
     })
 
-    this.ConsultaRoles();    
+    this.ConsultaRoles(); 
+    //this.consultaVinuculoUsuarioRole();   
   }
-
-  
+ 
   consultaVinuculoUsuarioRole(): void{
-    this.roleService.getUserRoleByID(this.usuario.id).subscribe(roleUser => {
-      this.role = roleUser;
+    const id = this.route.snapshot.paramMap.get('id')
+    this.roleUserService.getUserRoleByID(id).subscribe(roleUser => {
+      this.usurioRole = roleUser;
     }, error =>{
       console.log(error)
-      this.mensagemPadrao.showMessage('Ocorreu um erro ao buscar informações a role do usuário')
+      this.mensagemPadrao.showMessage('Ocorreu um erro ao buscar informações de tipo de permissão do usuário')
     })
-
-
-
   }
-
+  
   ConsultaRoles(): void {
     this.roleService.getAllRole().subscribe(
       (data: any) => {
-        this.role = data.lista;
+        this.roles = data;
         console.log(data);
       },
       error => {
         console.log(error);
+        this.mensagemPadrao.showMessage('Ocorreu um erro ao recuperar os tipos permissões da base de dados')
       });
   }
 

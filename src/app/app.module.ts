@@ -48,7 +48,7 @@ import { UsuarioUpdateComponent } from './usuario/usuario-update/usuario-update.
     AppComponent,
     HomeComponent,
     LoginComponent, 
-    UsuarioDetalheComponent, 
+    UsuarioDetalheComponent,  
     UsuarioCadastroComponent, 
     HomeDetalheComponent,  
     TabelaComponentComponent,

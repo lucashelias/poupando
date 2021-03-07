@@ -110,12 +110,12 @@
               <div>
                 <mat-form-field>
                   <mat-label>Permissão</mat-label>
-                  <mat-select [(ngModel)]="role">
-                    <mat-option *ngFor="let role of roles" [value]="role.id">
+                  <mat-select [(ngModel)]="valorPermissao">
+                    <mat-option *ngFor="let role of roles">
                       {{role.name}}
-                    </mat-option>
+                    </mat-option> 
                   </mat-select>
-                </mat-form-field>
+                </mat-form-field> 
               </div>
             </td>
           </tr>
@@ -149,6 +149,11 @@
           <button type="submit" class="button" mat-raised-button color="primary" id="btCancelar" (click)="cancelar()">
             <mat-icon>cancel</mat-icon>
             <span>Cancelar</span>
+          </button>
+
+          <button type="submit" class="button" mat-raised-button color="primary" id="Consultar" (click)="ConsultaRoles()">
+            <mat-icon>cancel</mat-icon>
+            <span>Consulta Role</span>
           </button>
         </div>
       </mat-expansion-panel>
