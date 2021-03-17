@@ -41,6 +41,22 @@ import {MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/dia
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { UsuarioDeleteComponent } from './usuario/usuario-delete/usuario-delete.component';
 import { UsuarioUpdateComponent } from './usuario/usuario-update/usuario-update.component';
+import { BancoConsultaComponent } from './bancos/banco-consulta/banco-consulta.component';
+import { BancoCadastroComponent } from './bancos/banco-cadastro/banco-cadastro.component';
+import { BancoUpdateComponent } from './bancos/banco-update/banco-update.component';
+import { BancoDeleteComponent } from './bancos/banco-delete/banco-delete.component';
+import { ContaCorrenteConsultaComponent } from './conta-corrente/conta-corrente-consulta/conta-corrente-consulta.component';
+import { ContaCorrenteUpdateComponent } from './conta-corrente/conta-corrente-update/conta-corrente-update.component';
+import { ContaCorrenteDeleteComponent } from './conta-corrente/conta-corrente-delete/conta-corrente-delete.component';
+import { ContaCorrenteCadastroComponent } from './conta-corrente/conta-corrente-cadastro/conta-corrente-cadastro.component';
+import { TipoInvestimentoCadastroComponent } from './investimentos/configuracoes/tipos_investimentos/tipo-investimento-cadastro/tipo-investimento-cadastro.component';
+import { TipoInvestimentoConsultaComponent } from './investimentos/configuracoes/tipos_investimentos/tipo-investimento-consulta/tipo-investimento-consulta.component';
+import { TipoInvestimentoUpdateComponent } from './investimentos/configuracoes/tipos_investimentos/tipo-investimento-update/tipo-investimento-update.component';
+import { TipoInvestimentoDeleteComponent } from './investimentos/configuracoes/tipos_investimentos/tipo-investimento-delete/tipo-investimento-delete.component';
+import { CategoriaInvestimentoDeleteComponent } from './investimentos/configuracoes/categoria/categoria-investimento-delete/categoria-investimento-delete.component';
+import { CategoriaInvestimentoUpdateComponent } from './investimentos/configuracoes/categoria/categoria-investimento-update/categoria-investimento-update.component';
+import { CategoriaInvestimentoConsultaComponent } from './investimentos/configuracoes/categoria/categoria-investimento-consulta/categoria-investimento-consulta.component';
+import { CategoriaInvestimentoCadastroComponent } from './investimentos/configuracoes/categoria/categoria-investimento-cadastro/categoria-investimento-cadastro.component';
 
 
 @NgModule({ 
@@ -60,6 +76,22 @@ import { UsuarioUpdateComponent } from './usuario/usuario-update/usuario-update.
     DialogConfirmation,
     UsuarioDeleteComponent,
     UsuarioUpdateComponent,
+    BancoConsultaComponent,
+    BancoCadastroComponent,
+    BancoUpdateComponent,
+    BancoDeleteComponent,
+    ContaCorrenteConsultaComponent,
+    ContaCorrenteUpdateComponent,
+    ContaCorrenteDeleteComponent,
+    ContaCorrenteCadastroComponent,
+    TipoInvestimentoCadastroComponent,
+    TipoInvestimentoConsultaComponent,
+    TipoInvestimentoUpdateComponent,
+    TipoInvestimentoDeleteComponent,
+    CategoriaInvestimentoDeleteComponent,
+    CategoriaInvestimentoUpdateComponent,
+    CategoriaInvestimentoConsultaComponent,
+    CategoriaInvestimentoCadastroComponent,
   ],
 
 
