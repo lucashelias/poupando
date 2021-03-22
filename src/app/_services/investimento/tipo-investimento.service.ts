@@ -9,7 +9,7 @@ const baseUrl = 'http://localhost:8080/api/tipo_investimento';
   providedIn: 'root' 
 })
 
-export class Tipo_investimentoUserService {
+export class TipoIinvestimentoService {
 
   constructor(private http: HttpClient) { }
 

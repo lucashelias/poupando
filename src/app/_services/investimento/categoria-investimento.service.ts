@@ -8,7 +8,7 @@ const baseUrl = 'http://localhost:8080/api/categoria_investimento';
 @Injectable({
   providedIn: 'root' 
 })
-export class Categoria_investimentoUserService {
+export class CategoriaInvestimentoService {
 
   constructor(private http: HttpClient) { }
 

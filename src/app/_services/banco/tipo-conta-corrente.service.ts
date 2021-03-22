@@ -8,7 +8,7 @@ const baseUrl = 'http://localhost:8080/api/tipo_conta_corrente';
 @Injectable({
   providedIn: 'root' 
 })
-export class Tipo_conta_correnteUserService {
+export class TipoContaCorrenteService {
 
   constructor(private http: HttpClient) { }
 

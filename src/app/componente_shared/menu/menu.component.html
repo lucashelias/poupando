@@ -55,6 +55,30 @@
         </mat-expansion-panel>
       </mat-accordion>
 
+      <h3 class="sub_secao_titulo">Dados Bancários</h3>
+      <mat-accordion >
+        <mat-expansion-panel style="background-color: transparent; color: white;" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title >
+              <i class="fa fa-tachometer-alt icon-menu"></i>
+              Informações Bancárias
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <a mat-list-item routerLink="/banco-consulta">
+            <span class="menu-text">
+              <i class="fa fa-file-code"></i>
+              Cadastro Bancário
+            </span>
+          </a>
+          <a mat-list-item routerLink="/tipo_conta_corrente">
+            <span class="menu-text">
+              <i class="fa fa-file-code"></i>
+              Contas Correntes
+            </span>
+          </a>
+        </mat-expansion-panel>
+      </mat-accordion>
+
       <h3 class="sub_secao_titulo" style="margin-top: 10px; margin-bottom: 0px;">Cantábil</h3>
       <mat-accordion >
         <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" style="opacity: 100% !important;">

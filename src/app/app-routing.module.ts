@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { UsuarioDeleteComponent } from './usuario/usuario-delete/usuario-delete.component';
 import { UsuarioUpdateComponent } from './usuario/usuario-update/usuario-update.component';
+import { BancoConsultaComponent } from './bancos/banco-consulta/banco-consulta.component';
 
 const routes: Routes = [
     {path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -19,6 +20,7 @@ const routes: Routes = [
     {path: 'usuario-detalhe' , component: UsuarioDetalheComponent},
     {path: 'usuario-update/:id' , component: UsuarioUpdateComponent},
     {path: 'usuario-delete/:id' , component: UsuarioDeleteComponent},
+    {path: 'banco-consulta' , component: BancoConsultaComponent},
 ];
 
 @NgModule({

@@ -8,7 +8,7 @@ const baseUrl = 'http://localhost:8080/api/banco';
 @Injectable({
   providedIn: 'root' 
 })
-export class BancoUserService {
+export class BancoService  {
 
   constructor(private http: HttpClient) { }
 
