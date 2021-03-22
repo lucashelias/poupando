@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Banco } from 'src/app/models/banco/banco.model';
 import { BancoService } from 'src/app/_services/banco/banco.service';
+import { MensagensPadraoService } from 'src/app/_services/mensagens/mensagens-padrao.service';
 
 @Component({
   selector: 'app-banco-consulta',
@@ -13,38 +14,48 @@ import { BancoService } from 'src/app/_services/banco/banco.service';
 })
 export class BancoConsultaComponent implements OnInit, AfterViewInit {
 
-  displayedColumns: string[] = ['Id', 'Codigo', 'Nome', 'Site'];
+  displayedColumns: string[] = ['Id', 'Codigo', 'Nome', 'Site', 'Opcoes'];
   dataSource: MatTableDataSource<Banco>;
   banco: Banco[] = [];
+  alertaMensagem: boolean = false;
+  dadosBanco = new Banco
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(private bancosService: BancoService,
-              private router: Router) {}
+    private router: Router,
+    private mensagenPadrao: MensagensPadraoService) { }
 
   ngOnInit(): void {
     this.consultarBancos();
   }
 
-  cancelar(): void{
+  cancelar(): void {
     this.router.navigate(['/home'])
   }
 
-  consultarBancos(): void{
+  consultarBancos(): void {
     this.bancosService.getAllBanco().subscribe(
-      data =>{
+      data => {
         this.banco = data
         this.dataSource = new MatTableDataSource(this.banco)
-      }, 
-      error =>{
+        this.dataSource.paginator = this.paginator
+        this.dataSource.sort = this.sort
+      },
+      error => {
         console.log(error)
       })
   }
 
+  novo(): void {
+    this.router.navigate(['/banco-cadastro'])
+  }
+
+  
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    // this.dataSource.paginator = this.paginator;
+    // this.dataSource.sort = this.sort;
   }
 
   applyFilter(event: Event) {

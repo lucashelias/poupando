@@ -9,6 +9,9 @@ import { LoginComponent } from './login/login.component';
 import { UsuarioDeleteComponent } from './usuario/usuario-delete/usuario-delete.component';
 import { UsuarioUpdateComponent } from './usuario/usuario-update/usuario-update.component';
 import { BancoConsultaComponent } from './bancos/banco-consulta/banco-consulta.component';
+import { BancoCadastroComponent } from './bancos/banco-cadastro/banco-cadastro.component';
+import { BancoUpdateComponent } from './bancos/banco-update/banco-update.component';
+import { BancoDeleteComponent } from './bancos/banco-delete/banco-delete.component';
 
 const routes: Routes = [
     {path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -21,6 +24,9 @@ const routes: Routes = [
     {path: 'usuario-update/:id' , component: UsuarioUpdateComponent},
     {path: 'usuario-delete/:id' , component: UsuarioDeleteComponent},
     {path: 'banco-consulta' , component: BancoConsultaComponent},
+    {path: 'banco-cadastro' , component: BancoCadastroComponent},
+    {path: 'banco-update/:id' , component: BancoUpdateComponent},
+    {path: 'banco-delete/:id' , component: BancoDeleteComponent},
 ];
 
 @NgModule({
