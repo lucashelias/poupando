@@ -1,1 +1,102 @@
-<p>banco-delete works!</p>
+<div class="card_tela">
+    <mat-accordion multi style="width: 50% !important;">
+        <mat-expansion-panel [expanded]="true" (opened)="setStep(0)" hideToggle>
+            <mat-expansion-panel-header class="card_panel_style">
+                <mat-panel-title style="color: white;">
+                    Dados de sede bancária
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <table class="full-width" cellspacing="0">
+                <tr>
+                    <td>
+                        <div class="div_class_label">
+                            <strong>
+                                <label>Código</label>
+                            </strong>
+                        </div>
+                        <div>
+                            <mat-form-field class="inputText full-width " appearance="outline">
+                                <input matInput [(ngModel)]="banco.codigo" placeholder="Código do banco"
+                                    id="código" type="number" style="size: 500px;" autocomplete="doNotAutoComplete" disabled>
+                            </mat-form-field>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="div_class_label">
+                            <strong>
+                                <label>Nome</label>
+                            </strong>
+                        </div>
+                        <div>
+                            <mat-form-field class="inputText full-width" appearance="outline">
+                                <input matInput [(ngModel)]="banco.nome" placeholder="Nome da instituição bancária"
+                                    id="nome" autocomplete="doNotAutoComplete" disabled>
+                            </mat-form-field>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="div_class_label">
+                            <strong>
+                                <label>Site / URL</label>
+                            </strong>
+                        </div>
+                        <div>
+                            <mat-form-field class="inputText full-width" appearance="outline">
+                                <input matInput [(ngModel)]="banco.site" placeholder="Site" id="url_logo"
+                                    autocomplete="doNotAutoComplete" disabled>
+                            </mat-form-field>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="div_class_label">
+                            <strong>
+                                <label>Logo</label>
+                            </strong>
+                        </div>
+                        <div>
+                            <mat-form-field class="inputText full-width" appearance="outline">
+                                <input matInput [(ngModel)]="banco.url_logo" placeholder="Logotipo" id="logo"
+                                    autocomplete="doNotAutoComplete" disabled>
+                            </mat-form-field>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 0px;">
+                        <div>
+                            <strong>
+                                <label>Status</label>
+                            </strong>
+                        </div>
+                        <div>
+                            <mat-radio-group [(ngModel)]="banco.ativo" style="padding-left: 10x;" >
+                                <mat-radio-button style="padding-right: 10px;" *ngFor="let status of banco_status"
+                                    [value]="status.tipo" >
+                                    {{status.descricao}}
+                                </mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <mat-divider></mat-divider>
+       
+            <div>
+                <button type="submit" class="button" mat-raised-button color="primary" id="btSave"
+                    (click)="deletarBanco()">
+                    <mat-icon>delete</mat-icon>
+                    <span>Deletar</span>
+                </button>
+
+                <button type="submit" class="button" mat-raised-button color="primary" id="btCancelar"
+                    routerLink="/banco-consulta">
+                    <mat-icon>cancel</mat-icon>
+                    <span>Cancelar</span>
+                </button>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>

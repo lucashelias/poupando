@@ -19,6 +19,7 @@ export class BancoConsultaComponent implements OnInit, AfterViewInit {
   banco: Banco[] = [];
   alertaMensagem: boolean = false;
   dadosBanco = new Banco
+  step = 0
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -66,5 +67,16 @@ export class BancoConsultaComponent implements OnInit, AfterViewInit {
       this.dataSource.paginator.firstPage();
     }
   }
+ 
+  setStep(index: number) {
+    this.step = index;
+  }
 
+  nextStep() {
+    this.step++;
+  }
+
+  prevStep() {
+    this.step--;
+  }
 }
