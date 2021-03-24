@@ -3,8 +3,7 @@ import { Data } from '@angular/router'
 export class Tipo_conta_corrente{
    
     id: number
-    tipo_investimento: string
+    tipo_conta: string
     descricao: string
-    id_catagoria: number
 
 }
