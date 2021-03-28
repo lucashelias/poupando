@@ -13,6 +13,8 @@ export class TipoContaCorrenteUpdateComponent implements OnInit {
 
   tipo_conta = new Tipo_conta_corrente
   step = 0
+  erro: boolean = false
+  mensagemErros: string[] = []
 
   constructor(private tipoContaCorrenteService: TipoContaCorrenteService,
     private router: Router,
@@ -23,31 +25,45 @@ export class TipoContaCorrenteUpdateComponent implements OnInit {
     this.consultarTipoConta()
   }
 
-  consultarTipoConta(): void{
+  consultarTipoConta(): void {
     const id = this.route.snapshot.paramMap.get('id')
 
     this.tipoContaCorrenteService.get_tipo_conta_correnteByID(id).subscribe(
-      data =>{
+      data => {
         this.tipo_conta = data
-      }, error =>{
+      }, error => {
         this.mensagenPadrao.showMessage('Ocorreu um erro ao buscar as informações do Tipo Conta. ID = ' + id)
         console.log(error)
       }
     )
   }
 
-  alterarTipoConta(): void{
-    this.tipoContaCorrenteService.update_tipo_conta_corrente(this.tipo_conta.id, this.tipo_conta).subscribe(
-      data =>{
-        this.mensagenPadrao.showMessage('Dados alterados com sucesso!!!')
-        this.router.navigate(['tipo-conta-corrente-consulta'])
-      }, error =>{
-        this.mensagenPadrao.showMessage('Ocorreu um erro ao atualizar as informações! Por favor valide o console!')
-        console.log(error)
-      }
-    )
+  alterarTipoConta(): void {
+    this.erro = false
+    this.mensagemErros = []
+    this.tipo_conta.tipo_conta = this.tipo_conta.tipo_conta.trim()
+    this.tipo_conta.descricao = this.tipo_conta.descricao.trim()
+
+
+    if (this.tipo_conta.tipo_conta === undefined || this.tipo_conta.tipo_conta === '' || this.tipo_conta.tipo_conta.length === 0) {
+
+      this.erro = true
+      this.mensagemErros.push('O preenchimento do tipo conta é obrigatório.')
+
+    } else {
+
+      this.tipoContaCorrenteService.update_tipo_conta_corrente(this.tipo_conta.id, this.tipo_conta).subscribe(
+        data => {
+          this.mensagenPadrao.showMessage('Dados alterados com sucesso!!!')
+          this.router.navigate(['tipo-conta-corrente-consulta'])
+        }, error => {
+          this.mensagenPadrao.showMessage('Ocorreu um erro ao atualizar as informações! Por favor valide o console!')
+          console.log(error)
+        }
+      )
+    }
   }
-  
+
   setStep(index: number) {
     this.step = index;
   }

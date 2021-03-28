@@ -22,35 +22,36 @@ export class TipoContaCorrenteDeleteComponent implements OnInit {
     this.consultarTipoConta()
   }
 
-  consultarTipoConta(): void{
+  consultarTipoConta(): void {
     const id = this.route.snapshot.paramMap.get('id')
 
     this.tipoContaCorrenteService.get_tipo_conta_correnteByID(id).subscribe(
-      data =>{
+      data => {
         this.tipo_conta = data
-      }, error =>{
+      }, error => {
         this.mensagenPadrao.showMessage('Ocorreu um erro ao buscar as informações do Tipo Conta. ID = ' + id)
         console.log(error)
       }
     )
   }
 
-  deletarTipoConta(): void{
-    this.tipoContaCorrenteService.delete_tipo_conta_corrente(this.tipo_conta.id).subscribe(
-      data =>{
-        console.log(data)
-        if(data == 'OK'){
-          this.mensagenPadrao.showMessage('Tipo Conta excluído com sucesso!')
-          this.router.navigate(['/tipo-cadastro-consulta'])
-          
-        }else{
-          this.mensagenPadrao.showMessage(data)
+  deletarTipoConta(): void {
+
+    if (this.tipo_conta.id === 1 || this.tipo_conta.id === 2 || this.tipo_conta.id === 3) {
+      this.mensagenPadrao.showMessage(" Não é possivel excluir este tipo de conta bancária: " + this.tipo_conta.tipo_conta + " por ser uma conta padrão do sistema")
+    }else {
+      this.tipoContaCorrenteService.delete_tipo_conta_corrente(this.tipo_conta.id).subscribe(
+        data => {
+          console.log(data)
+          // if (data === 'OK') {
+            this.mensagenPadrao.showMessage('Tipo Conta Corrente excluída com sucesso!')
+            this.router.navigate(['/tipo-conta-corrente-consulta'])
+        }, error => {
+          this.mensagenPadrao.showMessage('Ocorreu um erro ao excluir o cadastro do Tipo Conta! Por favor valide o console')
+          console.log(error)
         }
-      }, error =>{
-        this.mensagenPadrao.showMessage('Ocorreu um erro ao excluir o cadastro do Tipo Conta! Por favor valide o console')
-        console.log(error)
-      }
-    )
+      )
+    }
   }
 
   setStep(index: number) {

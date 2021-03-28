@@ -1,3 +1,6 @@
+<div class="container">
+
+
 <div class="card_tela">
     <mat-accordion multi style="width: 50% !important;">
         <mat-expansion-panel [expanded]="true" (opened)="setStep(0)" hideToggle>
@@ -12,13 +15,13 @@
                     <td>
                         <div class="div_class_label">
                             <strong>
-                                <label>Tipo Conta</label> 
+                                <label>Tipo Conta</label>
                             </strong>
                         </div>
                         <div>
                             <mat-form-field class="inputText full-width " appearance="outline">
                                 <input matInput [(ngModel)]="tipo_conta.tipo_conta" placeholder="Tipo da conta"
-                                    id="tipo_conta"  style="size: 500px;" autocomplete="doNotAutoComplete" required>
+                                    id="tipo_conta" style="size: 500px;" autocomplete="doNotAutoComplete" required>
                             </mat-form-field>
                         </div>
                     </td>
@@ -40,22 +43,16 @@
 
             <mat-divider></mat-divider>
 
-            <!-- <div class="form-group">
-          <div class="alert alert-danger" role="alert" *ngIf="alertaMensagem">
-            <tbody>
-              <tr *ngFor="let item of messege">
-                <td>{{item}}</td>
-              </tr>
-            </tbody>
-          </div>
-        </div> -->
-
-            <!-- <div>
-          <p *ngIf="submitted">
-            <ngb-alert [type]="alert.type" (closed)="close(alert)">{{ alert.message }}</ngb-alert>
-          </p>
-        </div>
-   -->
+            <div class="form-group">
+                <div class="alert alert-danger" role="alert" *ngIf="erro">
+                    <tbody>
+                        <tr *ngFor="let item of mensagemErros">
+                            <td>{{item}}</td>
+                        </tr>
+                    </tbody>
+                </div>
+            </div>
+           
             <div>
                 <button type="submit" class="button" mat-raised-button color="primary" id="btSave"
                     (click)="salvarTipoConta()">
@@ -71,3 +68,4 @@
             </div>
         </mat-expansion-panel>
     </mat-accordion>
+</div>    

@@ -13,6 +13,8 @@ export class TipoContaCorrenteCadastroComponent implements OnInit {
 
   tipo_conta = new Tipo_conta_corrente
   step = 0
+  erro : boolean = false
+  mensagemErros: string[] = []
 
 
   constructor(private tipoContaCorrenteService: TipoContaCorrenteService,
@@ -23,19 +25,32 @@ export class TipoContaCorrenteCadastroComponent implements OnInit {
   }
 
   salvarTipoConta(): void{
-    this.tipoContaCorrenteService.create_tipo_conta_corrente(this.tipo_conta).subscribe(
-      data =>{
-        this.mensagenPadrao.showMessage('Cadastro realizado com sucesso!')
-        this.router.navigate(['/tipo-conta-corrente-consulta'])
-      },
-      error =>{
-        this.mensagenPadrao.showMessage('Ocorreu um erro ao realizar o cadastro. Por favor analisar o console!')
-        console.log(error)
-      }
-    )
-  }
+    this.erro = false
+    this.mensagemErros = []
+    this.tipo_conta.tipo_conta = this.tipo_conta.tipo_conta.trim()
+    this.tipo_conta.descricao = this.tipo_conta.descricao.trim()
 
-  setStep(index: number) {
+    if(this.tipo_conta.tipo_conta === undefined || this.tipo_conta.tipo_conta === '' || this.tipo_conta.tipo_conta.length === 0){
+
+      this.erro = true
+      this.mensagemErros.push('O preenchimento do tipo conta é obrigatório.')
+
+    }else{
+
+      this.tipoContaCorrenteService.create_tipo_conta_corrente(this.tipo_conta).subscribe(
+        data =>{
+          this.mensagenPadrao.showMessage('Cadastro realizado com sucesso!')
+          this.router.navigate(['/tipo-conta-corrente-consulta'])
+        },
+        error =>{
+          this.mensagenPadrao.showMessage('Ocorreu um erro ao realizar o cadastro. Por favor analisar o console!')
+          console.log(error)
+        }
+        )
+      }
+    }
+      
+      setStep(index: number) {
     this.step = index;
   }
 
