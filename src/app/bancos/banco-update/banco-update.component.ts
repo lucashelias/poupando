@@ -23,38 +23,68 @@ export class BancoUpdateComponent implements OnInit {
     { tipo: "A", descricao: "Ativo" },
     { tipo: "I", descricao: "Inativo" }
   ]
+  errosMessage: string[] = []
+  erros: boolean = false
 
-  constructor(private router: Router, 
-              private bancoService: BancoService,
-              private route: ActivatedRoute,
-              private mensagemPadrao: MensagensPadraoService ) {}
+  constructor(private router: Router,
+    private bancoService: BancoService,
+    private route: ActivatedRoute,
+    private mensagemPadrao: MensagensPadraoService) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id')
 
     this.bancoService.getBancoByID(id).subscribe(
-      data =>{
+      data => {
         this.banco = data;
-    }, error =>{
-      console.log(error)
-      this.mensagemPadrao.showMessage('Ocorreu um erro ao recuperar as informações da instituição bancária. ID: ' + id)
-    })
+      }, error => {
+        console.log(error)
+        this.mensagemPadrao.showMessage('Ocorreu um erro ao recuperar as informações da instituição bancária. ID: ' + id)
+      })
   }
 
-  deletarBanco(): void{
-    this.bancoService.updateBanco(this.banco.id,this.banco).subscribe(
-      data => {
+  atualizarBanco(): void {
+
+    this.erros = false;
+    this.errosMessage = []
+    const url_base = '/assets/img/logo/';
+
+    // Remover os espaços em branco no final e no inicio da informação.
+    if (this.banco.nome !== undefined) {
+      this.banco.nome = this.banco.nome.trim()
+    }
+    if (this.banco.nome !== undefined) {
+      this.banco.url_logo = this.banco.url_logo.trim();
+    }
+    if (this.banco.nome !== undefined) {
+      this.banco.site = this.banco.site.trim();
+    }
+
+    // Validação se o campo se encontra preenchido corretamente.
+    if (this.banco.codigo === undefined || this.banco.codigo === null || this.banco.codigo === 0) {
+      this.erros = true;
+      this.errosMessage.push('O código do banco é de preenchimento obrigatório')
+    }
+    if (this.banco.nome === undefined || this.banco.nome === '' || this.banco.nome.length === 0) {
+      this.erros = true;
+      this.errosMessage.push('O nome do banco é de preenchimento obrigatório')
+    }
+
+    if (this.erros == false) {
+      this.bancoService.updateBanco(this.banco.id, this.banco).subscribe(
+        data => {
           this.mensagemPadrao.showMessage('Informações da instituição bancária atualizado com sucesso.')
           this.router.navigate(['/banco-consulta'])
-      }, 
-      error => {
-        console.log(error)
-        this.mensagemPadrao.showMessage('Ocorreu um problema ao efetuar a exclusão do banco.'+ 
-                                        'Por favor analisar o console.')
-    })
+        },
+        error => {
+          console.log(error)
+          this.mensagemPadrao.showMessage('Ocorreu um problema ao efetuar a exclusão do banco.' +
+            'Por favor analisar o console.')
+        })
+    }
   }
 
-  
+
   setStep(index: number) {
     this.step = index;
   }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { isEmpty } from 'rxjs/operators';
 import { Banco } from 'src/app/models/banco/banco.model';
 import { BancoService } from 'src/app/_services/banco/banco.service';
 import { MensagensPadraoService } from 'src/app/_services/mensagens/mensagens-padrao.service';
@@ -19,6 +20,8 @@ export class BancoCadastroComponent implements OnInit {
   dadosBanco = new Banco
   step = 0;
   logo: string;
+  errosMessage: string[] = []
+  erros: boolean = false
 
   banco_status: Status[] = [
     { tipo: "A", descricao: "Ativo" },
@@ -31,23 +34,40 @@ export class BancoCadastroComponent implements OnInit {
               private bancoService: BancoService) { }
 
   ngOnInit(): void {
-
   }
 
   salvarBanco(): void {
-    let errosSalvar: string[] = []
+    this.erros = false;
+    this.errosMessage = []
     const url_base = '/assets/img/logo/';
-  
 
-    if (this.dadosBanco.codigo == undefined || this.dadosBanco.codigo == null ) {
-      console.log(this.dadosBanco.codigo)
-      errosSalvar.push('O preenchimento do código é obrigatório')
+    // Remover os espaços em branco no final e no inicio da informação.
+    if(this.dadosBanco.nome !== undefined){
+      this.dadosBanco.nome = this.dadosBanco.nome.trim()
     }
-    else if (this.dadosBanco.nome == undefined || this.dadosBanco.nome == null) {
-      errosSalvar.push('O preenchimento do nome do banco é obrigatório')
+    if(this.dadosBanco.nome !== undefined){
+      this.dadosBanco.url_logo = this.dadosBanco.url_logo.trim();
     }
-    
-    if (errosSalvar.length == 0) {
+    if(this.dadosBanco.nome !== undefined){
+      this.dadosBanco.site = this.dadosBanco.site.trim();
+    }
+      
+    // Validação se o campo se encontra preenchido corretamente.
+    if(this.dadosBanco.codigo === undefined || this.dadosBanco.codigo === null || this.dadosBanco.codigo === 0){
+     this.erros = true;
+     this.errosMessage.push('O código do banco é de preenchimento obrigatório')
+   }
+    if(this.dadosBanco.nome === undefined || this.dadosBanco.nome === '' || this.dadosBanco.nome.length === 0){
+      this.erros = true;
+      this.errosMessage.push('O nome do banco é de preenchimento obrigatório')
+    }
+    if(this.dadosBanco.ativo === undefined || this.dadosBanco.ativo.length === 0){
+      this.erros = true;
+      this.errosMessage.push('O status do banco é preenchimento obrigatório')
+    }
+
+
+    if (this.erros == false) {
       
       this.dadosBanco.url_logo = url_base + this.logo;
       console.log(this.dadosBanco.url_logo)

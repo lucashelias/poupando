@@ -20,6 +20,14 @@ import { ContaCorrenteConsultaComponent } from './conta-bancaria/conta-corrente/
 import { ContaCorrenteCadastroComponent } from './conta-bancaria/conta-corrente/conta-corrente-cadastro/conta-corrente-cadastro.component';
 import { ContaCorrenteUpdateComponent } from './conta-bancaria/conta-corrente/conta-corrente-update/conta-corrente-update.component';
 import { ContaCorrenteDeleteComponent } from './conta-bancaria/conta-corrente/conta-corrente-delete/conta-corrente-delete.component';
+import { CategoriaInvestimentoConsultaComponent } from './investimentos/configuracoes/categoria/categoria-investimento-consulta/categoria-investimento-consulta.component';
+import { CategoriaInvestimentoCadastroComponent } from './investimentos/configuracoes/categoria/categoria-investimento-cadastro/categoria-investimento-cadastro.component';
+import { CategoriaInvestimentoUpdateComponent } from './investimentos/configuracoes/categoria/categoria-investimento-update/categoria-investimento-update.component';
+import { CategoriaInvestimentoDeleteComponent } from './investimentos/configuracoes/categoria/categoria-investimento-delete/categoria-investimento-delete.component';
+import { TipoInvestimentoConsultaComponent } from './investimentos/configuracoes/tipos_investimentos/tipo-investimento-consulta/tipo-investimento-consulta.component';
+import { TipoInvestimentoCadastroComponent } from './investimentos/configuracoes/tipos_investimentos/tipo-investimento-cadastro/tipo-investimento-cadastro.component';
+import { TipoInvestimentoUpdateComponent } from './investimentos/configuracoes/tipos_investimentos/tipo-investimento-update/tipo-investimento-update.component';
+import { TipoInvestimentoDeleteComponent } from './investimentos/configuracoes/tipos_investimentos/tipo-investimento-delete/tipo-investimento-delete.component';
 
 const routes: Routes = [
     {path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -43,6 +51,14 @@ const routes: Routes = [
     {path: 'conta-corrente-cadastro' , component: ContaCorrenteCadastroComponent},
     {path: 'conta-corrente-update/:id' , component: ContaCorrenteUpdateComponent},
     {path: 'conta-corrente-delete/:id' , component: ContaCorrenteDeleteComponent},
+    {path: 'categoria-investimento-consulta' , component: CategoriaInvestimentoConsultaComponent},
+    {path: 'categoria-investimento-cadastro' , component: CategoriaInvestimentoCadastroComponent},
+    {path: 'categoria-investimento-update/:id' , component: CategoriaInvestimentoUpdateComponent},
+    {path: 'categoria-investimento-delete/:id' , component: CategoriaInvestimentoDeleteComponent},
+    {path: 'tipo-investimento-consulta' , component: TipoInvestimentoConsultaComponent},
+    {path: 'tipo-investimento-cadastro' , component: TipoInvestimentoCadastroComponent},
+    {path: 'tipo-investimento-update/:id' , component: TipoInvestimentoUpdateComponent},
+    {path: 'tipo-investimento-delete/:id' , component: TipoInvestimentoDeleteComponent},
 ];
 
 @NgModule({

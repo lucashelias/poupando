@@ -1,1 +1,74 @@
-<p>categoria-investimento-delete works!</p>
+<div class="container">
+
+
+    <div class="card_tela">
+        <mat-accordion multi style="width: 50% !important;">
+            <mat-expansion-panel [expanded]="true" (opened)="setStep(0)" hideToggle>
+                <mat-expansion-panel-header class="card_panel_style">
+                    <mat-panel-title style="color: white;">
+                        Cadastro de Categoria de Investimento
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+    
+                <table class="full-width" cellspacing="0">
+                    <td>
+                            <div class="div_class_label">
+                                <strong>
+                                    <label>Categoria</label>
+                                </strong>
+                            </div>
+                            <div>
+                                <mat-form-field class="inputText full-width " appearance="outline">
+                                    <input matInput [(ngModel)]="categoria_investimento.categoria" placeholder="Categoria"
+                                        id="categoria" style="size: 500px;" autocomplete="doNotAutoComplete"
+                                        required disabled>
+                                </mat-form-field>
+                            </div>
+                            <div class="div_class_label">
+                                <strong>
+                                    <label>Nível de risco</label>
+                                </strong> 
+                            </div>
+                            <div>
+                                <mat-form-field>
+                                    <mat-select [disabled]= true [(ngModel)]="categoria_investimento.risco"  >
+                                        <mat-option *ngFor="let risco of nivel_risco" [value]="risco.descricao" style="width: 100%;" >
+                                            {{risco.descricao}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                    </td>
+                    <td>
+                        <div class="div_class_label">
+                            <strong>
+                                <label>Descrição</label>
+                            </strong>
+                        </div>
+                        <div>
+                            <mat-form-field class="inputText full-width" appearance="outline">
+                                <textarea matInput [(ngModel)]="categoria_investimento.descricao" placeholder="Descrição da categoria" 
+                                id="categoria" autocomplete="doNotAutoComplete" required disabled></textarea>
+                            </mat-form-field>
+                        </div>
+                    </td>
+                </table>
+    
+                <mat-divider></mat-divider>
+    
+                <div>
+                    <button type="submit" class="button" mat-raised-button color="primary" id="btSave"
+                        (click)="excluirCategoriaInvestimento()">
+                        <mat-icon>save</mat-icon>
+                        <span>Salvar</span>
+                    </button>
+    
+                    <button type="submit" class="button" mat-raised-button color="primary" id="btCancelar"
+                        routerLink="/categoria-investimento-consulta">
+                        <mat-icon>cancel</mat-icon>
+                        <span>Cancelar</span>
+                    </button>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>    

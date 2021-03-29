@@ -3,7 +3,7 @@
         <mat-expansion-panel [expanded]="true" (opened)="setStep(0)" hideToggle>
             <mat-expansion-panel-header class="card_panel_style">
                 <mat-panel-title style="color: white;">
-                    Cadastro de sede bancária
+                    Cadastro de instituição Bancária
                 </mat-panel-title>
             </mat-expansion-panel-header>
 
@@ -18,7 +18,8 @@
                         <div>
                             <mat-form-field class="inputText full-width " appearance="outline">
                                 <input matInput [(ngModel)]="dadosBanco.codigo" placeholder="Código do banco"
-                                    id="código" type="number" style="size: 500px;" autocomplete="doNotAutoComplete">
+                                    id="código" type="number" style="size: 500px;" autocomplete="doNotAutoComplete"
+                                    required>
                             </mat-form-field>
                         </div>
                     </td>
@@ -31,7 +32,7 @@
                         <div>
                             <mat-form-field class="inputText full-width" appearance="outline">
                                 <input matInput [(ngModel)]="dadosBanco.nome" placeholder="Nome da instituição bancária"
-                                    id="nome" autocomplete="doNotAutoComplete">
+                                    id="nome" autocomplete="doNotAutoComplete" required>
                             </mat-form-field>
                         </div>
                     </td>
@@ -74,7 +75,7 @@
                         <div>
                             <mat-radio-group [(ngModel)]="dadosBanco.ativo" style="padding-left: 10x;">
                                 <mat-radio-button style="padding-right: 10px;" *ngFor="let status of banco_status"
-                                    [value]="status.tipo" >
+                                    [value]="status.tipo">
                                     {{status.descricao}}
                                 </mat-radio-button>
                             </mat-radio-group>
@@ -85,22 +86,16 @@
 
             <mat-divider></mat-divider>
 
-            <!-- <div class="form-group">
-          <div class="alert alert-danger" role="alert" *ngIf="alertaMensagem">
-            <tbody>
-              <tr *ngFor="let item of messege">
-                <td>{{item}}</td>
-              </tr>
-            </tbody>
-          </div>
-        </div> -->
+            <div class="form-group">
+                <div class="alert alert-danger" role="alert" *ngIf="erros">
+                    <tbody>
+                        <tr *ngFor="let item of errosMessage">
+                            <td>{{item}}</td>
+                        </tr>
+                    </tbody>
+                </div>
+            </div>
 
-            <!-- <div>
-          <p *ngIf="submitted">
-            <ngb-alert [type]="alert.type" (closed)="close(alert)">{{ alert.message }}</ngb-alert>
-          </p>
-        </div>
-   -->
             <div>
                 <button type="submit" class="button" mat-raised-button color="primary" id="btSave"
                     (click)="salvarBanco()">
