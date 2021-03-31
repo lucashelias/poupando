@@ -68,7 +68,7 @@ export class TipoInvestimentoCadastroComponent implements OnInit {
           this.mensagemPadrao.showMessage('O Tipo de Investimento foi cadastrado com sucesso!')
           this.router.navigate(['/tipo-investimento-consulta'])
         }, error => {
-          this.mensagemPadrao.showMessage('Ocorreu um erro ao buscar as informações do Tipo de Investimentos! Por favor analise o console.')
+          this.mensagemPadrao.showMessage('Ocorreu um erro ao cadastrar as informações do Tipo de Investimentos! Por favor analise o console.')
           console.log(error)
         })
     }

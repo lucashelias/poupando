@@ -1,1 +1,82 @@
-<p>tipo-investimento-update works!</p>
+<div class="container">
+    <div class="card_tela">
+        <mat-accordion multi style="margin-top: 10px;">
+            <mat-expansion-panel [expanded]="true" (opened)="setStep(0)" hideToggle>
+                <mat-expansion-panel-header class="card_panel_style">
+                    <mat-panel-title style="color: white;">
+                        Alteração do Tipo de Investimento
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+    
+                <table class="full-width" cellspacing="0">
+                    <td>
+                            <div class="div_class_label">
+                                <strong>
+                                    <label>Tipo Investimetno</label>
+                                </strong>
+                            </div>
+                            <div>
+                                <mat-form-field class="inputText full-width " appearance="outline">
+                                    <input matInput [(ngModel)]="tipo_investimento.tipo_investimento" placeholder="Tipo de Investimento"
+                                        id="tipo_invest" style="size: 500px;" autocomplete="doNotAutoComplete"
+                                        required>
+                                </mat-form-field>
+                            </div>
+                            <div class="div_class_label">
+                                <strong>
+                                    <label>Categoria de investimento</label>
+                                </strong> 
+                            </div>
+                            <div>
+                                <mat-form-field>
+                                    <mat-select id="tipo_categoria"  [(ngModel)]="tipo_investimento.id_categoria">
+                                        <mat-option *ngFor="let categoria_invest of categoria_investimento" [required] = true [value]="categoria_invest.id">
+                                            {{categoria_invest.categoria}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                    </td>
+                    <td>
+                        <div class="div_class_label">
+                            <strong>
+                                <label>Descrição</label>
+                            </strong>
+                        </div>
+                        <div>
+                            <mat-form-field class="inputText full-width" appearance="outline">
+                                <textarea matInput [(ngModel)]="tipo_investimento.descricao" placeholder="Descrição do investimento" 
+                                id="descricao" autocomplete="doNotAutoComplete" required></textarea>
+                            </mat-form-field>
+                        </div>
+                    </td>
+                </table>
+    
+                <mat-divider></mat-divider>
+    
+                <div class="form-group">
+                    <div class="alert alert-danger" role="alert" *ngIf="erros">
+                        <tbody>
+                            <tr *ngFor="let item of errosMessage">
+                                <td>{{item}}</td>
+                            </tr>
+                        </tbody>
+                    </div>
+                </div>
+    
+                <div>
+                    <button type="submit" class="button" mat-raised-button color="primary" id="btSave"
+                        (click)="alterarTipoInvestimento()">
+                        <mat-icon>save</mat-icon>
+                        <span>Alterar</span>
+                    </button>
+    
+                    <button type="submit" class="button" mat-raised-button color="primary" id="btCancelar"
+                        routerLink="/tipo-investimento-consulta">
+                        <mat-icon>cancel</mat-icon>
+                        <span>Cancelar</span>
+                    </button>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>    
