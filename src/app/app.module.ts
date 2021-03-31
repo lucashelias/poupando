@@ -62,7 +62,7 @@ import { TipoContaCorrenteUpdateComponent } from './conta-bancaria/tipo-conta-co
 import { TipoContaCorrenteCadastroComponent } from './conta-bancaria/tipo-conta-corrente/tipo-conta-corrente-cadastro/tipo-conta-corrente-cadastro.component';
 import { TipoContaCorrenteDeleteComponent } from './conta-bancaria/tipo-conta-corrente/tipo-conta-corrente-delete/tipo-conta-corrente-delete.component';
  
- 
+  
 @NgModule({ 
   declarations: [ 
     AppComponent,

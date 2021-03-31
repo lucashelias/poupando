@@ -3,8 +3,8 @@ import { Data } from '@angular/router'
 export class Tipo_investimento{
    
     id: number
-    categoria: string
+    tipo_investimento: string
     descricao: string
-    risco: string
+    id_categoria: string
    
 }
