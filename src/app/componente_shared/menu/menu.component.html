@@ -1,260 +1,267 @@
 <div>
-<mat-sidenav-container *ngIf=isLoggedIn >
-  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === true">
-    <mat-toolbar class="dados-sidenav-header">
-      <div style="padding-bottom: 0%;">
-        <i class="fa fa-user-circle fa-6x" style="padding-top: 10px;"></i>
-        <div>
-          <span>
-            <strong>
-              {{currentUser.usuario + ' ' + currentUser.sobrenome}}
-            </strong>
-          </span>
+  <mat-sidenav-container>
+    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === true">
+
+      <mat-toolbar class="dados-sidenav-header" *ngIf=isLoggedIn>
+        <div style="padding-bottom: 0%;">
+          <i class="fa fa-user-circle fa-6x" style="padding-top: 10px;"></i>
+          <div>
+            <span>
+              <strong>
+                {{currentUser.nome + ' ' + currentUser.sobrenome}}
+              </strong>
+            </span>
+          </div>
+          <div>
+            <span> E-mail: {{currentUser.email}}</span>
+          </div>
+          <div>
+            <span> Permissão: {{currentUser.role}}</span>
+          </div>
         </div>
-        <div>
-          <span> E-mail: {{currentUser.email}}</span>
-        </div>
-        <div>
-          <span> Permissão: {{currentUser.role}}</span>
-        </div>
-      </div>
 
 
-    </mat-toolbar>
-    <mat-divider style="size: 10px;"></mat-divider>
-    <mat-nav-list >
+      </mat-toolbar>
+      <mat-divider style="size: 10px;" *ngIf=isLoggedIn></mat-divider>
+      <mat-nav-list *ngIf=isLoggedIn>
 
-      <h3 class="sub_secao_titulo">Relatórios</h3>
-      <mat-accordion >
-        <mat-expansion-panel style="background-color: transparent; color: white;" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-          <mat-expansion-panel-header>
-            <mat-panel-title >
-              <i class="fa fa-tachometer-alt icon-menu"></i>
-              Dashboards
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <a mat-list-item routerLink="">
-            <span class="menu-text">
-              <i class="fa fa-file-code"></i>
-              Saldo Bancário
-            </span>
-          </a>
-          <a mat-list-item routerLink="">
-            <span class="menu-text">
-              <i class="fa fa-file-code"></i>
-              Investimentos
-            </span>
-          </a>
-          <a mat-list-item routerLink="">
-            <span class="menu-text">
-              <i class="fa fa-file-code"></i>
-              Receitas
-            </span>
-          </a>
-        </mat-expansion-panel>
-      </mat-accordion>
+        <h3 class="sub_secao_titulo">Relatórios</h3>
+        <mat-accordion>
+          <mat-expansion-panel style="background-color: transparent; color: white;" (opened)="panelOpenState = true"
+            (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <i class="fa fa-tachometer-alt icon-menu"></i>
+                Dashboards
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <a mat-list-item routerLink="">
+              <span class="menu-text">
+                <i class="fa fa-file-code"></i>
+                Saldo Bancário
+              </span>
+            </a>
+            <a mat-list-item routerLink="">
+              <span class="menu-text">
+                <i class="fa fa-file-code"></i>
+                Investimentos
+              </span>
+            </a>
+            <a mat-list-item routerLink="">
+              <span class="menu-text">
+                <i class="fa fa-file-code"></i>
+                Receitas
+              </span>
+            </a>
+          </mat-expansion-panel>
+        </mat-accordion>
 
-      <h3 class="sub_secao_titulo">Dados Bancários</h3>
-      <mat-accordion >
-        <mat-expansion-panel style="background-color: transparent; color: white;" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-          <mat-expansion-panel-header>
-            <mat-panel-title >
-              <i class="fa fa-tachometer-alt icon-menu"></i>
-              Informações Bancárias
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <a mat-list-item routerLink="/banco-consulta">
-            <span class="menu-text">
-              <i class="fa fa-file-code"></i>
-              Dados de Instituições Bancário
-            </span>
-          </a>
-          <a mat-list-item routerLink="/tipo-conta-corrente-consulta">
-            <span class="menu-text">
-              <i class="fa fa-file-code"></i>
-              Tipos de Contas Correntes
-            </span>
-          </a>
-          <a mat-list-item routerLink="/conta-corrente-consulta">
-            <span class="menu-text">
-              <i class="fa fa-file-code"></i>
-              Conta Corrente
-            </span>
-          </a>
-        </mat-expansion-panel>
-      </mat-accordion>
+        <h3 class="sub_secao_titulo">Dados Bancários</h3>
+        <mat-accordion>
+          <mat-expansion-panel style="background-color: transparent; color: white;" (opened)="panelOpenState = true"
+            (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <i class="fa fa-tachometer-alt icon-menu"></i>
+                Informações Bancárias
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <a mat-list-item routerLink="/banco-consulta">
+              <span class="menu-text">
+                <i class="fa fa-file-code"></i>
+                Dados de Instituições Bancário
+              </span>
+            </a>
+            <a mat-list-item routerLink="/tipo-conta-corrente-consulta">
+              <span class="menu-text">
+                <i class="fa fa-file-code"></i>
+                Tipos de Contas Correntes
+              </span>
+            </a>
+            <a mat-list-item routerLink="/conta-corrente-consulta">
+              <span class="menu-text">
+                <i class="fa fa-file-code"></i>
+                Conta Corrente
+              </span>
+            </a>
+          </mat-expansion-panel>
+        </mat-accordion>
 
-      <h3 class="sub_secao_titulo">Investimentos</h3>
-      <mat-accordion >
-        <mat-expansion-panel style="background-color: transparent; color: white;" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-          <mat-expansion-panel-header>
-            <mat-panel-title >
-              <i class="fa fa-tachometer-alt icon-menu"></i>
-              Configurações de investimentos
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <a mat-list-item routerLink="/categoria-investimento-consulta">
-            <span class="menu-text">
-              <i class="fa fa-file-code"></i>
-              Categoria de Investimetnos
-            </span>
-          </a>
-          <a mat-list-item routerLink="/tipo-investimento-consulta">
-            <span class="menu-text">
-              <i class="fa fa-file-code"></i>
-              Tipos de Investimentos
-            </span>
-          </a>
-        </mat-expansion-panel>
-      </mat-accordion>
+        <h3 class="sub_secao_titulo">Investimentos</h3>
+        <mat-accordion>
+          <mat-expansion-panel style="background-color: transparent; color: white;" (opened)="panelOpenState = true"
+            (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <i class="fa fa-tachometer-alt icon-menu"></i>
+                Configurações de investimentos
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <a mat-list-item routerLink="/categoria-investimento-consulta">
+              <span class="menu-text">
+                <i class="fa fa-file-code"></i>
+                Categoria de Investimetnos
+              </span>
+            </a>
+            <a mat-list-item routerLink="/tipo-investimento-consulta">
+              <span class="menu-text">
+                <i class="fa fa-file-code"></i>
+                Tipos de Investimentos
+              </span>
+            </a>
+          </mat-expansion-panel>
+        </mat-accordion>
 
-      <h3 class="sub_secao_titulo" style="margin-top: 10px; margin-bottom: 0px;">Cantábil</h3>
-      <mat-accordion >
-        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" style="opacity: 100% !important;">
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              <i class="fa fa-upload"></i>
-              Consulta /Lançamentos Contábeis
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <a mat-list-item routerLink="">
-            <span class="menu-text">
-              <i class="fa fa-file-code"></i>
-              Débito / Crédito
-            </span>
-          </a>
-          <a mat-list-item routerLink="">
-            <span class="menu-text">
-              <i class="fa fa-file-code"></i>
-              Transferências
-            </span>
-          </a>
-          <a mat-list-item routerLink="">
-            <span class="menu-text">
-              <i class="fa fa-file-code"></i>
-              Recibos / Comprovantes
-            </span>
-          </a>
-          <a mat-list-item routerLink="">
-            <span class="menu-text">
-              <i class="fa fa-file-code"></i>
-              Pagamentos
-            </span>
-          </a>
-          <a mat-list-item routerLink="">
-            <span class="menu-text">
-              <i class="fa fa-file-code"></i>
-             Imposto de Renda 
-            </span>
-          </a>
-          <a mat-list-item routerLink=""> 
-            <span class="menu-text">
-              <i class="fa fa-file-code"></i>
-             Lançamentos de Ativos
-            </span>
-          </a>
-          <a mat-list-item routerLink="">
-            <span class="menu-text">
-              <i class="fa fa-file-code"></i>
-             Simulação Emprestimo
-            </span>
-          </a>
-          <a mat-list-item routerLink="">
-            <span class="menu-text">
-              <i class="fa fa-file-code"></i>
-             Simulação para Compras
-            </span>
-          </a>
-        </mat-expansion-panel>
-      </mat-accordion> 
+        <h3 class="sub_secao_titulo" style="margin-top: 10px; margin-bottom: 0px;">Cantábil</h3>
+        <mat-accordion>
+          <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+            style="opacity: 100% !important;">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <i class="fa fa-upload"></i>
+                Consulta /Lançamentos Contábeis
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <a mat-list-item routerLink="">
+              <span class="menu-text">
+                <i class="fa fa-file-code"></i>
+                Débito / Crédito
+              </span>
+            </a>
+            <a mat-list-item routerLink="">
+              <span class="menu-text">
+                <i class="fa fa-file-code"></i>
+                Transferências
+              </span>
+            </a>
+            <a mat-list-item routerLink="">
+              <span class="menu-text">
+                <i class="fa fa-file-code"></i>
+                Recibos / Comprovantes
+              </span>
+            </a>
+            <a mat-list-item routerLink="">
+              <span class="menu-text">
+                <i class="fa fa-file-code"></i>
+                Pagamentos
+              </span>
+            </a>
+            <a mat-list-item routerLink="">
+              <span class="menu-text">
+                <i class="fa fa-file-code"></i>
+                Imposto de Renda
+              </span>
+            </a>
+            <a mat-list-item routerLink="">
+              <span class="menu-text">
+                <i class="fa fa-file-code"></i>
+                Lançamentos de Ativos
+              </span>
+            </a>
+            <a mat-list-item routerLink="">
+              <span class="menu-text">
+                <i class="fa fa-file-code"></i>
+                Simulação Emprestimo
+              </span>
+            </a>
+            <a mat-list-item routerLink="">
+              <span class="menu-text">
+                <i class="fa fa-file-code"></i>
+                Simulação para Compras
+              </span>
+            </a>
+          </mat-expansion-panel>
+        </mat-accordion>
 
-      <h3 class="sub_secao_titulo" style="margin-top: 10px; margin-bottom: 0px;">Configurações</h3>
-      <mat-accordion >
-        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" style="opacity: 100% !important;">
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              <i class="fa fa-cog fa-spin fa-fw"></i>
-              Configurações
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <a mat-list-item routerLink="/usuario-detalhe">
-            <span class="menu-text">
-              <i class="fa fa-tachometer-alt"></i>
-              Acessos
-            </span>
-          </a>
-        </mat-expansion-panel>
-      </mat-accordion>
+        <h3 class="sub_secao_titulo" style="margin-top: 10px; margin-bottom: 0px;">Configurações</h3>
+        <mat-accordion>
+          <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+            style="opacity: 100% !important;">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <i class="fa fa-cog fa-spin fa-fw"></i>
+                Configurações
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <a mat-list-item routerLink="/usuario-detalhe">
+              <span class="menu-text">
+                <i class="fa fa-tachometer-alt"></i>
+                Acessos
+              </span>
+            </a>
+          </mat-expansion-panel>
+        </mat-accordion>
 
-      <h3 class="sub_secao_titulo" style="margin-top: 10px; margin-bottom: 0px;">Arquivos</h3>
-      <mat-accordion >
-        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" style="opacity: 100% !important;">
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              <i class="fa fa-upload"></i>
-              Upload de Arquivos
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <a mat-list-item routerLink="">
-            <span class="menu-text">
-              <i class="fa fa-file-code"></i>
-              Arquivos OFX
-            </span>
-          </a>
-          <a mat-list-item routerLink="">
-            <span class="menu-text">
-              <i class="fa fa-file-excel"></i>
-              Arquivos Excel
-            </span>
-          </a>
-        </mat-expansion-panel>
-      </mat-accordion>
-    </mat-nav-list>
+        <h3 class="sub_secao_titulo" style="margin-top: 10px; margin-bottom: 0px;">Arquivos</h3>
+        <mat-accordion>
+          <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+            style="opacity: 100% !important;">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <i class="fa fa-upload"></i>
+                Upload de Arquivos
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <a mat-list-item routerLink="">
+              <span class="menu-text">
+                <i class="fa fa-file-code"></i>
+                Arquivos OFX
+              </span>
+            </a>
+            <a mat-list-item routerLink="">
+              <span class="menu-text">
+                <i class="fa fa-file-excel"></i>
+                Arquivos Excel
+              </span>
+            </a>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </mat-nav-list>
 
 
-  </mat-sidenav>
-  <mat-sidenav-content>
+    </mat-sidenav>
+    <mat-sidenav-content style="height: 100%;">
 
-    <mat-toolbar class="class_menu ">
-      <button mat-icon-button id="menu-toggle" (click)="drawer.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span class="example-spacer"></span>
-
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <button mat-button id="bt_home" (click)="dashboards()">
-        <mat-icon>home</mat-icon>
-      </button>
-
-      <button mat-button [matMenuTriggerFor]="menu" id="btMenuUser">
-        <mat-icon>account_circle</mat-icon>
-        {{currentUser.usuario}}
-      </button>
-
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item style="font-size: 12px;">
-          <mat-icon class="icons_menu">build</mat-icon>
-          <span>Configurações</span>
+      <mat-toolbar class="class_menu" *ngIf=isLoggedIn>
+        <button mat-icon-button id="menu-toggle" (click)="drawer.toggle()">
+          <mat-icon>menu</mat-icon>
         </button>
-        <button mat-menu-item style="font-size: 12px;" (click)='logout()'>
-          <mat-icon class="icons_menu">login</mat-icon>
-          <span>Logout</span>
+        <span class="example-spacer"></span>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
         </button>
-      </mat-menu>
 
-      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-    </mat-toolbar>
+        <button mat-button id="bt_home" (click)="dashboards()">
+          <mat-icon>home</mat-icon>
+        </button>
 
-  </mat-sidenav-content>
-</mat-sidenav-container> 
+        <button mat-button [matMenuTriggerFor]="menu" id="btMenuUser">
+          <mat-icon>account_circle</mat-icon>
+          {{currentUser.usuario}}
+        </button>
 
-<router-outlet></router-outlet>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item style="font-size: 12px;">
+            <mat-icon class="icons_menu">build</mat-icon>
+            <span>Configurações</span>
+          </button>
+          <button mat-menu-item style="font-size: 12px;" (click)='logout()'>
+            <mat-icon class="icons_menu">login</mat-icon>
+            <span>Logout</span>
+          </button>
+        </mat-menu>
+
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+          *ngIf="isHandset$ | async">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+      </mat-toolbar>
+
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
 </div>

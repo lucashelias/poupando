@@ -1,5 +1,5 @@
-<div class="container mat-elevation-z8" style="margin-top: 10px;">
-    <mat-accordion multi style="width: 1200px !important;">
+<div id="tela_padrao" style="margin-top: 10px;">
+    <mat-accordion multi style="height: 800px;">
       <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
           <mat-expansion-panel-header style="background-color: rgb(51, 134, 95);">
               <mat-panel-title style="color: white; text-align: center !important;" >
@@ -65,7 +65,6 @@
               <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
               <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         
-              <!-- Row shown when there is no matching data. -->
               <tr class="mat-row" *matNoDataRow>
                 <td class="mat-cell" colspan="4">Nenhum resultado encontrado "{{input.value}}"</td>
               </tr>
@@ -75,7 +74,4 @@
           </div>
       </mat-expansion-panel>
     </mat-accordion>
-  
-  
-    
   </div>

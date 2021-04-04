@@ -210,3 +210,8 @@ span i {
   color: white;
   background-color: rgb(252, 54, 54)
 }
+
+#tela_padrao{
+  height: 100vh;
+  width: 100vw;
+}

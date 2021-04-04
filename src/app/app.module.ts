@@ -27,7 +27,6 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTableModule } from '@angular/material/table';
 import { MatRadioModule } from '@angular/material/radio';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { TabelaComponentComponent } from './componente_shared/tabela-component/tabela-component.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { SidenavComponent } from './componente_shared/sidenav/sidenav.component';
@@ -62,7 +61,7 @@ import { TipoContaCorrenteUpdateComponent } from './conta-bancaria/tipo-conta-co
 import { TipoContaCorrenteCadastroComponent } from './conta-bancaria/tipo-conta-corrente/tipo-conta-corrente-cadastro/tipo-conta-corrente-cadastro.component';
 import { TipoContaCorrenteDeleteComponent } from './conta-bancaria/tipo-conta-corrente/tipo-conta-corrente-delete/tipo-conta-corrente-delete.component';
  
-  
+
 @NgModule({ 
   declarations: [ 
     AppComponent,
@@ -71,7 +70,6 @@ import { TipoContaCorrenteDeleteComponent } from './conta-bancaria/tipo-conta-co
     UsuarioDetalheComponent,  
     UsuarioCadastroComponent, 
     HomeDetalheComponent,  
-    TabelaComponentComponent,
     SidenavComponent,
     MenuComponent,
     ContaBancariaComponent,
@@ -150,6 +148,6 @@ import { TipoContaCorrenteDeleteComponent } from './conta-bancaria/tipo-conta-co
   providers: [authInterceptorProviders, 
               { provide: LOCALE_ID, useValue: 'pt-BR' },
             ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent] 
 })
 export class AppModule { }

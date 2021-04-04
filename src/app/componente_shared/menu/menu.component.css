@@ -17,7 +17,7 @@
 }
 
 .class_menu {
-  background-color: #264a5c;
+  background-color:black;
   height: 44px;
   color: white;
   position: sticky;
@@ -27,11 +27,11 @@
 }
 
 .mat-toolbar {
-  background-color: #37474F;
+  background-color: #363636;
 }
 
 .mat-sidenav {
-  background-color: #37474F;
+  background-color:#363636;
   color: white;
   
 }

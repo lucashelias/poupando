@@ -47,7 +47,7 @@ export class MenuComponent {
 
     this.tokenStorageService.signOut();
     this.router.navigate(["/login"])
-    // this.reloadPage();
+    setTimeout(() => { this.reloadPage()}, 1);
   }
 
   reloadPage(): void {
