@@ -1,1 +1,26 @@
-<p>bolsa-de-valores works!</p>
+<div>
+    <mat-card class="example-card" *ngFor="let cotacao of cotacaoMoedaTaxa">
+        <mat-card-header>
+            <mat-card-title>Cotação</mat-card-title>
+            <mat-card-subtitle>{{cotacao.code || cotacao.codein}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <p>Moeda</p>
+            <span>{{cotacao.name}}</span>
+            <p>Minima</p>
+            <span>{{cotacao.low}}</span>
+            <p>Máxima</p>
+            <span>{{cotacao.high}}</span>
+            <p>Variacao</p>
+            <span>{{cotacao.varBid}}</span>
+            <p>Porcentagem Variacao</p>
+            <span>{{cotacao.pctChange}}</span>
+            <p>Compra</p>
+            <span>{{cotacao.bid}}</span>
+            <p>Venda</p>
+            <span>{{cotacao.ask}}</span>
+            <p>Atualizado em:</p>
+            <span>{{cotacao.create_date}}</span>
+        </mat-card-content>
+    </mat-card>
+</div>

@@ -1,0 +1,7 @@
+{
+  "/json/*": {
+      "target": "https://economia.awesomeapi.com.br/json/all",
+      "secure": false,
+      "logLevel": "debug"
+  }
+}

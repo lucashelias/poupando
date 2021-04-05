@@ -11,4 +11,5 @@ export class Usuario{
     status: string
     dataCadastro: Data
     dataAlteracao: Data
+
 }

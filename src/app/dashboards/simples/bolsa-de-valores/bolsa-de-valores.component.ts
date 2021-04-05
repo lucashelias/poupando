@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { CotacaoMoedaTaxa } from 'src/app/models/moedas/cotacao-moeda-taxa.model';
+import { CotacaoCambioService } from 'src/app/_services/cotacao-cambio/cotacao-cambio.service';
+import { MensagensPadraoService } from 'src/app/_services/mensagens/mensagens-padrao.service';
+
+
 
 @Component({
   selector: 'app-bolsa-de-valores',
@@ -7,9 +12,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BolsaDeValoresComponent implements OnInit {
 
-  constructor() { }
+  cotacaoMoedaTaxa: CotacaoMoedaTaxa
+
+  constructor(private cotacaoCambioService: CotacaoCambioService,
+    private mensagemPadrao: MensagensPadraoService ) { }
 
   ngOnInit(): void {
+    this.buscarCotacaoMoeda()
   }
+
+  buscarCotacaoMoeda():void{
+    let moeda1: string = 'USD-BRL'
+    let moeda2: string = 'EUR-BRL'
+    
+  this.cotacaoCambioService.getTaxaMoeda(moeda2).subscribe(
+    data =>{
+      this.cotacaoMoedaTaxa = data      
+    }, error =>{
+      console.log(error)
+      this.mensagemPadrao.showMessage('Ocorreu um problema ao consultar a taxa entre as moedas: '+ moeda1)
+    })
+  }
+
 
 }
