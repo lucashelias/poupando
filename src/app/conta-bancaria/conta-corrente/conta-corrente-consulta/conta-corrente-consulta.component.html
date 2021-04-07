@@ -1,1 +1,170 @@
-<p>conta-corrente-consulta works!</p>
+<div id="tela_padrao" class="class_tela container">
+    <mat-accordion multi style="width: 1200px !important;">
+        <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+            <mat-expansion-panel-header style="background-color: rgb(51, 134, 95);">
+                <mat-panel-title style="color: white;">
+                    Conta Corrente
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <table class="full-width" cellspacing="0">
+                <tr>
+                    <td>
+                        <div class="div_class_label">
+                            <strong>
+                                <label for="id">Cliente</label>
+                            </strong>
+                        </div>
+                        <div>
+                            <mat-form-field class="inputText full-width " appearance="outline">
+                                <input matInput placeholder="Nome do cliente" id="cliente">
+                            </mat-form-field>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="div_class_label">
+                            <strong>
+                                <label>Banco</label>
+                            </strong>
+                        </div>
+                        <div>
+                            <mat-form-field class="inputText full-width " appearance="outline">
+                                <input matInput placeholder="Banco" id="banco" style="size: 500px;"
+                                    autocomplete="doNotAutoComplete" #nome>
+                            </mat-form-field>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="div_class_label">
+                            <strong>
+                                <label>Conta Corrente</label>
+                            </strong>
+                        </div>
+                        <div>
+                            <mat-form-field class="inputText full-width" appearance="outline">
+                                <input matInput placeholder="Conta Corrente" id="conta_corrente"
+                                    autocomplete="doNotAutoComplete" #sobrenome>
+                            </mat-form-field>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="div_class_label">
+                            <strong>
+                                <label>Tipo de Conta</label>
+                            </strong>
+                        </div>
+                        <div>
+                            <mat-form-field class="inputText full-width" appearance="outline">
+                                <input matInput placeholder="Tipo da conta corrente" id="tipo_conta"
+                                    autocomplete="doNotAutoComplete" #usuario>
+                            </mat-form-field>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- BOTÔES -->
+
+            <div>
+                <button type="submit" class="button" mat-raised-button color="primary" id="btNovo" (click)='novaContaCorrente()'>
+                    <mat-icon>add</mat-icon>
+                    <span>Cadastrar</span>
+                </button>
+                <button type="reset" class="button" mat-raised-button color="primary" id="btLimpar">
+                    <mat-icon>restore_from_trash</mat-icon>
+                    <span>Limpar</span>
+                </button>
+                <button type="submit" class="button" mat-raised-button color="primary" id="btPesquisar"
+                    (click)="pesquisarContaCorrente()">
+                    <mat-icon>search</mat-icon>
+                    <span>Pesquisar</span>
+                </button>
+            </div>                
+            <div>
+                <button type="submit" class="button" mat-raised-button color="primary" id="btPesquisar"
+                    (click)="consultarMovimentacoes()">
+                    <mat-icon>list-alt</mat-icon>
+                    <span>Consultar Movimentações</span>
+                </button>
+                <button type="submit" class="button" mat-raised-button color="warn" id="btPesquisar"
+                    (click)="deletarContaCorrente()"> 
+                    <mat-icon>trash-o</mat-icon>
+                    <span>Excluir Conta</span>
+                </button>
+            </div>
+
+            <!-- MODAL -->
+
+            <ng-template #content let-modal>
+                <div class="modal-header">
+                    <h4 class="modal-title">Modal title</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>One fine body&hellip;</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+                </div>
+            </ng-template>
+        </mat-expansion-panel>
+    </mat-accordion>
+    <!--FIM FILTROS DE USUARIOS -->
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!-- Checkbox Column -->
+        <ng-container matColumnDef="select">
+          <th mat-header-cell *matHeaderCellDef>
+            <mat-checkbox (change)="$event ? masterToggle() : null"
+                          [checked]="selection.hasValue() && isAllSelected()"
+                          [indeterminate]="selection.hasValue() && !isAllSelected()"
+                          [aria-label]="checkboxLabel()">
+            </mat-checkbox>
+          </th>
+          <td mat-cell *matCellDef="let row">
+            <mat-checkbox (click)="$event.stopPropagation()"
+                          (change)="$event ? selection.toggle(row) : null"
+                          [checked]="selection.isSelected(row)"
+                          [aria-label]="checkboxLabel(row)">
+            </mat-checkbox>
+          </td>
+        </ng-container>
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="Cliente">
+          <th mat-header-cell *matHeaderCellDef> Cliente </th>
+          <td mat-cell *matCellDef="let conta_corrente"> {{conta_corrente.cliente}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="Banco">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let conta_corrente"> {{conta_corrente.banco}} </td>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="Agencia">
+          <th mat-header-cell *matHeaderCellDef> Agência </th>
+          <td mat-cell *matCellDef="let conta_corrente"> {{conta_corrente.agencia}} </td>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="Conta-Corrente">
+          <th mat-header-cell *matHeaderCellDef> Conta Corrente </th>
+          <td mat-cell *matCellDef="let conta_corrente"> {{conta_corrente.conta_corrente}} </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+            (click)="selection.toggle(row)">
+        </tr>
+      </table>
+
+</div>
