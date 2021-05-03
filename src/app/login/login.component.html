@@ -1,4 +1,4 @@
-<div id="title">
+<!-- <div id="title">
   <div id='stars'></div>
   <div id='stars2'></div>
   <div id='stars3'></div>
@@ -35,6 +35,46 @@
   </div>
 </div>
 
+<link rel="stylesheet" href="/assets/css/style.css"> -->
+
+
+<!-- <div class="codepad-logo">
+  <div class="logo"></div>
+</div> -->
+
+<div id="title">
+  <div id='stars'></div>
+  <div id='stars2'></div>
+  <div id='stars3'></div>
+
+  <div class="mat-card-login">
+    <div class="container">
+      <div class="header">Sign In</div>
+
+      <div>
+        <input id='usuario' class='text' type="text" name="usuario" placeholder='Usuário' required #usuario>
+      </div>
+      <div>
+        <input id='senha' class='pass' type="password" name="senha" placeholder='Senha' required #senha>
+      </div>
+
+      <div class="form-group">
+        <button type="submit" mat-raised-button (click)="login(usuario.value,senha.value)">Login</button>
+        <div class="alert alert-danger massagelogin" role="alert" *ngIf="isLoginFailed"
+          style="padding-top: 20px; margin: 20px;">
+          <p style="text-align: center;">
+            Erro ao efetuar o Login: {{ errorMessage }}
+          </p>
+        </div>
+      </div>
+      <div style="padding-top: 80px;">
+        <footer style="text-align: center; color: white;">
+          Problemas para realizar o login?
+          <a href="#" target="_blank" rel="noopener"> Clique aqui! </a>
+        </footer>
+      </div>
+    </div>
+  </div>
+</div>
+
 <link rel="stylesheet" href="/assets/css/style.css">
-
-

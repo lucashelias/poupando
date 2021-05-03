@@ -215,3 +215,8 @@ span i {
   height: 100vh;
   width: 100vw;
 }
+
+.background_all{
+  background-color: #232930;
+  position: 50px;
+}

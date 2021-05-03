@@ -4,6 +4,8 @@
 
 .sidenav {
   width: 350px;
+  position: fixed;
+  top: 0;
 }
 
 .sidenav .mat-toolbar {
@@ -17,8 +19,8 @@
 }
 
 .class_menu {
-  background-color:black;
-  height: 44px;
+  background-color: #1d1d1d;
+  height: 64px;
   color: white;
   position: sticky;
   position: -webkit-sticky; /* For macOS/iOS Safari */
@@ -27,11 +29,14 @@
 }
 
 .mat-toolbar {
-  background-color: #363636;
+  background-color: #1d1d1d;
+  top: 0;
+  position: fixed;
+  width: 100%;
 }
 
 .mat-sidenav {
-  background-color:#363636;
+  background-color:#1d1d1d;
   color: white;
   
 }
@@ -41,8 +46,10 @@
   font-size: 12px;
   text-align: center;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   color: white;
+  position: fixed;
+  top: 0;
 }
 
 .mat-divider {
