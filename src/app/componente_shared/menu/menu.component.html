@@ -21,11 +21,102 @@
           </div>
         </div>
       </mat-toolbar> -->
-      
-      <mat-divider style="size: 10px;" *ngIf=isLoggedIn></mat-divider>
-      <mat-nav-list *ngIf=isLoggedIn>
+      <mat-nav-list >
+        <div *ngIf=isLoggedIn>
 
-        <h3 class="sub_secao_titulo">Relatórios</h3>
+          <nav class="navbar navbar-inverse fixed-top" id="sidebar-wrapper" role="navigation">
+          <ul class="nav sidebar-nav">
+            <div class="sidebar-header">
+
+              <div class="sidebar-brand">
+                <div class="codepad-logo-brand">
+                  <div class="logo-brand"></div>
+                </div>
+                <!-- <a href="#">Inserir nome logo</a> -->
+              </div>
+            </div>
+            <mat-divider></mat-divider>
+
+            <!-- <p>Dashboards</p> -->
+            <li class="dropdown">
+              <a href="#Dashboards" class="dropdown-toggle" data-toggle="dropdown"> 
+                <span> <i class="fa fa-file-code"></i> Dashboards </span>
+              </a>
+              <ul class="dropdown-menu animated fadeInLeft" role="menu">
+                <li><a routerLink="">Saldo Bancário</a></li>
+                <li><a routerLink="">Investimentos</a></li>
+                <li><a routerLink="">Receitas</a></li>
+              </ul>
+            </li>
+
+            <!-- <p>Informações Bancárias</p> -->
+            <li class="dropdown">
+              <a routerLink="#works" class="dropdown-toggle" data-toggle="dropdown">Informações Bancárias 
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu animated fadeInLeft" role="menu">
+                <li><a routerLink="/banco-consulta">Dados de Instituições Bancário</a></li>
+                <li><a routerLink="/tipo-conta-corrente-consulta">Tipos de Contas Correntes</a></li>
+                <li><a routerLink="/conta-corrente-consulta">Conta Corrente</a></li>
+              </ul>
+            </li>
+
+            <!-- <p>Configurações de investimentos</p> -->
+            <li class="dropdown">
+              <a routerLink="" class="dropdown-toggle" data-toggle="dropdown">Configurações de investimentos 
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu animated fadeInLeft" role="menu">
+                <li><a routerLink="/categoria-investimento-consulta">Categoria de Investimentos</a></li>
+                <li><a routerLink="/tipo-investimento-consulta">Tipos de Investimentos</a></li>
+              </ul>
+            </li>
+
+            <!-- <p>Consulta /Lançamentos Contábeis</p> -->
+            <li class="dropdown">
+              <a routerLink="#works" class="dropdown-toggle" data-toggle="dropdown">Consulta /Lançamentos Contábeis 
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu animated fadeInLeft" role="menu">
+                <li><a routerLink="">Débito / Crédito</a></li>
+                <li><a routerLink="">Transferências</a></li>
+                <li><a routerLink="">Recibos / Comprovantes</a></li>
+                <li><a routerLink="">Pagamentos</a></li>
+                <li><a routerLink="">Lançamentos de Ativos</a></li>
+                <li><a routerLink="">Simulação Emprestimo</a></li>
+                <li><a routerLink="">Simulação para Compras</a></li>
+              </ul>
+            </li>
+
+            <!-- <p>Configurações</p> -->
+            <li class="dropdown">
+              <a routerLink="#works" class="dropdown-toggle" data-toggle="dropdown">Configurações 
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu animated fadeInLeft" role="menu">
+                <li><a routerLink="/usuario-detalhe">Cadastro de Usuários</a></li>
+              </ul>
+            </li>
+
+            <!-- <p> Upload de Arquivos</p> -->
+            <li class="dropdown">
+              <a routerLink="#works" class="dropdown-toggle" data-toggle="dropdown"> Upload de Arquivos 
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu animated fadeInLeft" role="menu">
+                <li><a routerLink="">Arquivos OFX</a></li>
+                <li><a routerLink="">Arquivos Excel</a></li>
+              </ul>
+            </li>
+            
+
+          </ul>
+        </nav> 
+
+
+        </div>
+
+        <!-- <h3 class="sub_secao_titulo">Relatórios</h3>
         <mat-accordion>
           <mat-expansion-panel style="background-color: transparent; color: white;" (opened)="panelOpenState = true"
             (closed)="panelOpenState = false">
@@ -54,9 +145,9 @@
               </span>
             </a>
           </mat-expansion-panel>
-        </mat-accordion>
+        </mat-accordion> -->
 
-<!--         
+        <!--         
         <h3 class="sub_secao_titulo">Dados Bancários</h3>
         <mat-accordion>
           <mat-expansion-panel style="background-color: transparent; color: white;" (opened)="panelOpenState = true"
