@@ -1,7 +1,7 @@
-<div id="tela_padrao" class="card_tela container">
-    <mat-accordion multi style="width: 50% !important;">
-      <mat-expansion-panel [expanded]="true" (opened)="setStep(0)" hideToggle>
-        <mat-expansion-panel-header class="card_panel_style">
+<div id="tela_padrao" class="class_tela">
+    <mat-accordion multi style="width: 80%;">
+      <mat-expansion-panel [expanded]="true" [disabled]="true" [@.disabled]="true" (opened)="setStep(0)" hideToggle>
+        <mat-expansion-panel-header >
           <mat-panel-title style="color: white;">
             Atualização de Usuários
           </mat-panel-title>
@@ -147,13 +147,8 @@
           </button>
   
           <button type="submit" class="button" mat-raised-button color="primary" id="btCancelar" (click)="cancelar()">
-            <mat-icon>cancel</mat-icon>
+            <mat-icon style="margin-right: 10px;">cancel</mat-icon>
             <span>Cancelar</span>
-          </button>
-
-          <button type="submit" class="button" mat-raised-button color="primary" id="Consultar" (click)="ConsultaRoles()">
-            <mat-icon>cancel</mat-icon>
-            <span>Consulta Role</span>
           </button>
         </div>
       </mat-expansion-panel>

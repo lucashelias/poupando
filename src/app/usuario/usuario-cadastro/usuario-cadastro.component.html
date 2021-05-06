@@ -1,7 +1,7 @@
-<div id="tela_padrao" class="card_tela">
-  <mat-accordion multi style="width: 50% !important;">
+<div id="tela_padrao" class="class_tela">
+  <mat-accordion multi style="width: 80%;">
     <mat-expansion-panel [expanded]="true" (opened)="setStep(0)" hideToggle>
-      <mat-expansion-panel-header class="card_panel_style">
+      <mat-expansion-panel-header >
         <mat-panel-title style="color: white;">
           Cadastro de Usuários
         </mat-panel-title>
@@ -95,7 +95,6 @@
             </div>
             <div>
               <mat-form-field>
-                <mat-label>Permissão</mat-label>
                 <mat-select [(ngModel)]="tipo_role">
                   <mat-option *ngFor="let role of roles" [value]="role.id">
                     {{role.name}}

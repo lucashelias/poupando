@@ -2,18 +2,54 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 @import "~@fortawesome/fontawesome-free/css/all.css"; 
 
+
+/* ==============  CSS voltado as telas  ========================= */
+.class_tela{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  height: auto;
+  padding: 120px 0px 0px 20%;
+  background-color: #232930;
+}
+
+
+/* ==============  FIM do CSS voltado as telas  ========================= */
+
+/* ==============  CSS voltado as ACORDIONS  ========================= */
+.mat-expansion-panel-header-title i{
+  padding-right: 20px !important;
+  background-color: red;
+}
+
+.mat-expansion-panel-header {
+  background-color: #4b5766;
+  margin-bottom: 15px;
+}
+
+.mat-expansion-panel,
+mat-expansion-panel * {
+  transition: none !important;
+}
+
+/* ============== FIM CSS voltado as ACORDIONS  ========================= */
+/* ==============  CSS voltado aos BUTTONS  ========================= */
+.button {
+ outline: none;
+}
+
+/* ============== FIM CSS voltado aos BUTTONS   ========================= */
+
+
 .wrapper {
   width: 100%;
 }
 
-.button {
-  background-color: #1976d2;
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif !important;
-  margin-right: 10px !important;
-  margin-top: 20px !important;
-  width: 120px !important;
 
-}
+
+/* .mat-icon{
+  margin-right: 10px;
+} */
 
 .labels {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
@@ -47,11 +83,7 @@
   margin-left: 16px;
 } 
 
- .card_tela {
-  width: 1000px !important;
-  margin-top: 16px;
-  margin-left: 100px;
-}
+
 
 .card-container {
   display: flex;
@@ -167,10 +199,7 @@ mat-card {
   height: 20px;
 }
 
-.card_panel_style{
-  background-color: rgb(51, 134, 95); 
-  margin-bottom: 15px;
-}
+
 
 .example-spacer {
   flex: 1 1 auto;
@@ -184,9 +213,7 @@ th.mat-sort-header-sorted {
   color: black;
 }
 
-.mat-expansion-panel-header-title i{
-  padding-right: 20px !important;
-}
+
 
 span i {
   padding-right: 5px !important;
@@ -222,103 +249,103 @@ span i {
 }
 
 
-   /* ==================  CSS LOGO FUNDO ==================================== */
-  
-   .codepad-logo, 
-   .codepad-logo::before, 
-   .codepad-logo::after {
-     position: absolute;
-     top: 0;
-     bottom: 0;
-     left: 0;
-     right: 0;
-   }
-   
-   .codepad-logo {
-     width: 200px;
-     height: 200px;
-     margin: auto;
-     color: #3498db;
-     border-radius: 6px;
-     box-shadow: inset 0 0 0 1px #3498db;
-     transform: rotate(45deg);
-   }
-   
-   .logo {
-       background: url("https://dl.dropboxusercontent.com/s/r0n3iyiuhub6j1t/test-fill-01.svg?dl=0") no-repeat 50%/70%;
-       width: 100%;
-       height: 100%;
-       transform: rotate(-45deg);
-   }
-   
-   .codepad-logo::before, 
-   .codepad-logo::after {
-     content: '';
-     z-index: -1;
-     margin: -5%;
-     box-shadow: inset 0 0 0 2px;
-     border-radius: 6px;
-     animation: clipIt 8s linear infinite;
-   }
-   .codepad-logo::before {
-     animation-delay: -4s;
-   }
-   
-   @keyframes clipIt {
-     0%, 100% { clip: rect(0px, 220px, 2px, 0px); }
-     25%      { clip: rect(0px, 2px, 220px, 0px); }
-     50%      { clip: rect(218px, 220px, 220px, 0px); }
-     75%      { clip: rect(0px, 220px, 220px, 218px); }
-   }
+/* ==================  CSS LOGO FUNDO ==================================== */
 
-   /* BRAND */
+.codepad-logo, 
+.codepad-logo::before, 
+.codepad-logo::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
 
-   .codepad-logo-brand, 
-   .codepad-logo-brand::before, 
-   .codepad-logo-brand::after {
-     position: absolute;
-     top: 0;
-     bottom: 0;
-     left: 0;
-     right: 0;
-   }
-   
-   .codepad-logo-brand {
-     width: 50px;
-     height: 50px;
-     margin: auto;
-     color: #3498db;
-     border-radius: 6px;
-     box-shadow: inset 0 0 0 1px #3498db;
-     transform: rotate(45deg);
-   }
-   
-   .logo-brand {
-       background: url("https://dl.dropboxusercontent.com/s/r0n3iyiuhub6j1t/test-fill-01.svg?dl=0") no-repeat 50%/70%;
-       width: 100%;
-       height: 100%;
-       transform: rotate(-45deg);
-   }
-   
-   .codepad-logo-brand::before, 
-   .codepad-logo-brand::after {
-     content: '';
-     z-index: -1;
-     margin: -8%;
-     box-shadow: inset 0 0 0 2px;
-     border-radius: 6px;
-     animation: clipIt 8s linear infinite;
-   }
-   .codepad-logo-brand::before {
-     animation-delay: -4s;
-   }
-   
-   @keyframes clipIt {
-     0%, 100% { clip: rect(0px, 60px, 4px, 0px); }
-     25%      { clip: rect(0px, 2px, 60px, 0px); }
-     50%      { clip: rect(50px, 60px, 60px, 0px); }
-     75%      { clip: rect(0px, 60px, 60px, 50px); }
-     /* 75%      { clip: rect(0px, 52px, 52px, 58px); } */
-   }
+.codepad-logo {
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  color: #3498db;
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 1px #3498db;
+  transform: rotate(45deg);
+}
 
-   /* ==================  CSS LOGO-brand FUNDO ==================================== */
+.logo {
+    background: url("https://dl.dropboxusercontent.com/s/r0n3iyiuhub6j1t/test-fill-01.svg?dl=0") no-repeat 50%/70%;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-45deg);
+}
+
+.codepad-logo::before, 
+.codepad-logo::after {
+  content: '';
+  z-index: -1;
+  margin: -5%;
+  box-shadow: inset 0 0 0 2px;
+  border-radius: 6px;
+  animation: clipIt 8s linear infinite;
+}
+.codepad-logo::before {
+  animation-delay: -4s;
+}
+
+@keyframes clipIt {
+  0%, 100% { clip: rect(0px, 220px, 2px, 0px); }
+  25%      { clip: rect(0px, 2px, 220px, 0px); }
+  50%      { clip: rect(218px, 220px, 220px, 0px); }
+  75%      { clip: rect(0px, 220px, 220px, 218px); }
+}
+
+/* BRAND */
+
+.codepad-logo-brand, 
+.codepad-logo-brand::before, 
+.codepad-logo-brand::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.codepad-logo-brand {
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  color: #3498db;
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 1px #3498db;
+  transform: rotate(45deg);
+}
+
+.logo-brand {
+    background: url("https://dl.dropboxusercontent.com/s/r0n3iyiuhub6j1t/test-fill-01.svg?dl=0") no-repeat 50%/70%;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-45deg);
+}
+
+.codepad-logo-brand::before, 
+.codepad-logo-brand::after {
+  content: '';
+  z-index: -1;
+  margin: -8%;
+  box-shadow: inset 0 0 0 2px;
+  border-radius: 6px;
+  animation: clipIt 8s linear infinite;
+}
+.codepad-logo-brand::before {
+  animation-delay: -4s;
+}
+
+@keyframes clipIt {
+  0%, 100% { clip: rect(0px, 60px, 4px, 0px); }
+  25%      { clip: rect(0px, 2px, 60px, 0px); }
+  50%      { clip: rect(50px, 60px, 60px, 0px); }
+  75%      { clip: rect(0px, 60px, 60px, 50px); }
+  /* 75%      { clip: rect(0px, 52px, 52px, 58px); } */
+}
+
+/* ==================  CSS LOGO-brand FUNDO ==================================== */

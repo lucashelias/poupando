@@ -315,15 +315,15 @@
     <mat-sidenav-content style="height: 100%;">
 
       <mat-toolbar class="class_menu" *ngIf=isLoggedIn>
-        <button mat-icon-button id="menu-toggle" (click)="drawer.toggle()">
+        <button mat-icon-button id="menu-toggle" (click)="drawer.toggle()" style="outline: none;">
           <mat-icon>menu</mat-icon>
         </button>
         <span class="example-spacer"></span>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
-        </button>
+        </button> -->
 
         <button mat-button id="bt_home" (click)="dashboards()">
           <mat-icon>home</mat-icon>
