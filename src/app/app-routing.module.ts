@@ -28,6 +28,7 @@ import { TipoInvestimentoConsultaComponent } from './investimentos/configuracoes
 import { TipoInvestimentoCadastroComponent } from './investimentos/configuracoes/tipos_investimentos/tipo-investimento-cadastro/tipo-investimento-cadastro.component';
 import { TipoInvestimentoUpdateComponent } from './investimentos/configuracoes/tipos_investimentos/tipo-investimento-update/tipo-investimento-update.component';
 import { TipoInvestimentoDeleteComponent } from './investimentos/configuracoes/tipos_investimentos/tipo-investimento-delete/tipo-investimento-delete.component';
+import { EmConstrucaoComponent } from './em-construcao/em-construcao.component';
 
 const routes: Routes = [
     {path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -59,6 +60,7 @@ const routes: Routes = [
     {path: 'tipo-investimento-cadastro' , component: TipoInvestimentoCadastroComponent},
     {path: 'tipo-investimento-update/:id' , component: TipoInvestimentoUpdateComponent},
     {path: 'tipo-investimento-delete/:id' , component: TipoInvestimentoDeleteComponent},
+    {path: 'em-construcao' , component: EmConstrucaoComponent},
 ];
 
 @NgModule({

@@ -1,313 +1,97 @@
 <div>
   <mat-sidenav-container>
     <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === true">
+      [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
 
-      <!-- <mat-toolbar class="dados-sidenav-header" *ngIf=isLoggedIn>
-        <div style="padding-bottom: 0%;">
-          <i class="fa fa-user-circle fa-6x" style="padding-top: 10px;"></i>
-          <div>
-            <span>
-              <strong>
-                {{currentUser.nome + ' ' + currentUser.sobrenome}}
-              </strong>
-            </span>
-          </div>
-          <div>
-            <span> E-mail: {{currentUser.email}}</span>
-          </div>
-          <div>
-            <span> Permissão: {{currentUser.role}}</span>
-          </div>
-        </div>
-      </mat-toolbar> -->
-      <mat-nav-list >
+      <mat-nav-list>
         <div *ngIf=isLoggedIn>
-
           <nav class="navbar navbar-inverse fixed-top" id="sidebar-wrapper" role="navigation">
-          <ul class="nav sidebar-nav">
-            <div class="sidebar-header">
+            <ul class="nav sidebar-nav">
+              <div class="sidebar-header">
 
-              <div class="sidebar-brand">
-                <div class="codepad-logo-brand">
-                  <div class="logo-brand"></div>
+                <div class="sidebar-brand">
+                  <div class="codepad-logo-brand">
+                    <div class="logo-brand"></div>
+                  </div>
+                  <!-- <a href="#">Inserir nome logo</a> -->
                 </div>
-                <!-- <a href="#">Inserir nome logo</a> -->
               </div>
-            </div>
-            <mat-divider></mat-divider>
+              <mat-divider></mat-divider>
 
-            <!-- <p>Dashboards</p> -->
-            <li class="dropdown">
-              <a href="#Dashboards" class="dropdown-toggle" data-toggle="dropdown"> 
-                <span> <i class="fa fa-file-code"></i> Dashboards </span>
-              </a>
-              <ul class="dropdown-menu animated fadeInLeft" role="menu">
-                <li><a routerLink="">Saldo Bancário</a></li>
-                <li><a routerLink="">Investimentos</a></li>
-                <li><a routerLink="">Receitas</a></li>
-              </ul>
-            </li>
+              <!-- <p>Dashboards</p> -->
+              <li class="dropdown">
+                <a href="#Dashboards" class="dropdown-toggle" data-toggle="dropdown">
+                  <span> <i class="fa fa-file-code"></i> Dashboards </span>
+                </a>
+                <ul class="dropdown-menu animated fadeInLeft" role="menu">
+                  <li><a routerLink="/em-construcao">Saldo Bancário</a></li>
+                  <li><a routerLink="/em-construcao">Investimentos</a></li>
+                  <li><a routerLink="/em-construcao">Receitas</a></li>
+                </ul>
+              </li>
 
-            <!-- <p>Informações Bancárias</p> -->
-            <li class="dropdown">
-              <a routerLink="#works" class="dropdown-toggle" data-toggle="dropdown">Informações Bancárias 
-                <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu animated fadeInLeft" role="menu">
-                <li><a routerLink="/banco-consulta">Dados de Instituições Bancário</a></li>
-                <li><a routerLink="/tipo-conta-corrente-consulta">Tipos de Contas Correntes</a></li>
-                <li><a routerLink="/conta-corrente-consulta">Conta Corrente</a></li>
-              </ul>
-            </li>
+              <!-- <p>Informações Bancárias</p> -->
+              <li class="dropdown">
+                <a routerLink="#works" class="dropdown-toggle" data-toggle="dropdown">Informações Bancárias
+                  <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu animated fadeInLeft" role="menu">
+                  <li><a routerLink="/banco-consulta">Dados de Instituições Bancário</a></li>
+                  <li><a routerLink="/tipo-conta-corrente-consulta">Tipos de Contas Correntes</a></li>
+                  <li><a routerLink="/conta-corrente-consulta">Conta Corrente</a></li>
+                </ul>
+              </li>
 
-            <!-- <p>Configurações de investimentos</p> -->
-            <li class="dropdown">
-              <a routerLink="" class="dropdown-toggle" data-toggle="dropdown">Configurações de investimentos 
-                <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu animated fadeInLeft" role="menu">
-                <li><a routerLink="/categoria-investimento-consulta">Categoria de Investimentos</a></li>
-                <li><a routerLink="/tipo-investimento-consulta">Tipos de Investimentos</a></li>
-              </ul>
-            </li>
+              <!-- <p>Configurações de investimentos</p> -->
+              <li class="dropdown">
+                <a routerLink="#works" class="dropdown-toggle" data-toggle="dropdown">Investimentos
+                  <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu animated fadeInLeft" role="menu">
+                  <li><a routerLink="/categoria-investimento-consulta">Categoria de Investimentos</a></li>
+                  <li><a routerLink="/tipo-investimento-consulta">Tipos de Investimentos</a></li>
+                </ul>
+              </li>
 
-            <!-- <p>Consulta /Lançamentos Contábeis</p> -->
-            <li class="dropdown">
-              <a routerLink="#works" class="dropdown-toggle" data-toggle="dropdown">Consulta /Lançamentos Contábeis 
-                <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu animated fadeInLeft" role="menu">
-                <li><a routerLink="">Débito / Crédito</a></li>
-                <li><a routerLink="">Transferências</a></li>
-                <li><a routerLink="">Recibos / Comprovantes</a></li>
-                <li><a routerLink="">Pagamentos</a></li>
-                <li><a routerLink="">Lançamentos de Ativos</a></li>
-                <li><a routerLink="">Simulação Emprestimo</a></li>
-                <li><a routerLink="">Simulação para Compras</a></li>
-              </ul>
-            </li>
+              <!-- <p>Consulta /Lançamentos Contábeis</p> -->
+              <li class="dropdown">
+                <a routerLink="#works" class="dropdown-toggle" data-toggle="dropdown">Consultas / Lançamentos
+                  <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu animated fadeInLeft" role="menu">
+                  <li><a routerLink="/em-construcao">Débito / Crédito</a></li>
+                  <li><a routerLink="/em-construcao">Transferências</a></li>
+                  <li><a routerLink="/em-construcao">Recibos / Comprovantes</a></li>
+                  <li><a routerLink="/em-construcao">Pagamentos</a></li>
+                  <li><a routerLink="/em-construcao">Lançamentos de Ativos</a></li>
+                  <li><a routerLink="/em-construcao">Simulação Emprestimo</a></li>
+                  <li><a routerLink="/em-construcao">Simulação para Compras</a></li>
+                </ul>
+              </li>
 
-            <!-- <p>Configurações</p> -->
-            <li class="dropdown">
-              <a routerLink="#works" class="dropdown-toggle" data-toggle="dropdown">Configurações 
-                <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu animated fadeInLeft" role="menu">
-                <li><a routerLink="/usuario-detalhe">Cadastro de Usuários</a></li>
-              </ul>
-            </li>
+              <!-- <p>Configurações</p> -->
+              <li class="dropdown">
+                <a routerLink="#works" class="dropdown-toggle" data-toggle="dropdown">Configurações
+                  <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu animated fadeInLeft" role="menu">
+                  <li><a routerLink="/usuario-detalhe">Cadastro de Usuários</a></li>
+                </ul>
+              </li>
 
-            <!-- <p> Upload de Arquivos</p> -->
-            <li class="dropdown">
-              <a routerLink="#works" class="dropdown-toggle" data-toggle="dropdown"> Upload de Arquivos 
-                <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu animated fadeInLeft" role="menu">
-                <li><a routerLink="">Arquivos OFX</a></li>
-                <li><a routerLink="">Arquivos Excel</a></li>
-              </ul>
-            </li>
-            
-
-          </ul>
-        </nav> 
-
-
+              <!-- <p> Upload de Arquivos</p> -->
+              <li class="dropdown">
+                <a routerLink="#works" class="dropdown-toggle" data-toggle="dropdown"> Upload de Arquivos
+                  <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu animated fadeInLeft" role="menu">
+                  <li><a routerLink="/em-construcao">Arquivos OFX</a></li>
+                  <li><a routerLink="/em-construcao">Arquivos Excel</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
         </div>
-
-        <!-- <h3 class="sub_secao_titulo">Relatórios</h3>
-        <mat-accordion>
-          <mat-expansion-panel style="background-color: transparent; color: white;" (opened)="panelOpenState = true"
-            (closed)="panelOpenState = false">
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                <i class="fa fa-tachometer-alt icon-menu"></i>
-                Dashboards
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <a mat-list-item routerLink="">
-              <span class="menu-text">
-                <i class="fa fa-file-code"></i>
-                Saldo Bancário
-              </span>
-            </a>
-            <a mat-list-item routerLink="">
-              <span class="menu-text">
-                <i class="fa fa-file-code"></i>
-                Investimentos
-              </span>
-            </a>
-            <a mat-list-item routerLink="">
-              <span class="menu-text">
-                <i class="fa fa-file-code"></i>
-                Receitas
-              </span>
-            </a>
-          </mat-expansion-panel>
-        </mat-accordion> -->
-
-        <!--         
-        <h3 class="sub_secao_titulo">Dados Bancários</h3>
-        <mat-accordion>
-          <mat-expansion-panel style="background-color: transparent; color: white;" (opened)="panelOpenState = true"
-            (closed)="panelOpenState = false">
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                <i class="fa fa-tachometer-alt icon-menu"></i>
-                Informações Bancárias
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <a mat-list-item routerLink="/banco-consulta">
-              <span class="menu-text">
-                <i class="fa fa-file-code"></i>
-                Dados de Instituições Bancário
-              </span>
-            </a>
-            <a mat-list-item routerLink="/tipo-conta-corrente-consulta">
-              <span class="menu-text">
-                <i class="fa fa-file-code"></i>
-                Tipos de Contas Correntes
-              </span>
-            </a>
-            <a mat-list-item routerLink="/conta-corrente-consulta">
-              <span class="menu-text">
-                <i class="fa fa-file-code"></i>
-                Conta Corrente
-              </span>
-            </a>
-          </mat-expansion-panel>
-        </mat-accordion>
-
-        <h3 class="sub_secao_titulo">Investimentos</h3>
-        <mat-accordion>
-          <mat-expansion-panel style="background-color: transparent; color: white;" (opened)="panelOpenState = true"
-            (closed)="panelOpenState = false">
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                <i class="fa fa-tachometer-alt icon-menu"></i>
-                Configurações de investimentos
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <a mat-list-item routerLink="/categoria-investimento-consulta">
-              <span class="menu-text">
-                <i class="fa fa-file-code"></i>
-                Categoria de Investimetnos
-              </span>
-            </a>
-            <a mat-list-item routerLink="/tipo-investimento-consulta">
-              <span class="menu-text">
-                <i class="fa fa-file-code"></i>
-                Tipos de Investimentos
-              </span>
-            </a>
-          </mat-expansion-panel>
-        </mat-accordion>
-
-        <h3 class="sub_secao_titulo" style="margin-top: 10px; margin-bottom: 0px;">Cantábil</h3>
-        <mat-accordion>
-          <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
-            style="opacity: 100% !important;">
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                <i class="fa fa-upload"></i>
-                Consulta /Lançamentos Contábeis
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <a mat-list-item routerLink="">
-              <span class="menu-text">
-                <i class="fa fa-file-code"></i>
-                Débito / Crédito
-              </span>
-            </a>
-            <a mat-list-item routerLink="">
-              <span class="menu-text">
-                <i class="fa fa-file-code"></i>
-                Transferências
-              </span>
-            </a>
-            <a mat-list-item routerLink="">
-              <span class="menu-text">
-                <i class="fa fa-file-code"></i>
-                Recibos / Comprovantes
-              </span>
-            </a>
-            <a mat-list-item routerLink="">
-              <span class="menu-text">
-                <i class="fa fa-file-code"></i>
-                Pagamentos
-              </span>
-            </a>
-            <a mat-list-item routerLink="">
-              <span class="menu-text">
-                <i class="fa fa-file-code"></i>
-                Imposto de Renda
-              </span>
-            </a>
-            <a mat-list-item routerLink="">
-              <span class="menu-text">
-                <i class="fa fa-file-code"></i>
-                Lançamentos de Ativos
-              </span>
-            </a>
-            <a mat-list-item routerLink="">
-              <span class="menu-text">
-                <i class="fa fa-file-code"></i>
-                Simulação Emprestimo
-              </span>
-            </a>
-            <a mat-list-item routerLink="">
-              <span class="menu-text">
-                <i class="fa fa-file-code"></i>
-                Simulação para Compras
-              </span>
-            </a>
-          </mat-expansion-panel>
-        </mat-accordion>
-
-        <h3 class="sub_secao_titulo" style="margin-top: 10px; margin-bottom: 0px;">Configurações</h3>
-        <mat-accordion>
-          <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
-            style="opacity: 100% !important;">
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                <i class="fa fa-cog fa-spin fa-fw"></i>
-                Configurações
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <a mat-list-item routerLink="/usuario-detalhe">
-              <span class="menu-text">
-                <i class="fa fa-tachometer-alt"></i>
-                Acessos
-              </span>
-            </a>
-          </mat-expansion-panel>
-        </mat-accordion>
-
-        <h3 class="sub_secao_titulo" style="margin-top: 10px; margin-bottom: 0px;">Arquivos</h3>
-        <mat-accordion>
-          <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
-            style="opacity: 100% !important;">
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                <i class="fa fa-upload"></i>
-                Upload de Arquivos
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-            <a mat-list-item routerLink="">
-              <span class="menu-text">
-                <i class="fa fa-file-code"></i>
-                Arquivos OFX
-              </span>
-            </a>
-            <a mat-list-item routerLink="">
-              <span class="menu-text">
-                <i class="fa fa-file-excel"></i>
-                Arquivos Excel
-              </span>
-            </a>
-          </mat-expansion-panel>
-        </mat-accordion> -->
       </mat-nav-list>
 
 
@@ -315,35 +99,37 @@
     <mat-sidenav-content style="height: 100%;">
 
       <mat-toolbar class="class_menu" *ngIf=isLoggedIn>
-        <button mat-icon-button id="menu-toggle" (click)="drawer.toggle()" style="outline: none;">
+        <button mat-icon-button id="menu-toggle" (click)="drawer.toggle()" class="nav_button" style="outline: none;"
+          matTooltip="Menu" [matTooltipShowDelay]="1000">
           <mat-icon>menu</mat-icon>
         </button>
         <span class="example-spacer"></span>
 
-        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button> -->
-
-        <button mat-button id="bt_home" (click)="dashboards()">
+        <button mat-icon-button id="bt_home" class="nav_button2" (click)="dashboards()" matTooltip="Home - Dashboards"
+          [matTooltipShowDelay]="1000">
           <mat-icon>home</mat-icon>
         </button>
 
-        <button mat-button [matMenuTriggerFor]="menu" id="btMenuUser">
+        <button mat-button [matMenuTriggerFor]="menu" class="nav_button" id="btMenuUser" matTooltip="Info. Usuário"
+          [matTooltipShowDelay]="1000">
           <mat-icon>account_circle</mat-icon>
           {{currentUser.nome}}
         </button>
 
-        <mat-menu #menu="matMenu">
-          <button mat-menu-item style="font-size: 12px;">
-            <mat-icon class="icons_menu">build</mat-icon>
-            <span>Configurações</span>
-          </button>
-          <button mat-menu-item style="font-size: 12px;" (click)='logout()'>
-            <mat-icon class="icons_menu">login</mat-icon>
-            <span>Logout</span>
-          </button>
-        </mat-menu>
+        <div class="div_nav_menu" style="background-color: black;">
+          <mat-menu class="mat-menu" #menu="matMenu">
+            <button mat-menu-item style="font-size: 12px;" class="button_drop_nav ">
+              <mat-icon>build</mat-icon>
+              <span>Configurações</span>
+            </button>
+            <hr class="mt-2 mb-1" />
+            <button mat-menu-item style="font-size: 12px;" (click)='logout()' class="button_drop_nav ">
+              <mat-icon>login</mat-icon>
+              <span>Logout</span>
+            </button>
+
+          </mat-menu>
+        </div>
 
         <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
           *ngIf="isHandset$ | async">

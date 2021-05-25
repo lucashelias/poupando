@@ -6,11 +6,12 @@ import { TokenStorageService } from 'src/app/_services/token-storage.service';
 import { Router } from '@angular/router';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css']
+  styleUrls: ['./menu.component.css'] 
 })
 export class MenuComponent {
 
@@ -37,6 +38,11 @@ export class MenuComponent {
       this.currentUser = this.tokenStorageService.getUser();
       // this.roles = this.currentUser.roles;
     }
+
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
   }
 
   dashboards(): void {

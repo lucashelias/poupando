@@ -1,0 +1,10 @@
+.em_construcao{
+    background-color: black;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}

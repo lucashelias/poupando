@@ -60,7 +60,8 @@ import { TipoContaCorrenteConsultaComponent } from './conta-bancaria/tipo-conta-
 import { TipoContaCorrenteUpdateComponent } from './conta-bancaria/tipo-conta-corrente/tipo-conta-corrente-update/tipo-conta-corrente-update.component';
 import { TipoContaCorrenteCadastroComponent } from './conta-bancaria/tipo-conta-corrente/tipo-conta-corrente-cadastro/tipo-conta-corrente-cadastro.component';
 import { TipoContaCorrenteDeleteComponent } from './conta-bancaria/tipo-conta-corrente/tipo-conta-corrente-delete/tipo-conta-corrente-delete.component';
-  
+import { EmConstrucaoComponent } from './em-construcao/em-construcao.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
  
 @NgModule({ 
   declarations: [ 
@@ -71,7 +72,7 @@ import { TipoContaCorrenteDeleteComponent } from './conta-bancaria/tipo-conta-co
     UsuarioCadastroComponent, 
     HomeDetalheComponent,  
     SidenavComponent,
-    MenuComponent,
+    MenuComponent, 
     ContaBancariaComponent,
     InvestimentosComponent, 
     BolsaDeValoresComponent,
@@ -98,6 +99,7 @@ import { TipoContaCorrenteDeleteComponent } from './conta-bancaria/tipo-conta-co
     TipoContaCorrenteUpdateComponent,
     TipoContaCorrenteCadastroComponent,
     TipoContaCorrenteDeleteComponent,
+    EmConstrucaoComponent,
   ],
 
   imports: [
@@ -130,7 +132,8 @@ import { TipoContaCorrenteDeleteComponent } from './conta-bancaria/tipo-conta-co
     LayoutModule,
     ChartsModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTooltipModule
 
  
   ],
