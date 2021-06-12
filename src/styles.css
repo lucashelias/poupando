@@ -36,6 +36,7 @@ mat-expansion-panel * {
 /* ==============  CSS voltado aos BUTTONS  ========================= */
 .button {
  outline: none;
+ margin-right: 10px;
 }
 
 /* ============== FIM CSS voltado aos BUTTONS   ========================= */
@@ -242,7 +243,8 @@ span i {
 }
 
 .background_all{
-  background-color: #232930;
+  /* background-color: #232930; */
+  background-color: #68706c;
   position: 50px;
 }
 

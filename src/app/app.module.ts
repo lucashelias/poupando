@@ -63,7 +63,7 @@ import { TipoContaCorrenteDeleteComponent } from './conta-bancaria/tipo-conta-co
 import { EmConstrucaoComponent } from './em-construcao/em-construcao.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
  
-@NgModule({ 
+@NgModule({
   declarations: [ 
     AppComponent,
     HomeComponent,
