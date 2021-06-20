@@ -31,18 +31,13 @@
                         </div>
                         <div>
 
-                            <!-- <mat-form-field >
-                                <input matInput placeholder="Bancos" [matAutocomplete]="auto" [formControl]="bancoCTRL">
+                            <mat-form-field class="inputText full-width " appearance="outline">
+                                <input matInput [matAutocomplete]="auto" [formControl]="bancoCTRL">
                                 <mat-autocomplete #auto="matAutocomplete">
-                                  <mat-option *ngFor="let bancos of filteredBancos | async" [value]="bancos.nome">
-                                    {{bancos.nome}}
+                                  <mat-option *ngFor="let banco of filteredBancos | async" [value]="banco.nome">
+                                    {{banco.codigo}} - {{banco.nome}} 
                                   </mat-option>
                                 </mat-autocomplete>
-                            </mat-form-field> -->
-
-                            <mat-form-field class="inputText full-width " appearance="outline">
-                                <input matInput placeholder="Banco" id="banco" style="size: 500px;"
-                                    autocomplete="doNotAutoComplete" #nome>
                             </mat-form-field>
                         </div>
                     </td>
@@ -55,7 +50,7 @@
                         <div>
                             <mat-form-field class="inputText full-width" appearance="outline">
                                 <input matInput placeholder="Conta Corrente" id="conta_corrente"
-                                    autocomplete="doNotAutoComplete" #sobrenome>
+                                autocomplete="doNotAutoComplete" #sobrenome>
                             </mat-form-field>
                         </div>
                     </td>
@@ -69,11 +64,19 @@
                         </div>
                         <div>
                             <mat-form-field class="inputText full-width" appearance="outline">
+                                <mat-select [(ngModel)]="tipoContaSelecionada">
+                                  <mat-option *ngFor="let tipo_contas of tipo_conta_corrente" [value]="tipo_contas.tipo_conta">
+                                    {{tipo_contas.tipo_conta}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+
+                            <!-- <mat-form-field class="inputText full-width" appearance="outline">
                                 <input matInput placeholder="Tipo da conta corrente" id="tipo_conta"
                                     autocomplete="doNotAutoComplete" #usuario>
-                            </mat-form-field>
-                        </div>
-                    </td>
+                                </mat-form-field> -->
+                            </div>
+                        </td>
                 </tr>
             </table>
 

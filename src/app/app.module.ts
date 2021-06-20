@@ -62,9 +62,10 @@ import { TipoContaCorrenteCadastroComponent } from './conta-bancaria/tipo-conta-
 import { TipoContaCorrenteDeleteComponent } from './conta-bancaria/tipo-conta-corrente/tipo-conta-corrente-delete/tipo-conta-corrente-delete.component';
 import { EmConstrucaoComponent } from './em-construcao/em-construcao.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
  
 @NgModule({
-  declarations: [ 
+  declarations: [  
     AppComponent,
     HomeComponent,
     LoginComponent, 
@@ -100,6 +101,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     TipoContaCorrenteCadastroComponent,
     TipoContaCorrenteDeleteComponent,
     EmConstrucaoComponent,
+    
   ],
 
   imports: [
@@ -133,7 +135,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     ChartsModule,
     MatDialogModule,
     MatSnackBarModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatAutocompleteModule,
 
  
   ],
@@ -145,6 +148,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatButtonModule,
     MatSidenavModule,
     ChartsModule,
+    MatAutocompleteModule,
 
   ],
 

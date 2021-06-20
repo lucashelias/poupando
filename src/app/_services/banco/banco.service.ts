@@ -16,6 +16,10 @@ export class BancoService  {
     return this.http.get<Banco[]>(baseUrl);
   }
 
+  getAllBancoAtivos(): Observable<Banco[]> {
+    return this.http.get<Banco[]>(baseUrl);
+  }
+
   getBancoByID(id): Observable<any> {
     return this.http.get(`${baseUrl}/${id}`);
   }
